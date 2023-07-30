@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 71f502e2391dce2409471df65506236e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -136,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   moveInterval: 5
+  fadeIn: {fileID: 0}
+  fadeTimer: 1
 --- !u!195 &-2633981507944500076
 NavMeshAgent:
   m_ObjectHideFlags: 0
