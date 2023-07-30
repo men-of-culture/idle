@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInputScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public PlayerMovementScript playerMovementScript;
     void Start()
     {
         
@@ -13,6 +13,6 @@ public class PlayerInputScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0)) playerMovementScript.MovePlayer();
     }
 }
