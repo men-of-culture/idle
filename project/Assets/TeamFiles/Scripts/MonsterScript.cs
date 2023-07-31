@@ -11,7 +11,7 @@ public class MonsterScript : MonoBehaviour
     public float moveInterval;
     private float moveTimer = 5f;
 
-    public SpriteRenderer fadeIn;
+    public SpriteRenderer spriteRenderer;
     public float fadeTimer = 1f;
 
     private bool fade;
@@ -23,7 +23,7 @@ public class MonsterScript : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         moveInterval = Random.Range(1f, 5f);
-        fadeIn = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         
 
     }
@@ -33,12 +33,12 @@ public class MonsterScript : MonoBehaviour
     {
         if (fadeTimer <= 0 && !fade)
         {
-            fadeIn.color += new Color(0f,0f,0f,1f);
+            spriteRenderer.color += new Color(0f,0f,0f,1f);
             fade = true;
         } 
         else if (fadeTimer > 0)
         {
-            fadeIn.color = new Color(fadeIn.color.r, fadeIn.color.g, fadeIn.color.b, 1f - fadeTimer);
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f - fadeTimer);
             fadeTimer -= Time.deltaTime;
         }
         
@@ -51,8 +51,24 @@ public class MonsterScript : MonoBehaviour
         moveTimer -= Time.deltaTime;
     }
 
+    void OnTriggerEnter2d(Collider2D other)
+    {
+        Debug.Log("Vi collider med player");
+        // if (other.gameObject.tag == "Monster")
+        // {
+        //     Debug.Log("Vi collider med monster");
+        //     Destroy(other.gameObject);
+        // }
+    }
+
+    void OnCollisionEnter2d(Collision collision) {
+        Debug.Log ("xxxx " + collision.other.name);
+    }
+
     void MonsterMove()
     {
-        agent.SetDestination(transform.position + new Vector3(Random.Range(-4f, 4f), 0, 0));
+        float range = Random.Range(-4f, 4f);
+        spriteRenderer.flipX = range < 0;
+        agent.SetDestination(transform.position + new Vector3(range, 0, 0));
     }
 }

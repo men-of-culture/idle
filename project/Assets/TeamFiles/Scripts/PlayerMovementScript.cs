@@ -29,6 +29,20 @@ public class PlayerMovementScript : MonoBehaviour
 
     }
 
+    void OnTriggerEnter2d(Collider2D other)
+    {
+        Debug.Log("Vi collider med monster");
+        // if (other.gameObject.tag == "Monster")
+        // {
+        //     Debug.Log("Vi collider med monster");
+        //     Destroy(other.gameObject);
+        // }
+    }
+
+    void OnCollisionEnter2d(Collision collision) {
+        Debug.Log ("xxx " + collision.other.name);
+    }
+
     public void MovePlayer()
     {
         Vector3 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
