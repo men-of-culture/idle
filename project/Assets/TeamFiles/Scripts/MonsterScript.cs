@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MonsterScript : MonoBehaviour
 {
@@ -25,7 +27,6 @@ public class MonsterScript : MonoBehaviour
         moveInterval = Random.Range(1f, 5f);
         spriteRenderer = GetComponent<SpriteRenderer>();
         
-
     }
 
     // Update is called once per frame
@@ -56,6 +57,10 @@ public class MonsterScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Monster trigger rammer player");
+            var playerScript = other.GetComponent<PlayerScript>();
+            playerScript.kills++;
+            GameObject.Find("PlayerCanvas").GetComponentInChildren<Text>().text =
+                playerScript.kills.ToString();
             Destroy(gameObject);
         }
     }
