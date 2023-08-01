@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -18,6 +17,9 @@ public class MonsterScript : MonoBehaviour
 
     private bool fade;
 
+    private PlayerScript playerScript;
+    private Text killsText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,8 @@ public class MonsterScript : MonoBehaviour
         agent.updateUpAxis = false;
         moveInterval = Random.Range(1f, 5f);
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        playerScript = FindObjectOfType<PlayerScript>();
+        killsText = GameObject.Find("KillsText").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -56,11 +59,9 @@ public class MonsterScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Monster trigger rammer player");
-            var playerScript = other.GetComponent<PlayerScript>();
+            Debug.Log("This monster trigger was hit by: "+other.name);
             playerScript.kills++;
-            GameObject.Find("PlayerCanvas").GetComponentInChildren<Text>().text =
-                playerScript.kills.ToString();
+            killsText.text = playerScript.kills.ToString();
             Destroy(gameObject);
         }
     }
