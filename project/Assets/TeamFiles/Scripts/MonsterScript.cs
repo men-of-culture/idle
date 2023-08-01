@@ -51,18 +51,13 @@ public class MonsterScript : MonoBehaviour
         moveTimer -= Time.deltaTime;
     }
 
-    void OnTriggerEnter2d(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Vi collider med player");
-        // if (other.gameObject.tag == "Monster")
-        // {
-        //     Debug.Log("Vi collider med monster");
-        //     Destroy(other.gameObject);
-        // }
-    }
-
-    void OnCollisionEnter2d(Collision collision) {
-        Debug.Log ("xxxx " + collision.other.name);
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Monster trigger rammer player");
+            Destroy(gameObject);
+        }
     }
 
     void MonsterMove()
