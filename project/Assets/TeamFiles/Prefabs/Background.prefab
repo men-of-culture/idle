@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6033521476371576853}
   - component: {fileID: 1399295658243983749}
   - component: {fileID: 5489196518581752678}
+  - component: {fileID: 7377645668072208802}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -158,8 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 0.4156372, y: 0.39585263, z: 3.9999998}
-  m_Center: {x: -0.30611578, y: -0.24289927, z: 0.00000011920929}
+  m_Size: {x: 0.4156372, y: 0.33938983, z: 3.9999998}
+  m_Center: {x: -0.30611578, y: -0.21466787, z: 0.00000011920929}
   m_Area: 1
   m_AffectedAgents: ffffffff
 --- !u!114 &2507433649607105505
@@ -174,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 0.46619463, y: 0.39225143, z: 3.9999995}
-  m_Center: {x: 0.3031317, y: -0.24109867, z: 0.00000023841858}
+  m_Size: {x: 0.46619463, y: 0.33835515, z: 3.9999995}
+  m_Center: {x: 0.3031317, y: -0.21415053, z: 0.00000023841858}
   m_Area: 1
   m_AffectedAgents: ffffffff
 --- !u!114 &7477232415555509384
@@ -190,8 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 0.14218768, y: 0.701934, z: 3.9999988}
-  m_Center: {x: 0.0049642026, y: -0.0840835, z: 0.00000059604645}
+  m_Size: {x: 0.14218768, y: 0.6516174, z: 3.9999988}
+  m_Center: {x: 0.0049642026, y: -0.058925226, z: 0.00000059604645}
   m_Area: 1
   m_AffectedAgents: ffffffff
 --- !u!114 &6033521476371576853
@@ -240,5 +241,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Size: {x: 0.19087231, y: 0.3209511, z: 3.9999979}
   m_Center: {x: 0.41977125, y: 0.17610046, z: 0.0000010728836}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &7377645668072208802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700138824855452823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 1.0908084, y: 0.14829397, z: 3.9999993}
+  m_Center: {x: 0.00000011920929, y: -0.51782584, z: 0.00000035762787}
   m_Area: 1
   m_AffectedAgents: ffffffff
