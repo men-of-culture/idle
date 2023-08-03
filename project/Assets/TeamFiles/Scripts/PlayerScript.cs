@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public int kills;
     // Start is called before the first frame update
     void Start()
     {

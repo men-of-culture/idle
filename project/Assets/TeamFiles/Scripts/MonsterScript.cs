@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MonsterScript : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class MonsterScript : MonoBehaviour
 
     private bool fade;
 
+    private PlayerScript playerScript;
+    private Text killsText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +28,8 @@ public class MonsterScript : MonoBehaviour
         agent.updateUpAxis = false;
         moveInterval = Random.Range(1f, 5f);
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
-
+        playerScript = FindObjectOfType<PlayerScript>();
+        killsText = GameObject.Find("KillsText").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -51,18 +55,15 @@ public class MonsterScript : MonoBehaviour
         moveTimer -= Time.deltaTime;
     }
 
-    void OnTriggerEnter2d(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Vi collider med player");
-        // if (other.gameObject.tag == "Monster")
-        // {
-        //     Debug.Log("Vi collider med monster");
-        //     Destroy(other.gameObject);
-        // }
-    }
-
-    void OnCollisionEnter2d(Collision collision) {
-        Debug.Log ("xxxx " + collision.other.name);
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("This monster trigger was hit by: "+other.name);
+            playerScript.kills++;
+            killsText.text = playerScript.kills.ToString();
+            Destroy(gameObject);
+        }
     }
 
     void MonsterMove()
