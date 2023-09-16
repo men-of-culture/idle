@@ -29,4 +29,9 @@ public class MoveIndicatorScript : MonoBehaviour
         if (moveIndicator is not null) Destroy(moveIndicator);
         Instantiate(gameObject, targetPosition, Quaternion.identity);
     }
+
+    public void SpawnAttackIndicator(Vector3 targetPosition)
+    {
+        Debug.Log("spawn attack indicator");
+    }
 }
