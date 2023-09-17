@@ -59,7 +59,7 @@ public class UpgradeController : MonoBehaviour
         var upgrade = upgradeList[upgradeListIndex];
         
         // Price check
-        if (PlayerPrefs.GetInt("currency") >= PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier) return;
+        if (!(PlayerPrefs.GetInt("currency") >= PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier)) return;
         
         // Pay
         PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier));
