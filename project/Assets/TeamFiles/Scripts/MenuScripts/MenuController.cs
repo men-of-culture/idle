@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Map", LoadSceneMode.Single); // Change scene name to Game when cleanup has been made
+        SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }
 
     public void Upgrade()

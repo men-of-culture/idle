@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/TeamFiles/Scenes/Menu.unity
     guid: 107b83836f1b90749814d28b13c0f4c1
   - enabled: 1
-    path: Assets/TeamFiles/Scenes/Map.unity
+    path: Assets/TeamFiles/Scenes/Game.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}
