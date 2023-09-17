@@ -16,16 +16,10 @@ public class MonsterScript : MonoBehaviour
     private bool fade;
 
     private PlayerScript playerScript;
-    private Text killsText;
-    private Text healthText;
-    private Text endKillsText;
 
     public float movementSpeed = 1f;
     
     private Vector3 targetPosition;
-
-    public GameObject playercanvas;
-    public GameObject endRunCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +27,8 @@ public class MonsterScript : MonoBehaviour
         //moveInterval = Random.Range(1f, 5f);
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerScript = FindObjectOfType<PlayerScript>();
-        killsText = GameObject.Find("KillsText").GetComponent<Text>();
-        healthText = GameObject.Find("HealthText").GetComponent<Text>();
-        endKillsText = GameObject.Find("EndKillsText").GetComponent<Text>();
         targetPosition = playerScript.transform.position - transform.position;
         spriteRenderer.flipX = targetPosition.x < 0;
-        playercanvas = GameObject.Find("PlayerCanvas");
-        endRunCanvas = GameObject.Find("EndRunCanvas");
     }
 
     // Update is called once per frame
@@ -71,19 +60,7 @@ public class MonsterScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("This monster trigger was hit by: "+other.name);
-            
-            // put into function in playerscript with parameters
-            playerScript.kills++;
-            killsText.text = playerScript.kills.ToString();
-            playerScript.health--;
-            healthText.text = playerScript.health.ToString();
-            if (playerScript.health <= 0)
-            {
-                endKillsText.text = playerScript.kills.ToString();
-                playercanvas.GetComponent<Canvas>().enabled = false;
-                endRunCanvas.GetComponent<Canvas>().enabled = true;
-            }
-            
+            playerScript.HitByMonster();
             Destroy(gameObject);
         }
     }
