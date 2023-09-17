@@ -56,7 +56,7 @@ public class UpgradeController : MonoBehaviour
     public void BuyUpgrade(int upgradeListIndex)
     {
         // Find upgrade from index in upgradeList
-        var upgrade = upgradeList[upgradeListIndex-1];
+        var upgrade = upgradeList[upgradeListIndex];
         
         // Price check
         if (PlayerPrefs.GetInt("currency") >= PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier) return;
