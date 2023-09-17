@@ -381,7 +381,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -723,7 +723,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1261,7 +1261,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1394,7 +1394,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1794,7 +1794,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2002,7 +2002,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2135,7 +2135,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2268,7 +2268,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2802,7 +2802,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3336,7 +3336,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4452,7 +4452,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4707,7 +4707,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4840,7 +4840,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5107,7 +5107,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5240,7 +5240,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6311,7 +6311,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 39121778}
         m_TargetAssemblyTypeName: UpgradeController, Assembly-CSharp
-        m_MethodName: RefreshUpgrade
+        m_MethodName: BuyUpgrade
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

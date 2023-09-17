@@ -53,26 +53,16 @@ public class UpgradeController : MonoBehaviour
     }
 
     // Refresh upgrade if bought
-    public void RefreshUpgrade(int upgradeListIndex)
+    public void BuyUpgrade(int upgradeListIndex)
     {
         // Find upgrade from index in upgradeList and try to buy upgrade
         var upgrade = upgradeList[upgradeListIndex-1];
-        if (!BuyUpgrade(PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier)) return;
+        if (PlayerPrefs.GetInt("currency") >= PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier) return;
         
-        // Buy upgrade by adding 1 to the current value and updating text
+        // Buy upgrade by adding 1 to the current value, subtracting price from currency and updating texts
         PlayerPrefs.SetInt(upgrade.Item2, PlayerPrefs.GetInt(upgrade.Item2) + 1);
         upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
-    }
-
-    // Attempt to buy clicked upgrade
-    private bool BuyUpgrade(int price)
-    {
-        if (PlayerPrefs.GetInt("currency") >= price)
-        {
-            PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - price);
-            currencyText.text = PlayerPrefs.GetInt("currency").ToString();
-            return true;
-        }
-        return false;
+        PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier));
+        currencyText.text = PlayerPrefs.GetInt("currency").ToString();
     }
 }
