@@ -68,7 +68,7 @@ public class UpgradeController : MonoBehaviour
     public void RefreshUpgrades(int upgradeListIndex)
     {
         // Find upgrade from index in upgradeList
-        var upgrade = upgradeList[upgradeListIndex];
+        var upgrade = upgradeList[upgradeListIndex-1];
         if (!BuyUpgrade(PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier)) return;
         PlayerPrefs.SetInt(upgrade.Item2, PlayerPrefs.GetInt(upgrade.Item2) + 1);
         upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
