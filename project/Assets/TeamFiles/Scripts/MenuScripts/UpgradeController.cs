@@ -36,7 +36,6 @@ public class UpgradeController : MonoBehaviour
         upgradeFourteenText.text = PlayerPrefs.GetInt("upgradeFourteen").ToString();
         upgradeFifteenText.text = PlayerPrefs.GetInt("upgradeFifteen").ToString();
         upgradeSixteenText.text = PlayerPrefs.GetInt("upgradeSixteen").ToString();
-        PlayerPrefs.SetInt("currency", 9999);
         currencyText.text = PlayerPrefs.GetInt("currency").ToString();
     }
 
