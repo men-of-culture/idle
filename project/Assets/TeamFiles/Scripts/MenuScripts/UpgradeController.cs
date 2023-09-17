@@ -1,11 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
-using Unity.VisualScripting;
 
 public class UpgradeController : MonoBehaviour
 {
@@ -34,18 +31,14 @@ public class UpgradeController : MonoBehaviour
         // Set initial currency text
         currencyText.text = PlayerPrefs.GetInt("currency").ToString();
 
-        // Add all upgradeTextObjects and upgradeNames to list,
-        // adding directly to tuple upgradeList in inspector didnt work,
-        // so we need the text and name fields until we figure it out
-
+        // Add all upgradeTextObjects and upgradeNames to upgradeList
         upgradeList = new List<Tuple<TextMeshProUGUI, string>>();
-
         for (int i = 0; i < upgradeTextObjects.Count; i++)
         {
             upgradeList.Add(new Tuple<TextMeshProUGUI, string>(upgradeTextObjects[i], upgradeNames[i]));
         }
         
-        // Refresh all upgrade texts
+        // Refresh all upgrade texts in upgradeList
         foreach (var upgrade in upgradeList)
         {
             upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
@@ -59,12 +52,14 @@ public class UpgradeController : MonoBehaviour
         eventSystem.firstSelectedGameObject = upgradeButton;
     }
 
-    // Refresh upgrade if available
+    // Refresh upgrade if bought
     public void RefreshUpgrades(int upgradeListIndex)
     {
-        // Find upgrade from index in upgradeList
+        // Find upgrade from index in upgradeList and try to buy upgrade
         var upgrade = upgradeList[upgradeListIndex-1];
         if (!BuyUpgrade(PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier)) return;
+        
+        // Buy upgrade by adding 1 to the current value and updating text
         PlayerPrefs.SetInt(upgrade.Item2, PlayerPrefs.GetInt(upgrade.Item2) + 1);
         upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
     }
