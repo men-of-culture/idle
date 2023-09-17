@@ -6,11 +6,8 @@ using UnityEngine.UI;
 
 public class MonsterScript : MonoBehaviour
 {
-    [SerializeField] Transform target;
-    NavMeshAgent agent;
-
-    public float moveInterval;
-    private float moveTimer = 5f;
+    public float moveInterval = 0.1f;
+    public float moveTimer = 0.1f;
 
     public SpriteRenderer spriteRenderer;
     public float fadeTimer = 1f;
@@ -20,16 +17,19 @@ public class MonsterScript : MonoBehaviour
     private PlayerScript playerScript;
     private Text killsText;
 
+    public float movementSpeed = 1f;
+    
+    private Vector3 targetPosition;
+
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        moveInterval = Random.Range(1f, 5f);
+        //moveInterval = Random.Range(1f, 5f);
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerScript = FindObjectOfType<PlayerScript>();
         killsText = GameObject.Find("KillsText").GetComponent<Text>();
+        targetPosition = playerScript.transform.position - transform.position;
+        spriteRenderer.flipX = targetPosition.x < 0;
     }
 
     // Update is called once per frame
@@ -46,13 +46,13 @@ public class MonsterScript : MonoBehaviour
             fadeTimer -= Time.deltaTime;
         }
         
-        if (moveTimer <= 0)
-        {
+        //if (moveTimer <= 0)
+        //{
             MonsterMove();
-            moveTimer = moveInterval;
-        }
+        //    moveTimer = moveInterval;
+        //}
 
-        moveTimer -= Time.deltaTime;
+        //moveTimer -= Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -68,8 +68,6 @@ public class MonsterScript : MonoBehaviour
 
     void MonsterMove()
     {
-        float range = Random.Range(-4f, 4f);
-        spriteRenderer.flipX = range < 0;
-        agent.SetDestination(transform.position + new Vector3(range, 0, 0));
+        transform.position += targetPosition * ((movementSpeed/100f) * Time.deltaTime);
     }
 }
