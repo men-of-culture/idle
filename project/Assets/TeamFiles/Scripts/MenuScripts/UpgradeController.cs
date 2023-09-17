@@ -45,30 +45,6 @@ public class UpgradeController : MonoBehaviour
             upgradeList.Add(new Tuple<TextMeshProUGUI, string>(upgradeTextObjects[i], upgradeNames[i]));
         }
         
-        /*foreach (var upgradeTextObject in upgradeTextObjects)
-        {
-            upgradeList.Add(new Tuple<TextMeshProUGUI, string>(upgradeTextObject, "asd"));
-        }*/
-        
-        /*upgradeList = new List<Tuple<TextMeshProUGUI, string>>
-        {
-            new(upgradeOneText, upgradeOneName),
-            new(upgradeTwoText, upgradeTwoName),
-            new(upgradeThreeText, upgradeThreeName),
-            new(upgradeFourText, upgradeFourName),
-            new(upgradeFiveText, upgradeFiveName),
-            new(upgradeSixText, upgradeSixName),
-            new(upgradeSevenText, upgradeSevenName),
-            new(upgradeEightText, upgradeEightName),
-            new(upgradeNineText, upgradeNineName),
-            new(upgradeTenText, upgradeTenName),
-            new(upgradeElevenText, upgradeElevenName),
-            new(upgradeTwelveText, upgradeTwelveName),
-            new(upgradeThirteenText, upgradeThirteenName),
-            new(upgradeFourteenText, upgradeFourteenName),
-            new(upgradeFifteenText, upgradeFifteenName),
-            new(upgradeSixteenText, upgradeSixteenName)
-        };*/
         // Refresh all upgrade texts
         foreach (var upgrade in upgradeList)
         {
