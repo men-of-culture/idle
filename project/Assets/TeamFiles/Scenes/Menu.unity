@@ -261,23 +261,41 @@ MonoBehaviour:
   priceMultiplier: 5
   upgradeButton: {fileID: 1514811460}
   eventSystem: {fileID: 1533252267}
-  upgradeOneText: {fileID: 631136440}
-  upgradeTwoText: {fileID: 1984174836}
-  upgradeThreeText: {fileID: 349410177}
-  upgradeFourText: {fileID: 1836186981}
-  upgradeFiveText: {fileID: 1209479185}
-  upgradeSixText: {fileID: 1434524732}
-  upgradeSevenText: {fileID: 1552990323}
-  upgradeEightText: {fileID: 1920150036}
-  upgradeNineText: {fileID: 2097339710}
-  upgradeTenText: {fileID: 999650220}
-  upgradeElevenText: {fileID: 1944503140}
-  upgradeTwelveText: {fileID: 2036182063}
-  upgradeThirteenText: {fileID: 1644675711}
-  upgradeFourteenText: {fileID: 171879626}
-  upgradeFifteenText: {fileID: 517663343}
-  upgradeSixteenText: {fileID: 980708834}
   currencyText: {fileID: 1521577348}
+  upgradeTextObjects:
+  - {fileID: 631136440}
+  - {fileID: 1984174836}
+  - {fileID: 349410177}
+  - {fileID: 1836186981}
+  - {fileID: 1209479185}
+  - {fileID: 1434524732}
+  - {fileID: 1552990323}
+  - {fileID: 1920150036}
+  - {fileID: 2097339710}
+  - {fileID: 999650220}
+  - {fileID: 1944503140}
+  - {fileID: 2036182063}
+  - {fileID: 1644675711}
+  - {fileID: 171879626}
+  - {fileID: 517663343}
+  - {fileID: 980708834}
+  upgradeNames:
+  - upgradeOne
+  - upgradeTwo
+  - upgradeThree
+  - upgradeFour
+  - upgradeFive
+  - upgradeSix
+  - upgradeSeven
+  - upgradeEight
+  - upgradeNine
+  - upgradeTen
+  - upgradeEleven
+  - upgradeTwelve
+  - upgradeThirteen
+  - upgradeFourteen
+  - upgradeFifteen
+  - upgradeSixteen
 --- !u!1 &123247627
 GameObject:
   m_ObjectHideFlags: 0

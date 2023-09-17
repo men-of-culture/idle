@@ -19,9 +19,14 @@ public class UpgradeController : MonoBehaviour
     private EventSystem eventSystem;
 
     [SerializeField]
-    private TextMeshProUGUI upgradeOneText, upgradeTwoText, upgradeThreeText, upgradeFourText, upgradeFiveText, upgradeSixText, upgradeSevenText, upgradeEightText,
-     upgradeNineText, upgradeTenText, upgradeElevenText, upgradeTwelveText, upgradeThirteenText, upgradeFourteenText, upgradeFifteenText, upgradeSixteenText, currencyText;
+    private TextMeshProUGUI currencyText;
+    
+    [SerializeField]
+    private List<TextMeshProUGUI> upgradeTextObjects;
 
+    [SerializeField]
+    private List<string> upgradeNames;
+    
     private List<Tuple<TextMeshProUGUI, string>> upgradeList;
 
     void Start()
@@ -29,27 +34,41 @@ public class UpgradeController : MonoBehaviour
         // Set initial currency text
         currencyText.text = PlayerPrefs.GetInt("currency").ToString();
 
-        // Add all upgradeTextObjects and upgradeNames to list, add new upgrade to the upgradeList
-        upgradeList = new List<Tuple<TextMeshProUGUI, string>>
-        {
-            new(upgradeOneText, "upgradeOne"),
-            new(upgradeTwoText, "upgradeTwo"),
-            new(upgradeThreeText, "upgradeThree"),
-            new(upgradeFourText, "upgradeFour"),
-            new(upgradeFiveText, "upgradeFive"),
-            new(upgradeSixText, "upgradeSix"),
-            new(upgradeSevenText, "upgradeSeven"),
-            new(upgradeEightText, "upgradeEight"),
-            new(upgradeNineText, "upgradeNine"),
-            new(upgradeTenText, "upgradeTen"),
-            new(upgradeElevenText, "upgradeEleven"),
-            new(upgradeTwelveText, "upgradeTwelve"),
-            new(upgradeThirteenText, "upgradeThirteen"),
-            new(upgradeFourteenText, "upgradeFourteen"),
-            new(upgradeFifteenText, "upgradeFifteen"),
-            new(upgradeSixteenText, "upgradeSixteen")
-        };
+        // Add all upgradeTextObjects and upgradeNames to list,
+        // adding directly to tuple upgradeList in inspector didnt work,
+        // so we need the text and name fields until we figure it out
 
+        upgradeList = new List<Tuple<TextMeshProUGUI, string>>();
+
+        for (int i = 0; i < upgradeTextObjects.Count; i++)
+        {
+            upgradeList.Add(new Tuple<TextMeshProUGUI, string>(upgradeTextObjects[i], upgradeNames[i]));
+        }
+        
+        /*foreach (var upgradeTextObject in upgradeTextObjects)
+        {
+            upgradeList.Add(new Tuple<TextMeshProUGUI, string>(upgradeTextObject, "asd"));
+        }*/
+        
+        /*upgradeList = new List<Tuple<TextMeshProUGUI, string>>
+        {
+            new(upgradeOneText, upgradeOneName),
+            new(upgradeTwoText, upgradeTwoName),
+            new(upgradeThreeText, upgradeThreeName),
+            new(upgradeFourText, upgradeFourName),
+            new(upgradeFiveText, upgradeFiveName),
+            new(upgradeSixText, upgradeSixName),
+            new(upgradeSevenText, upgradeSevenName),
+            new(upgradeEightText, upgradeEightName),
+            new(upgradeNineText, upgradeNineName),
+            new(upgradeTenText, upgradeTenName),
+            new(upgradeElevenText, upgradeElevenName),
+            new(upgradeTwelveText, upgradeTwelveName),
+            new(upgradeThirteenText, upgradeThirteenName),
+            new(upgradeFourteenText, upgradeFourteenName),
+            new(upgradeFifteenText, upgradeFifteenName),
+            new(upgradeSixteenText, upgradeSixteenName)
+        };*/
         // Refresh all upgrade texts
         foreach (var upgrade in upgradeList)
         {
@@ -85,5 +104,4 @@ public class UpgradeController : MonoBehaviour
         }
         return false;
     }
-
 }
