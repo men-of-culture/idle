@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
     public int kills;
 
     public int health = 10;
+    
     // Start is called before the first frame update
     void Start()
     {

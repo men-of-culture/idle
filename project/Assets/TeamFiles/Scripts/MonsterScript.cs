@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -17,6 +18,7 @@ public class MonsterScript : MonoBehaviour
     private PlayerScript playerScript;
     private Text killsText;
     private Text healthText;
+    private Text endKillsText;
 
     public float movementSpeed = 1f;
     
@@ -33,6 +35,7 @@ public class MonsterScript : MonoBehaviour
         playerScript = FindObjectOfType<PlayerScript>();
         killsText = GameObject.Find("KillsText").GetComponent<Text>();
         healthText = GameObject.Find("HealthText").GetComponent<Text>();
+        endKillsText = GameObject.Find("EndKillsText").GetComponent<Text>();
         targetPosition = playerScript.transform.position - transform.position;
         spriteRenderer.flipX = targetPosition.x < 0;
         playercanvas = GameObject.Find("PlayerCanvas");
@@ -55,6 +58,7 @@ public class MonsterScript : MonoBehaviour
         
         //if (moveTimer <= 0)
         //{
+        if (playerScript.health <= 0) return;
             MonsterMove();
         //    moveTimer = moveInterval;
         //}
@@ -75,6 +79,7 @@ public class MonsterScript : MonoBehaviour
             healthText.text = playerScript.health.ToString();
             if (playerScript.health <= 0)
             {
+                endKillsText.text = playerScript.kills.ToString();
                 playercanvas.GetComponent<Canvas>().enabled = false;
                 endRunCanvas.GetComponent<Canvas>().enabled = true;
             }
