@@ -53,7 +53,7 @@ public class UpgradeController : MonoBehaviour
     }
 
     // Refresh upgrade if bought
-    public void RefreshUpgrades(int upgradeListIndex)
+    public void RefreshUpgrade(int upgradeListIndex)
     {
         // Find upgrade from index in upgradeList and try to buy upgrade
         var upgrade = upgradeList[upgradeListIndex-1];
