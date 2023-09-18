@@ -63,6 +63,14 @@ public class MonsterScript : MonoBehaviour
             playerScript.HitByMonster();
             Destroy(gameObject);
         }
+
+        if (other.CompareTag("Projectile"))
+        {
+            Debug.Log("This monster trigger was hit by: Projectile");
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            playerScript.Kill();
+        }
     }
 
     void MonsterMove()

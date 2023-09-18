@@ -13,7 +13,11 @@ public class MonsterSpawnerManager : MonoBehaviour
     private float spawnTimer = 0f;
     private int spawnCount = 100;
 
-    public TextMeshPro tmp;
+    private float timer = 0f;
+    
+    [SerializeField]
+    private TextMeshProUGUI timerText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +27,19 @@ public class MonsterSpawnerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTimer <= 0/* && spawnCount > 0*/)
+        if (spawnTimer <= 0)
         {
+            if (timer > 60)
+            {
+                spawnInterval = 1/(timer/60);
+            }
             SpawnEnemy();
             spawnTimer = spawnInterval;
             spawnCount -= 1;
         }
-
+        
+        timer += Time.deltaTime;
+        timerText.text = timer.ToString("F0");
         spawnTimer -= Time.deltaTime;
     }
 

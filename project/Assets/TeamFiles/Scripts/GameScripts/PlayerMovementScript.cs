@@ -6,8 +6,6 @@ using UnityEngine.AI;
 public class PlayerMovementScript : MonoBehaviour
 {
     public float moveSpeed = 5f;
-
-    public GameObject movementIndicator;
     
     // Start is called before the first frame update
     void Start()
