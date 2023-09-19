@@ -35,7 +35,7 @@ public class ProjectileScript : MonoBehaviour
         Vector3 currentPosition = transform.position;
         foreach(Transform potentialTarget in monsterList.transform)
         {
-            Vector3 directionToTarget = potentialTarget.position - currentPosition;
+            Vector2 directionToTarget = potentialTarget.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if(dSqrToTarget < closestDistanceSqr)
             {
