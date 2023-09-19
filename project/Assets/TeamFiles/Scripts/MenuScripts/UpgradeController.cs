@@ -17,6 +17,9 @@ public class UpgradeController : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI currencyText;
+
+    [SerializeField]
+    private TextMeshProUGUI lifetimeKillsText;
     
     [SerializeField]
     private List<TextMeshProUGUI> upgradeTextObjects;
@@ -30,6 +33,9 @@ public class UpgradeController : MonoBehaviour
     {
         // Set initial currency text
         currencyText.text = PlayerPrefs.GetInt("currency").ToString();
+
+        // Set lifetime kills text
+        lifetimeKillsText.text = PlayerPrefs.GetInt("lifetimeKills").ToString();
 
         // Add all upgradeTextObjects and upgradeNames to upgradeList
         upgradeList = new List<Tuple<TextMeshProUGUI, string>>();
