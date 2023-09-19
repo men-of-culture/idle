@@ -8,12 +8,20 @@ public class MonsterSpawnerManager : MonoBehaviour
     public GameObject monsterPrefab;
     public Transform[] spawnPoints;
     public Transform monsterList;
-
-    public float spawnInterval = 5f;
     private float spawnTimer = 0f;
     private int spawnCount = 100;
 
-    public TextMeshPro tmp;
+    private float timer = 0f;
+    
+    [SerializeField]
+    private TextMeshProUGUI timerText;
+
+    [SerializeField]
+    private float spawnInterval;
+
+    [SerializeField]
+    private float initialSpawnInterval;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +31,19 @@ public class MonsterSpawnerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTimer <= 0/* && spawnCount > 0*/)
+        if (spawnTimer <= 0)
         {
+            if (timer > 30)
+            {
+                spawnInterval = initialSpawnInterval / (timer/30);
+            }
             SpawnEnemy();
             spawnTimer = spawnInterval;
             spawnCount -= 1;
         }
-
+        
+        timer += Time.deltaTime;
+        timerText.text = timer.ToString("F0");
         spawnTimer -= Time.deltaTime;
     }
 
