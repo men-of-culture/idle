@@ -30,7 +30,7 @@ public class PlayerScript : MonoBehaviour
         healthText = GameObject.Find("HealthText").GetComponent<Text>();
         healthText.text = health.ToString();
 
-        attackSpeed = 1f / (float)PlayerPrefs.GetInt("upgradeTwo");
+        attackSpeed *= 1f / (float)PlayerPrefs.GetInt("upgradeTwo");
         Debug.Log(PlayerPrefs.GetInt("upgradeTwo"));
 
         killsText = GameObject.Find("KillsText").GetComponent<Text>();

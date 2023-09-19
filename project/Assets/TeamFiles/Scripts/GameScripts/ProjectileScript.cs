@@ -10,11 +10,17 @@ public class ProjectileScript : MonoBehaviour
     [SerializeField]
     private int damage; // gonne be used later
 
+    [SerializeField]
+    private int rotationSpeed;
+
+    [SerializeField]
+    private int lifeTime;
+
     private GameObject monsterList;
 
     private Vector3 nearestMonster;
 
-    private float lifeTime = 0f;
+    private float lifeTimeTimer = 0f;
 
     public GameObject playercanvas;
 
@@ -23,12 +29,13 @@ public class ProjectileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // TODO: Look at it when it's not 2AM in the morning
         monsterList = GameObject.Find("MonsterList");
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
         foreach(Transform potentialTarget in monsterList.transform)
         {
-            Vector3 directionToTarget = potentialTarget.position - currentPosition;
+            Vector2 directionToTarget = potentialTarget.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if(dSqrToTarget < closestDistanceSqr)
             {
@@ -42,10 +49,10 @@ public class ProjectileScript : MonoBehaviour
     void Update()
     {
         transform.position += nearestMonster.normalized * Time.deltaTime * speed;
-        transform.localEulerAngles += new Vector3(0, 0, Time.deltaTime * speed * 20);
-        lifeTime += Time.deltaTime;
+        transform.localEulerAngles += new Vector3(0, 0, Time.deltaTime * speed * rotationSpeed);
+        lifeTimeTimer += Time.deltaTime;
 
-        if(lifeTime >= 5)
+        if(lifeTimeTimer >= lifeTime)
         {
             Destroy(gameObject);
         }
