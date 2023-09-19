@@ -31,7 +31,7 @@ public class MonsterSpawnerManager : MonoBehaviour
         {
             if (timer > 60)
             {
-                spawnInterval = 1/(timer/60);
+                spawnInterval *= 1/(timer/60);
             }
             SpawnEnemy();
             spawnTimer = spawnInterval;
