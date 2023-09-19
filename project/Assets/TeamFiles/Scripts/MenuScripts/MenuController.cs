@@ -15,9 +15,12 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private EventSystem eventSystem;
 
+    [SerializeField]
+    private GameObject changeScenePrefab;
+
     public void Play()
     {
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        changeScenePrefab.GetComponent<SceneChangerScript>().FadeToScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Upgrade()
