@@ -56,11 +56,13 @@ public class PlayerScript : MonoBehaviour
     {
         health--;
         healthText.text = health.ToString();
+        gameObject.GetComponent<AudioSource>().Play();
         if (health <= 0)
         {
             endKillsText.text = kills.ToString();
             playercanvas.GetComponent<Canvas>().enabled = false;
             endRunCanvas.GetComponent<Canvas>().enabled = true;
+            endRunCanvas.GetComponent<AudioSource>().Play();
         }
     }
 
