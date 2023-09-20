@@ -21,6 +21,7 @@ public class MonsterScript : MonoBehaviour
     
     private Vector3 targetPosition;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +67,7 @@ public class MonsterScript : MonoBehaviour
 
         if (other.CompareTag("Projectile"))
         {
+            transform.parent.parent.GetComponent<AudioSource>().Play();
             Debug.Log("This monster trigger was hit by: Projectile");
             Destroy(other.gameObject);
             Destroy(gameObject);
