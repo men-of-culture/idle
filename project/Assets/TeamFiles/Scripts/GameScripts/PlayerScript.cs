@@ -22,6 +22,9 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private GameObject ProjectilePrefab;
+
+    [SerializeField]
+    private CameraShakeScript cameraShake;
     
     // Start is called before the first frame update
     void Start()
@@ -57,6 +60,8 @@ public class PlayerScript : MonoBehaviour
         health--;
         healthText.text = health.ToString();
         gameObject.GetComponent<AudioSource>().Play();
+        playercanvas.GetComponent<Animator>().Play("healthFadeIn");
+        StartCoroutine(cameraShake.Shake(.15f, .4f));
         if (health <= 0)
         {
             endKillsText.text = kills.ToString();
