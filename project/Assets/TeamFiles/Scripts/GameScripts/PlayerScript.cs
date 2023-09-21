@@ -8,37 +8,41 @@ public class PlayerScript : MonoBehaviour
     public int kills;
 
     public int health;
-
     public float attackSpeed;
     private float attackSpeedTimer = 0f;
 
-    private GameObject monsterList;
+    [SerializeField]
+    private StringManager stringManager;
 
-    private Text killsText;
-    private Text healthText;
-    private Text endKillsText;
-    public GameObject playercanvas;
-    public GameObject endRunCanvas;
+    [SerializeField]
+    private GameObject playercanvas;
+
+    [SerializeField]
+    private GameObject endRunCanvas;
 
     [SerializeField]
     private GameObject ProjectilePrefab;
+
+    [SerializeField]
+    private GameObject monsterList;
+
+    [SerializeField]
+    private Text healthText;
+
+    [SerializeField]
+    private Text killsText;
+
+    [SerializeField]
+    private Text endKillsText;
     
     // Start is called before the first frame update
     void Start()
     {
-        health += PlayerPrefs.GetInt("upgradeThree");
-        healthText = GameObject.Find("HealthText").GetComponent<Text>();
+        health += PlayerPrefs.GetInt(stringManager.upgradeThree);
         healthText.text = health.ToString();
 
-        attackSpeed *= 1f / (float)PlayerPrefs.GetInt("upgradeTwo");
-        Debug.Log(PlayerPrefs.GetInt("upgradeTwo"));
-
-        killsText = GameObject.Find("KillsText").GetComponent<Text>();
-        endKillsText = GameObject.Find("EndKillsText").GetComponent<Text>();
-        playercanvas = GameObject.Find("PlayerCanvas");
-        endRunCanvas = GameObject.Find("EndRunCanvas");
-
-        monsterList = GameObject.Find("MonsterList");
+        attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeTwo);
+        Debug.Log(PlayerPrefs.GetInt(stringManager.upgradeTwo));
     }
 
     // Update is called once per frame

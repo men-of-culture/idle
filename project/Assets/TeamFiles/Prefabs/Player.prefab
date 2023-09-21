@@ -131,9 +131,14 @@ MonoBehaviour:
   kills: 0
   health: 10
   attackSpeed: 6
+  stringManager: {fileID: 1729638823880300652, guid: c79e7b5305e0c1b40911eb47032e9b21, type: 3}
   playercanvas: {fileID: 0}
   endRunCanvas: {fileID: 0}
   ProjectilePrefab: {fileID: 6068342186667689025, guid: 3597bf32edeb728418c77e1087407314, type: 3}
+  monsterList: {fileID: 0}
+  healthText: {fileID: 0}
+  killsText: {fileID: 0}
+  endKillsText: {fileID: 0}
 --- !u!50 &-2124407486419122880
 Rigidbody2D:
   serializedVersion: 4

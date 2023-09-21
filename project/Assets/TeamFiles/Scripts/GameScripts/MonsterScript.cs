@@ -21,6 +21,9 @@ public class MonsterScript : MonoBehaviour
     
     private Vector3 targetPosition;
 
+    [SerializeField]
+    private StringManager stringManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,14 +61,14 @@ public class MonsterScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(stringManager.playerTag))
         {
             Debug.Log("This monster trigger was hit by: "+other.name);
             playerScript.HitByMonster();
             Destroy(gameObject);
         }
 
-        if (other.CompareTag("Projectile"))
+        if (other.CompareTag(stringManager.projectileTag))
         {
             transform.parent.parent.GetComponent<AudioSource>().Play();
             Debug.Log("This monster trigger was hit by: Projectile");

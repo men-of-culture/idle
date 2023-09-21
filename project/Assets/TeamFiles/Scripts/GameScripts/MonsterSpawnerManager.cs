@@ -7,11 +7,13 @@ public class MonsterSpawnerManager : MonoBehaviour
 {
     public GameObject monsterPrefab;
     public Transform[] spawnPoints;
-    public Transform monsterList;
     private float spawnTimer = 0f;
     private int spawnCount = 100;
 
     private float timer = 0f;
+    
+    [SerializeField]
+    public Transform monsterList;
     
     [SerializeField]
     private TextMeshProUGUI timerText;
@@ -25,7 +27,7 @@ public class MonsterSpawnerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        monsterList = GameObject.Find("MonsterList").transform;
+        
     }
 
     // Update is called once per frame

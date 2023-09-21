@@ -6,6 +6,9 @@ public class SceneChangerScript : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private StringManager stringManager;
+
     private int sceneToLoad;
 
     // Update is called once per frame
@@ -17,7 +20,7 @@ public class SceneChangerScript : MonoBehaviour
     public void FadeToScene (int sceneIndex)
     {
         sceneToLoad = sceneIndex;
-        animator.SetTrigger("FadeOut");
+        animator.SetTrigger(stringManager.fadeOutTrigger);
     }
 
     public void OnFadeComplete()

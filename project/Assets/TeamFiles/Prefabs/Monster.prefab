@@ -139,6 +139,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   fadeTimer: 1
   movementSpeed: 10
+  stringManager: {fileID: 1729638823880300652, guid: c79e7b5305e0c1b40911eb47032e9b21, type: 3}
 --- !u!95 &5934572231585500831
 Animator:
   serializedVersion: 5
