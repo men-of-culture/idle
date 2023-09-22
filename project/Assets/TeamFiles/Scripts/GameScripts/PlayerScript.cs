@@ -44,7 +44,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(attackSpeedTimer >= attackSpeed && monsterList.transform.childCount > 0)
+        if(attackSpeedTimer >= attackSpeed && monsterList.transform.childCount > 0 && health > 0)
         {
             Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
             attackSpeedTimer = 0f;
