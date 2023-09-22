@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,8 +23,7 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private GameObject ProjectilePrefab;
-
-    [SerializeField]
+    
     private CameraShakeScript cameraShake;
     
     // Start is called before the first frame update
@@ -42,6 +42,7 @@ public class PlayerScript : MonoBehaviour
         endRunCanvas = GameObject.Find("EndRunCanvas");
 
         monsterList = GameObject.Find("MonsterList");
+        cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShakeScript>();
     }
 
     // Update is called once per frame
