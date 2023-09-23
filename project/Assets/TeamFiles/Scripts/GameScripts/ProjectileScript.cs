@@ -15,16 +15,12 @@ public class ProjectileScript : MonoBehaviour
 
     [SerializeField]
     private int lifeTime;
-
+    
     private GameObject monsterList;
 
     private Vector3 nearestMonster;
 
     private float lifeTimeTimer = 0f;
-
-    public GameObject playercanvas;
-
-    public
 
     // Start is called before the first frame update
     void Start()

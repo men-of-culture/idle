@@ -6,6 +6,9 @@ using TMPro;
 
 public class UpgradeController : MonoBehaviour
 {
+    [SerializeField]
+    private StringManager stringManager;
+    
     public Canvas menuCanvas, upgradeCanvas;
     public int priceMultiplier = 5;
 
@@ -32,10 +35,10 @@ public class UpgradeController : MonoBehaviour
     void Start()
     {
         // Set initial currency text
-        currencyText.text = PlayerPrefs.GetInt("currency").ToString();
+        currencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
 
         // Set lifetime kills text
-        lifetimeKillsText.text = PlayerPrefs.GetInt("lifetimeKills").ToString();
+        lifetimeKillsText.text = PlayerPrefs.GetInt(stringManager.lifetimeKills).ToString();
 
         // Add all upgradeTextObjects and upgradeNames to upgradeList
         upgradeList = new List<Tuple<TextMeshProUGUI, string>>();
@@ -65,11 +68,11 @@ public class UpgradeController : MonoBehaviour
         var upgrade = upgradeList[upgradeListIndex];
         
         // Price check
-        if (!(PlayerPrefs.GetInt("currency") >= PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier)) return;
+        if (!(PlayerPrefs.GetInt(stringManager.currency) >= PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier)) return;
         
         // Pay
-        PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier));
-        currencyText.text = PlayerPrefs.GetInt("currency").ToString();
+        PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) - (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier));
+        currencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
         
         // Upgrade
         PlayerPrefs.SetInt(upgrade.Item2, PlayerPrefs.GetInt(upgrade.Item2) + 1);

@@ -4589,6 +4589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeScenePrefab: {fileID: 6977429166546327891}
+  playerScript: {fileID: 0}
+  stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
 --- !u!82 &8415731364815816863
 AudioSource:
   m_ObjectHideFlags: 0

@@ -8,10 +8,16 @@ public class EndRunScript : MonoBehaviour
     [SerializeField]
     private GameObject changeScenePrefab;
 
+    [SerializeField]
+    private PlayerScript playerScript;
+
+    [SerializeField]
+    private StringManager stringManager;
+
     public void BackToMenuButton()
     {
-        PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") + GameObject.Find("Player").GetComponent<PlayerScript>().kills);
-        PlayerPrefs.SetInt("lifetimeKills", PlayerPrefs.GetInt("lifetimeKills") + GameObject.Find("Player").GetComponent<PlayerScript>().kills);
+        PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) + playerScript.kills);
+        PlayerPrefs.SetInt(stringManager.lifetimeKills, PlayerPrefs.GetInt(stringManager.lifetimeKills) + playerScript.kills);
         changeScenePrefab.GetComponent<SceneChangerScript>().FadeToScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
