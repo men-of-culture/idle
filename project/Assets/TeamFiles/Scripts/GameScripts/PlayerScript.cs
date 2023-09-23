@@ -36,6 +36,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private Text endKillsText;
     
+    [SerializeField]
     private CameraShakeScript cameraShake;
     
     // Start is called before the first frame update
@@ -64,7 +65,7 @@ public class PlayerScript : MonoBehaviour
         health--;
         healthText.text = health.ToString();
         gameObject.GetComponent<AudioSource>().Play();
-        playercanvas.GetComponent<Animator>().Play("healthFadeIn");
+        playercanvas.GetComponent<Animator>().Play(stringManager.healthFadeInSound);
         StartCoroutine(cameraShake.Shake(.15f, .4f));
         if (health <= 0)
         {

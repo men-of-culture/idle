@@ -21,4 +21,7 @@ public class StringManager : ScriptableObject
 
     // This section is used for animations
     public readonly string fadeOutTrigger = "FadeOut";
+
+    // This sections is used for sounds
+    public readonly string healthFadeInSound = "healthFadeIn";
 }
