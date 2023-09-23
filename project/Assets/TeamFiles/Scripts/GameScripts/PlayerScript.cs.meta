@@ -3,7 +3,15 @@ guid: 18ba8fa98fbf6e9418254d0ab72e2a1c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
+  - playercanvas: {instanceID: 0}
+  - endRunCanvas: {instanceID: 0}
+  - ProjectilePrefab: {instanceID: 0}
+  - monsterList: {instanceID: 0}
+  - healthText: {instanceID: 0}
+  - killsText: {instanceID: 0}
+  - endKillsText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -3,7 +3,10 @@ guid: a99bb6fe78a43fc4dad0d768f70c6deb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - changeScenePrefab: {instanceID: 0}
+  - playerScript: {instanceID: 0}
+  - stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

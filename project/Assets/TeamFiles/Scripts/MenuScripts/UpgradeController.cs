@@ -6,6 +6,9 @@ using TMPro;
 
 public class UpgradeController : MonoBehaviour
 {
+    [SerializeField]
+    private StringManager stringManager;
+    
     public Canvas menuCanvas, upgradeCanvas;
     public int priceMultiplier = 5;
 
@@ -26,9 +29,6 @@ public class UpgradeController : MonoBehaviour
 
     [SerializeField]
     private List<string> upgradeNames;
-
-    [SerializeField]
-    private StringManager stringManager;
     
     private List<Tuple<TextMeshProUGUI, string>> upgradeList;
 

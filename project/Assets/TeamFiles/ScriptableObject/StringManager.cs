@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class StringManager : MonoBehaviour
+[CreateAssetMenu(fileName = "StringManager", menuName = "ScriptableObjects/StringManager", order = 1)]
+public class StringManager : ScriptableObject
 {
     // This sections is used for upgrades
     public readonly string upgradeOne = "upgradeOne";

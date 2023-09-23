@@ -1429,4 +1429,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeScenePrefab: {fileID: 0}
   playerScript: {fileID: 0}
-  stringManager: {fileID: 1729638823880300652, guid: c79e7b5305e0c1b40911eb47032e9b21, type: 3}
+  stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
