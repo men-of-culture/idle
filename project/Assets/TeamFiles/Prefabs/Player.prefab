@@ -135,6 +135,7 @@ MonoBehaviour:
   playercanvas: {fileID: 0}
   endRunCanvas: {fileID: 0}
   ProjectilePrefab: {fileID: 6068342186667689025, guid: 3597bf32edeb728418c77e1087407314, type: 3}
+  cameraShake: {fileID: 0}
   monsterList: {fileID: 0}
   healthText: {fileID: 0}
   killsText: {fileID: 0}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +36,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private Text endKillsText;
     
+    private CameraShakeScript cameraShake;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +51,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(attackSpeedTimer >= attackSpeed && monsterList.transform.childCount > 0)
+        if(attackSpeedTimer >= attackSpeed && monsterList.transform.childCount > 0 && health > 0)
         {
             Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
             attackSpeedTimer = 0f;
@@ -61,6 +64,8 @@ public class PlayerScript : MonoBehaviour
         health--;
         healthText.text = health.ToString();
         gameObject.GetComponent<AudioSource>().Play();
+        playercanvas.GetComponent<Animator>().Play("healthFadeIn");
+        StartCoroutine(cameraShake.Shake(.15f, .4f));
         if (health <= 0)
         {
             endKillsText.text = kills.ToString();
