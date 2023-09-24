@@ -37,6 +37,9 @@ public class PlayerScript : MonoBehaviour
     
     [SerializeField]
     private CameraShakeScript cameraShake;
+
+    [SerializeField]
+    private GameObject projectileList;
     
     // Start is called before the first frame update
     void Start()
@@ -52,7 +55,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(attackSpeedTimer >= playerStatsManager.attackSpeed && monsterList.transform.childCount > 0 && playerStatsManager.health > 0)
         {
-            Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
+            Instantiate(ProjectilePrefab, transform.position, Quaternion.identity, projectileList.transform);
             attackSpeedTimer = 0f;
         }
         attackSpeedTimer += Time.deltaTime;
