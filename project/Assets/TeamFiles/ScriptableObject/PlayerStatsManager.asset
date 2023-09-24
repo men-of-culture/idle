@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PlayerStatsManager
   m_EditorClassIdentifier: 
   damage: 1
-  health: 0
+  health: 80
   armor: 0
-  attackSpeed: 11.9
-  kills: 5
+  attackSpeed: 5
+  kills: 11
+  volume: 0

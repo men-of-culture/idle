@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerStatsScript : MonoBehaviour
 {
-    public GameObject playerStatsCanvas;
+    public Canvas playerStatsCanvas;
 
     [SerializeField]
     private Text damageText;
@@ -48,13 +48,14 @@ public class PlayerStatsScript : MonoBehaviour
         healthText.text = PlayerPrefs.GetInt("upgradeThree").ToString();
         goldCountText.text = PlayerPrefs.GetInt("currency").ToString();
         expCountText.text = PlayerPrefs.GetInt("lifetimeKills").ToString();
+        playerStatsCanvas = GetComponent<Canvas>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab)) {
-            playerStatsCanvas.GetComponent<Canvas>().enabled = playerStatsCanvas.GetComponent<Canvas>().enabled ? false : true;
+            TogglePlayerStats();
             // if we want stats to updates as run goes on we need to set stats in 
             // if (playerStatsCanvas.GetComponent<Canvas>().enabled)
             // {
@@ -62,5 +63,10 @@ public class PlayerStatsScript : MonoBehaviour
             // }
         }
         
+    }
+
+    public void TogglePlayerStats()
+    {
+        playerStatsCanvas.enabled = !playerStatsCanvas.enabled;
     }
 }

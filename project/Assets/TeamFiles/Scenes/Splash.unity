@@ -263,6 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8986e2d916c5eac4b8255a12bde36726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
+  playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
 --- !u!82 &114431695
 AudioSource:
   m_ObjectHideFlags: 0
