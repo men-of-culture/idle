@@ -14,13 +14,15 @@ public class PlayerMovementScript : MonoBehaviour
     public bool shouldWalk;
     public float walkTimer;
     public Vector2 initialPosition;
-    public int walkSpeed;
+    public float walkSpeed;
     public float pauseTimer;
     public float pauseDuration;
     public bool shouldPause;
     public int moveRange;
     public int minimumPauseDuration;
     public int maximumPauseDuration;
+    public int minimumWalkDuration;
+    public int maximumWalkDuration;
     
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (startWalking)
         {
             targetPosition = new Vector2(Random.Range(-moveRange, moveRange), Random.Range(-moveRange, moveRange));
+            walkSpeed = Random.Range(minimumWalkDuration, maximumWalkDuration);
             startWalking = false;
             shouldWalk = true;
             initialPosition = gameObject.transform.position;
@@ -41,7 +44,7 @@ public class PlayerMovementScript : MonoBehaviour
         
         if (shouldWalk)
         {
-            walkTimer += Time.deltaTime/(10/walkSpeed);
+            walkTimer += Time.deltaTime/walkSpeed;
             gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*walkTimer);
             if (walkTimer >= 1)
             {

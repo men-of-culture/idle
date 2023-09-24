@@ -117,18 +117,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  xyRange: {x: 0, y: 0}
+  targetPosition: {x: 0, y: 0}
   startWalking: 0
   shouldWalk: 0
   walkTimer: 0
   initialPosition: {x: 0, y: 0}
-  walkSpeed: 5
+  walkSpeed: 2
   pauseTimer: 0
   pauseDuration: 0
   shouldPause: 0
   moveRange: 3
   minimumPauseDuration: 2
   maximumPauseDuration: 4
+  minimumWalkDuration: 1
+  maximumWalkDuration: 5
 --- !u!114 &1809824666132460043
 MonoBehaviour:
   m_ObjectHideFlags: 0
