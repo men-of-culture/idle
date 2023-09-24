@@ -22,6 +22,8 @@ public class ProjectileScript : MonoBehaviour
 
     private float lifeTimeTimer = 0f;
 
+    private AudioSource attackAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,9 @@ public class ProjectileScript : MonoBehaviour
                 nearestMonster = directionToTarget;
             }
         }
+
+        attackAudioSource = transform.parent.GetComponent<AudioSource>();
+        attackAudioSource.Play();
     }
 
     // Update is called once per frame
