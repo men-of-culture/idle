@@ -44,6 +44,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerStatsManager.reset();
         playerStatsManager.health += PlayerPrefs.GetInt(stringManager.upgradeThree);
         healthText.text = playerStatsManager.health.ToString();
 
