@@ -23,6 +23,7 @@ public class PlayerMovementScript : MonoBehaviour
     public int maximumPauseDuration;
     public int minimumWalkDuration;
     public int maximumWalkDuration;
+    public PlayerStatsManager playerStatsManager;
     
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,7 @@ public class PlayerMovementScript : MonoBehaviour
             initialPosition = gameObject.transform.position;
         }
         
-        if (shouldWalk)
+        if (shouldWalk && playerStatsManager.health > 0)
         {
             walkTimer += Time.deltaTime/walkSpeed;
             gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*walkTimer);

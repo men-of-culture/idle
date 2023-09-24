@@ -131,6 +131,7 @@ MonoBehaviour:
   maximumPauseDuration: 4
   minimumWalkDuration: 1
   maximumWalkDuration: 5
+  playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
 --- !u!114 &1809824666132460043
 MonoBehaviour:
   m_ObjectHideFlags: 0
