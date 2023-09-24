@@ -687,3 +687,7 @@ project/ProjectSettings/BurstAotSettings_StandaloneOSX.json
 
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,androidstudio,visualstudio,unity,windows,macos,linux,blender
+project/.idea/.idea.project/.idea/vcs.xml
+project/.idea/.idea.project/.idea/indexLayout.xml
+project/.idea/.idea.project/.idea/projectSettingsUpdater.xml
+project/.idea/.idea.project/.idea/workspace.xml
