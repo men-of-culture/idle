@@ -64,6 +64,9 @@ public class MonsterScript : MonoBehaviour
         //}
 
         //moveTimer -= Time.deltaTime;
+        
+        // need to update this when player is moving
+        targetPosition = playerScript.transform.position - transform.position;
     }
 
     void OnTriggerEnter2D(Collider2D other)
