@@ -24,11 +24,14 @@ public class ProjectileScript : MonoBehaviour
 
     private AudioSource attackAudioSource;
 
+    [SerializeField]
+    private StringManager stringManager;
+
     // Start is called before the first frame update
     void Start()
     {
         // TODO: Look at it when it's not 2AM in the morning
-        monsterList = GameObject.Find("MonsterList");
+        monsterList = GameObject.Find(stringManager.monsterList);
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
         foreach(Transform potentialTarget in monsterList.transform)
