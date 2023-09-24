@@ -3,7 +3,11 @@ guid: 07a5eed417b54de4181fff7908841f75
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - monsterPrefab: {instanceID: 0}
+  - playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
+  - monsterList: {instanceID: 0}
+  - timerText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

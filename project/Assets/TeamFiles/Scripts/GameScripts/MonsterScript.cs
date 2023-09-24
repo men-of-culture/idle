@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class MonsterScript : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerStatsManager playerStatsManager;
+
     public float moveInterval = 0.1f;
     public float moveTimer = 0.1f;
 
@@ -51,7 +54,7 @@ public class MonsterScript : MonoBehaviour
         
         //if (moveTimer <= 0)
         //{
-        if (playerScript.health <= 0) return;
+        if (playerStatsManager.health <= 0) return;
             MonsterMove();
         //    moveTimer = moveInterval;
         //}

@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 1e0134176bfbda6438ae0612fb9aec8a
+guid: c4bcbaf5cbbd73d4ba6204d2c803eade
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
-  - spriteRenderer: {instanceID: 0}
   - stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

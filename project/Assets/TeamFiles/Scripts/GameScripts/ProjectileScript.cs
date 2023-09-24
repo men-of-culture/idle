@@ -39,8 +39,6 @@ public class ProjectileScript : MonoBehaviour
                 nearestMonster = directionToTarget;
             }
         }
-
-        // gameObject.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame

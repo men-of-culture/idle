@@ -3,7 +3,13 @@ guid: ab9e8893100b3cb4999a7790d86f1e77
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - menuCanvas: {instanceID: 0}
+  - upgradeCanvas: {instanceID: 0}
+  - playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
+  - backButton: {instanceID: 0}
+  - eventSystem: {instanceID: 0}
+  - changeScenePrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

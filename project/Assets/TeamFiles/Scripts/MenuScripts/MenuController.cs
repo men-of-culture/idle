@@ -10,6 +10,9 @@ public class MenuController : MonoBehaviour
     public Canvas upgradeCanvas;
 
     [SerializeField]
+    private PlayerStatsManager playerStatsManager;
+
+    [SerializeField]
     private GameObject backButton;
     
     [SerializeField]
@@ -20,6 +23,7 @@ public class MenuController : MonoBehaviour
 
     public void Play()
     {
+        playerStatsManager.reset();
         changeScenePrefab.GetComponent<SceneChangerScript>().FadeToScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
