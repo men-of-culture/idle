@@ -1266,9 +1266,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1331451821608621520}
-        m_TargetAssemblyTypeName: EscMenuScript, Assembly-CSharp
-        m_MethodName: EndRun
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: EndRunScript, Assembly-CSharp
+        m_MethodName: BackToMenuButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
