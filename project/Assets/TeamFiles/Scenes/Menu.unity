@@ -4835,6 +4835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuCanvas: {fileID: 1580509394}
   upgradeCanvas: {fileID: 39121776}
+  playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
   backButton: {fileID: 1153462853}
   eventSystem: {fileID: 1533252267}
   changeScenePrefab: {fileID: 1824538489}

@@ -6,14 +6,13 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    public int kills;
-
-    public int health;
-    public float attackSpeed;
     private float attackSpeedTimer = 0f;
 
     [SerializeField]
     private StringManager stringManager;
+
+    [SerializeField]
+    private PlayerStatsManager playerStatsManager;
 
     [SerializeField]
     private GameObject playercanvas;
@@ -42,17 +41,16 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health += PlayerPrefs.GetInt(stringManager.upgradeThree);
-        healthText.text = health.ToString();
+        playerStatsManager.health += PlayerPrefs.GetInt(stringManager.upgradeThree);
+        healthText.text = playerStatsManager.health.ToString();
 
-        attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeTwo);
-        Debug.Log(PlayerPrefs.GetInt(stringManager.upgradeTwo));
+        playerStatsManager.attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeTwo);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(attackSpeedTimer >= attackSpeed && monsterList.transform.childCount > 0 && health > 0)
+        if(attackSpeedTimer >= playerStatsManager.attackSpeed && monsterList.transform.childCount > 0 && playerStatsManager.health > 0)
         {
             Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
             attackSpeedTimer = 0f;
@@ -62,14 +60,14 @@ public class PlayerScript : MonoBehaviour
 
     public void HitByMonster()
     {
-        health--;
-        healthText.text = health.ToString();
+        playerStatsManager.health--;
+        healthText.text = playerStatsManager.health.ToString();
         gameObject.GetComponent<AudioSource>().Play();
         playercanvas.GetComponent<Animator>().Play(stringManager.healthFadeInSound);
         StartCoroutine(cameraShake.Shake(.15f, .4f));
-        if (health <= 0)
+        if (playerStatsManager.health <= 0)
         {
-            endKillsText.text = kills.ToString();
+            endKillsText.text = playerStatsManager.kills.ToString();
             playercanvas.GetComponent<Canvas>().enabled = false;
             endRunCanvas.GetComponent<Canvas>().enabled = true;
             endRunCanvas.GetComponent<AudioSource>().Play();
@@ -78,7 +76,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Kill()
     {
-        kills++;
-        killsText.text = kills.ToString();
+        playerStatsManager.kills++;
+        killsText.text = playerStatsManager.kills.ToString();
     }
 }

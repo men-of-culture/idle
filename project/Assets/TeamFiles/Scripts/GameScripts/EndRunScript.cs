@@ -6,18 +6,18 @@ using UnityEngine.SceneManagement;
 public class EndRunScript : MonoBehaviour
 {
     [SerializeField]
-    private GameObject changeScenePrefab;
+    private PlayerStatsManager playerStatsManager;
 
     [SerializeField]
-    private PlayerScript playerScript;
+    private GameObject changeScenePrefab;
 
     [SerializeField]
     private StringManager stringManager;
 
     public void BackToMenuButton()
     {
-        PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) + playerScript.kills);
-        PlayerPrefs.SetInt(stringManager.lifetimeKills, PlayerPrefs.GetInt(stringManager.lifetimeKills) + playerScript.kills);
+        PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) + playerStatsManager.kills);
+        PlayerPrefs.SetInt(stringManager.lifetimeKills, PlayerPrefs.GetInt(stringManager.lifetimeKills) + playerStatsManager.kills);
         changeScenePrefab.GetComponent<SceneChangerScript>().FadeToScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

@@ -13,6 +13,9 @@ public class MonsterSpawnerManager : MonoBehaviour
     private float timer = 0f;
     
     [SerializeField]
+    public PlayerStatsManager playerStatsManager;
+
+    [SerializeField]
     public Transform monsterList;
     
     [SerializeField]
@@ -33,7 +36,7 @@ public class MonsterSpawnerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTimer <= 0)
+        if (spawnTimer <= 0 && playerStatsManager.health > 0)
         {
             if (timer > 30)
             {
