@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SplashScript : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject sceneChangerPrefab;
+    
     public void ChangeScene()
     {
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        sceneChangerPrefab.GetComponent<SceneChangerScript>().FadeToScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }
