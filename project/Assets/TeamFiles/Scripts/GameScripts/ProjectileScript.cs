@@ -22,11 +22,16 @@ public class ProjectileScript : MonoBehaviour
 
     private float lifeTimeTimer = 0f;
 
+    private AudioSource attackAudioSource;
+
+    [SerializeField]
+    private StringManager stringManager;
+
     // Start is called before the first frame update
     void Start()
     {
         // TODO: Look at it when it's not 2AM in the morning
-        monsterList = GameObject.Find("MonsterList");
+        monsterList = GameObject.Find(stringManager.monsterList);
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
         foreach(Transform potentialTarget in monsterList.transform)
@@ -39,6 +44,9 @@ public class ProjectileScript : MonoBehaviour
                 nearestMonster = directionToTarget;
             }
         }
+
+        attackAudioSource = transform.parent.GetComponent<AudioSource>();
+        attackAudioSource.Play();
     }
 
     // Update is called once per frame

@@ -26,4 +26,6 @@ public class StringManager : ScriptableObject
     public readonly string healthFadeInSound = "healthFadeIn";
 
     public readonly string volume = "volume";
+
+    public readonly string monsterList = "MonsterList";
 }
