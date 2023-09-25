@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class EscMenuScript : MonoBehaviour
 {
+    [SerializeField]
     private Canvas escMenuCanvas;
     
     [SerializeField]
@@ -25,12 +26,13 @@ public class EscMenuScript : MonoBehaviour
     
     [SerializeField]
     private Slider volumeSlider;
+
+    [SerializeField]
+    private GameObject changeScenePrefab;
     
     // Start is called before the first frame update
     void Start()
     {
-        escMenuCanvas = GetComponent<Canvas>();
-
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             // disable end run button
@@ -42,7 +44,7 @@ public class EscMenuScript : MonoBehaviour
             exitGameButton.GetComponent<Image>().enabled = true;
             exitGameButton.GetComponentsInChildren<TextMeshProUGUI>().First().enabled = true;
         }
-        else if (SceneManager.GetActiveScene().buildIndex == 2)
+        else
         {
             // disable exit game button
             exitGameButton.GetComponent<Button>().enabled = false;
@@ -75,7 +77,7 @@ public class EscMenuScript : MonoBehaviour
     {
         PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) + playerStatsManager.kills);
         PlayerPrefs.SetInt(stringManager.lifetimeKills, PlayerPrefs.GetInt(stringManager.lifetimeKills) + playerStatsManager.kills);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1, LoadSceneMode.Single);
+        changeScenePrefab.GetComponent<SceneChangerScript>().FadeToScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
     
     public void ExitGame()
