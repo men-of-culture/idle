@@ -9,6 +9,7 @@ public class PlayerStatsManager : ScriptableObject
     public int armor = 0;
     public float attackSpeed = 10.0f;
     public int kills = 0;
+    public float volume = 1;
 
     public void reset()
     {

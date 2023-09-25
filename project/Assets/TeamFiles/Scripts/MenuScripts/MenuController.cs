@@ -20,7 +20,7 @@ public class MenuController : MonoBehaviour
 
     [SerializeField]
     private GameObject changeScenePrefab;
-
+    
     public void Play()
     {
         playerStatsManager.reset();

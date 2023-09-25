@@ -1251,10 +1251,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9e74a48937c59478568a51856f179a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatsCanvas: {fileID: 4099616694680067241}
+  playerStatsCanvas: {fileID: 4612270136646563274}
   damageText: {fileID: 8503577737512082819}
   attackSpeedText: {fileID: 7557026060551467744}
   healthText: {fileID: 4977807423667049982}

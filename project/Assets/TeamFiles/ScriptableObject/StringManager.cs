@@ -24,4 +24,6 @@ public class StringManager : ScriptableObject
 
     // This sections is used for sounds
     public readonly string healthFadeInSound = "healthFadeIn";
+
+    public readonly string volume = "volume";
 }
