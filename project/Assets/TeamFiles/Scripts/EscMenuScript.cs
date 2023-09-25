@@ -29,6 +29,9 @@ public class EscMenuScript : MonoBehaviour
 
     [SerializeField]
     private GameObject changeScenePrefab;
+
+    [SerializeField]
+    private AudioSource popAudioSource;
     
     // Start is called before the first frame update
     void Start()
@@ -70,6 +73,7 @@ public class EscMenuScript : MonoBehaviour
 
     public void ToggleEscMenu()
     {
+        popAudioSource.Play();
         escMenuCanvas.enabled = !escMenuCanvas.enabled;
     }
 
