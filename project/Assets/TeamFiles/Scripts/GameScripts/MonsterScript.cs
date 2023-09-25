@@ -27,6 +27,9 @@ public class MonsterScript : MonoBehaviour
     [SerializeField]
     private StringManager stringManager;
 
+    [SerializeField]
+    private AudioSource deathAudioSource;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,7 @@ public class MonsterScript : MonoBehaviour
         playerScript = FindObjectOfType<PlayerScript>();
         targetPosition = playerScript.transform.position - transform.position;
         spriteRenderer.flipX = targetPosition.x < 0;
+        deathAudioSource = transform.parent.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -73,7 +77,7 @@ public class MonsterScript : MonoBehaviour
 
         if (other.CompareTag(stringManager.projectileTag))
         {
-            transform.parent.parent.GetComponent<AudioSource>().Play();
+            deathAudioSource.Play();
             Debug.Log("This monster trigger was hit by: Projectile");
             Destroy(other.gameObject);
             Destroy(gameObject);

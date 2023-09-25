@@ -135,10 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneChanger
       objectReference: {fileID: 0}
-    - target: {fileID: 4059152952727618251, guid: 8df56282d1435a24e9696bd6c686931a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6784192579759865104, guid: 8df56282d1435a24e9696bd6c686931a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -184,6 +180,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8df56282d1435a24e9696bd6c686931a, type: 3}
+--- !u!1 &62894559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4059152952727618251, guid: 8df56282d1435a24e9696bd6c686931a, type: 3}
+  m_PrefabInstance: {fileID: 62894558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &234213732
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +217,11 @@ Transform:
   - {fileID: 519420032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &303104555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6866210086872798910, guid: a23cc126405d763448aa735bcca79aa2, type: 3}
+  m_PrefabInstance: {fileID: 6832914990741707893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +477,7 @@ PrefabInstance:
     - target: {fileID: 1809824666132460043, guid: 16433fdad3aa5c34d99a57d787b1c99d, type: 3}
       propertyPath: monsterList
       value: 
-      objectReference: {fileID: 1716169856}
+      objectReference: {fileID: 303104555}
     - target: {fileID: 1809824666132460043, guid: 16433fdad3aa5c34d99a57d787b1c99d, type: 3}
       propertyPath: endKillsText
       value: 
@@ -601,11 +607,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1716169856 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5558649501681331995, guid: a23cc126405d763448aa735bcca79aa2, type: 3}
-  m_PrefabInstance: {fileID: 6832914990741707893}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &73022780522686409 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 804574135303934742, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
@@ -729,6 +730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndRunCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3155407331462249450, guid: 0e1a6ac99820f194087f79ce47b3a604, type: 3}
+      propertyPath: changeScenePrefab
+      value: 
+      objectReference: {fileID: 62894559}
     - target: {fileID: 6924450282618947282, guid: 0e1a6ac99820f194087f79ce47b3a604, type: 3}
       propertyPath: m_Pivot.x
       value: 0
