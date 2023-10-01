@@ -28,6 +28,7 @@ public class ProjectileScript : MonoBehaviour
     private StringManager stringManager;
 
     public GameObject explosionPrefab;
+    public Vector3 monsterHitPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -64,9 +65,14 @@ public class ProjectileScript : MonoBehaviour
         }
     }
 
-    void OnDestroy()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        var x = Instantiate(explosionPrefab, transform.parent);
-        x.transform.position = transform.position;
+        if (other.CompareTag(stringManager.monsterTag))
+        {
+            Debug.Log("This Projectile trigger was hit by: Monster");
+            var x = Instantiate(explosionPrefab, transform.parent);
+            x.transform.position = transform.position + ((other.transform.position-transform.position)/2);
+            Destroy(gameObject);
+        }
     }
 }

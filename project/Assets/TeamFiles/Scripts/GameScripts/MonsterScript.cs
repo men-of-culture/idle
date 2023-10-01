@@ -62,7 +62,7 @@ public class MonsterScript : MonoBehaviour
         
         //if (moveTimer <= 0)
         //{
-        if (playerStatsManager.health <= 0) return;
+        if (playerStatsManager.health <= 0 || startFadeOut) return;
             MonsterMove();
         //    moveTimer = moveInterval;
         //}
@@ -86,7 +86,6 @@ public class MonsterScript : MonoBehaviour
         {
             deathAudioSource.Play();
             Debug.Log("This monster trigger was hit by: Projectile");
-            Destroy(other.gameObject);
 
             spriteRenderer.color += new Color(0f,0f,0f,1f);
             fade = true;
