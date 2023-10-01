@@ -104,6 +104,7 @@ MonoBehaviour:
   rotationSpeed: 20
   lifeTime: 3
   stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
+  explosionPrefab: {fileID: 3762773739065059160, guid: d33b2acf37ddc0c499f745a902c96841, type: 3}
 --- !u!58 &6330545117694733823
 CircleCollider2D:
   m_ObjectHideFlags: 0

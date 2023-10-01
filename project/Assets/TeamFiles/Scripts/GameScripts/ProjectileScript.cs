@@ -27,6 +27,8 @@ public class ProjectileScript : MonoBehaviour
     [SerializeField]
     private StringManager stringManager;
 
+    public GameObject explosionPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,5 +62,11 @@ public class ProjectileScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void OnDestroy()
+    {
+        var x = Instantiate(explosionPrefab, transform.parent);
+        x.transform.position = transform.position;
     }
 }
