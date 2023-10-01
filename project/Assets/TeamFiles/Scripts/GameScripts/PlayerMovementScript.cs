@@ -7,8 +7,6 @@ using Random = UnityEngine.Random;
 
 public class PlayerMovementScript : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-
     public Vector2 targetPosition;
     public bool startWalking;
     public bool shouldWalk;
@@ -37,7 +35,6 @@ public class PlayerMovementScript : MonoBehaviour
         if (startWalking)
         {
             targetPosition = new Vector2(Random.Range(-moveRange, moveRange), Random.Range(-moveRange, moveRange));
-            walkSpeed = Random.Range(minimumWalkDuration, maximumWalkDuration);
             startWalking = false;
             shouldWalk = true;
             initialPosition = gameObject.transform.position;
@@ -45,9 +42,9 @@ public class PlayerMovementScript : MonoBehaviour
         
         if (shouldWalk && playerStatsManager.health > 0)
         {
-            walkTimer += Time.deltaTime/walkSpeed;
+            walkTimer += Time.deltaTime*(walkSpeed/10);
             gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*walkTimer);
-            if (walkTimer >= 1)
+            if (walkTimer >= (targetPosition - new Vector2(transform.position.x, transform.position.y)).magnitude)
             {
                 shouldWalk = false;
                 shouldPause = true;
