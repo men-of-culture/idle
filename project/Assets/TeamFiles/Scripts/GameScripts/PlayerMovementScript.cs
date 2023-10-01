@@ -38,6 +38,7 @@ public class PlayerMovementScript : MonoBehaviour
             startWalking = false;
             shouldWalk = true;
             initialPosition = gameObject.transform.position;
+            GetComponent<Animator>().enabled = true;
         }
         
         if (shouldWalk && playerStatsManager.health > 0)
@@ -50,6 +51,7 @@ public class PlayerMovementScript : MonoBehaviour
                 shouldPause = true;
                 pauseDuration = Random.Range(minimumPauseDuration, maximumPauseDuration);
                 walkTimer = 0;
+                GetComponent<Animator>().enabled = false;
             }
         }
 
