@@ -43,8 +43,8 @@ public class PlayerMovementScript : MonoBehaviour
         if (shouldWalk && playerStatsManager.health > 0)
         {
             walkTimer += Time.deltaTime*(walkSpeed/10);
-            gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*walkTimer);
-            if (walkTimer >= (targetPosition - new Vector2(transform.position.x, transform.position.y)).magnitude)
+            gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*(walkTimer/(targetPosition-initialPosition).magnitude));
+            if (walkTimer >= (targetPosition - initialPosition).magnitude)
             {
                 shouldWalk = false;
                 shouldPause = true;

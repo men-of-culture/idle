@@ -120,7 +120,7 @@ MonoBehaviour:
   shouldWalk: 0
   walkTimer: 0
   initialPosition: {x: 0, y: 0}
-  walkSpeed: 3
+  walkSpeed: 10
   pauseTimer: 0
   pauseDuration: 0
   shouldPause: 0
