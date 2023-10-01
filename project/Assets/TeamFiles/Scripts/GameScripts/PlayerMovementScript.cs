@@ -22,11 +22,13 @@ public class PlayerMovementScript : MonoBehaviour
     public int minimumWalkDuration;
     public int maximumWalkDuration;
     public PlayerStatsManager playerStatsManager;
+    public Animator animator;
     
     // Start is called before the first frame update
     void Start()
     {
         startWalking = true;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class PlayerMovementScript : MonoBehaviour
             startWalking = false;
             shouldWalk = true;
             initialPosition = gameObject.transform.position;
-            GetComponent<Animator>().enabled = true;
+            animator.enabled = true;
         }
         
         if (shouldWalk && playerStatsManager.health > 0)
@@ -51,7 +53,7 @@ public class PlayerMovementScript : MonoBehaviour
                 shouldPause = true;
                 pauseDuration = Random.Range(minimumPauseDuration, maximumPauseDuration);
                 walkTimer = 0;
-                GetComponent<Animator>().enabled = false;
+                animator.enabled = false;
             }
         }
 
