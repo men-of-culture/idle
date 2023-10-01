@@ -115,13 +115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7923631e16495a41af54d5adf2b1b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   targetPosition: {x: 0, y: 0}
   startWalking: 0
   shouldWalk: 0
   walkTimer: 0
   initialPosition: {x: 0, y: 0}
-  walkSpeed: 2
+  walkSpeed: 3
   pauseTimer: 0
   pauseDuration: 0
   shouldPause: 0
