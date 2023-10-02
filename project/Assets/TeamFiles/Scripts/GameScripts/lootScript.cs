@@ -6,7 +6,7 @@ public class lootScript : MonoBehaviour
 {
 
     public float fadeTimer = 1.0f;
-    public bool fade = false;
+    public bool fade = true;
     public SpriteRenderer spriteRenderer;
 
     [SerializeField]
@@ -15,6 +15,7 @@ public class lootScript : MonoBehaviour
     private BoxCollider2D collider;
     private PlayerScript playerScript;
     private PlayerMovementScript playerMovementScript;
+    private bool fadeIn;
 
     // Start is called before the first frame update
     void Start()
@@ -23,21 +24,14 @@ public class lootScript : MonoBehaviour
         collider = GetComponent<BoxCollider2D>();
         playerScript = FindObjectOfType<PlayerScript>();
         playerMovementScript = FindObjectOfType<PlayerMovementScript>();
+        fadeIn = true;
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (fadeTimer <= 0 && !fade)
-        {
-            spriteRenderer.color += new Color(0f,0f,0f,1f);
-            fade = true;
-        } 
-        else if (fadeTimer > 0)
-        {
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f - fadeTimer);
-            fadeTimer -= Time.deltaTime;
-        }
+        StartFadeIn();
         StartFadeOut();
     }
 
@@ -47,12 +41,26 @@ public class lootScript : MonoBehaviour
         if (other.CompareTag(stringManager.playerTag))
         {
             Debug.Log("This loot trigger was hit by: "+other.name);
-            spriteRenderer.color += new Color(0f,0f,0f,1f);
-            fade = true;
-            fadeTimer = 1.0f;
             startFadeOut = true;
             collider.enabled = false;
             playerMovementScript.StartPause();
+            fadeTimer = 1.0f;
+        }
+    }
+
+    void StartFadeIn()
+    {
+        if(!fadeIn) return;
+
+        if (fadeTimer > 0)
+        {
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f - fadeTimer);
+            fadeTimer -= Time.deltaTime;
+        }
+        else if (fadeTimer <= 0)
+        {
+            fadeIn = false;
+            fadeTimer = 0;
         }
     }
 
@@ -64,7 +72,7 @@ public class lootScript : MonoBehaviour
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0f + fadeTimer);
             fadeTimer -= Time.deltaTime;
         }
-        else if (fade && fadeTimer <= 0)
+        else if (fadeTimer <= 0)
         {
             playerScript.Kill();
 
