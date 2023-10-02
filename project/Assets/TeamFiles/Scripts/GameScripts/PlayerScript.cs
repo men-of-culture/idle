@@ -40,6 +40,9 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private GameObject projectileList;
+
+    [SerializeField]
+    private Text attspdText;
     
     // Start is called before the first frame update
     void Start()
@@ -49,6 +52,7 @@ public class PlayerScript : MonoBehaviour
         healthText.text = playerStatsManager.health.ToString();
 
         playerStatsManager.attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeTwo);
+        attspdText.text = (1f/playerStatsManager.attackSpeed).ToString("F1")+"/s";
     }
 
     // Update is called once per frame
