@@ -23,12 +23,15 @@ public class PlayerMovementScript : MonoBehaviour
     public int maximumWalkDuration;
     public PlayerStatsManager playerStatsManager;
     public Animator animator;
+
+    public Transform lootList;
     
     // Start is called before the first frame update
     void Start()
     {
         startWalking = true;
         animator = GetComponent<Animator>();
+        lootList = GameObject.Find("LootList").transform;
     }
 
     // Update is called once per frame
@@ -36,7 +39,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         if (startWalking)
         {
-            targetPosition = new Vector2(Random.Range(-moveRange, moveRange), Random.Range(-moveRange, moveRange));
+            targetPosition = lootList.childCount == 0 ? new Vector2(0, 0) : lootList.GetChild(0).position;
             startWalking = false;
             shouldWalk = true;
             initialPosition = gameObject.transform.position;

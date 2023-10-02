@@ -35,6 +35,9 @@ public class MonsterScript : MonoBehaviour
 
     private CircleCollider2D collider;
 
+    public GameObject lootPrefab;
+    public Transform lootList;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +49,7 @@ public class MonsterScript : MonoBehaviour
         spriteRenderer.flipX = targetPosition.x < 0;
         deathAudioSource = transform.parent.GetComponent<AudioSource>();
         collider = GetComponent<CircleCollider2D>();
+        lootList = GameObject.Find("LootList").transform;
     }
 
     // Update is called once per frame
@@ -108,8 +112,9 @@ public class MonsterScript : MonoBehaviour
         }
         else if (fade && fadeTimer <= 0)
         {
+            var x = Instantiate(lootPrefab, lootList);
+            x.transform.position = gameObject.transform.position;
             Destroy(gameObject);
-            playerScript.Kill();
         }
     }
 
