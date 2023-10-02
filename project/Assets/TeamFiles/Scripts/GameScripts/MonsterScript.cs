@@ -112,6 +112,7 @@ public class MonsterScript : MonoBehaviour
         }
         else if (fade && fadeTimer <= 0)
         {
+            playerStatsManager.kills++;
             var x = Instantiate(lootPrefab, lootList);
             x.transform.position = gameObject.transform.position;
             Destroy(gameObject);

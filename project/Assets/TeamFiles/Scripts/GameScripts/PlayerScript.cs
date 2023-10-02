@@ -84,7 +84,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Kill()
     {
-        playerStatsManager.kills++;
-        killsText.text = playerStatsManager.kills.ToString();
+        playerStatsManager.loot++;
+        killsText.text = playerStatsManager.loot.ToString();
     }
 }
