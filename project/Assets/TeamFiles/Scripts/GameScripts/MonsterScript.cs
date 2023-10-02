@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -30,6 +31,10 @@ public class MonsterScript : MonoBehaviour
     [SerializeField]
     private AudioSource deathAudioSource;
 
+    private bool startFadeOut;
+
+    private CircleCollider2D collider;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +45,7 @@ public class MonsterScript : MonoBehaviour
         targetPosition = playerScript.transform.position - transform.position;
         spriteRenderer.flipX = targetPosition.x < 0;
         deathAudioSource = transform.parent.GetComponent<AudioSource>();
+        collider = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -55,10 +61,11 @@ public class MonsterScript : MonoBehaviour
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f - fadeTimer);
             fadeTimer -= Time.deltaTime;
         }
+        StartFadeOut();
         
         //if (moveTimer <= 0)
         //{
-        if (playerStatsManager.health <= 0) return;
+        if (playerStatsManager.health <= 0 || startFadeOut) return;
             MonsterMove();
         //    moveTimer = moveInterval;
         //}
@@ -82,7 +89,25 @@ public class MonsterScript : MonoBehaviour
         {
             deathAudioSource.Play();
             Debug.Log("This monster trigger was hit by: Projectile");
-            Destroy(other.gameObject);
+
+            spriteRenderer.color += new Color(0f,0f,0f,1f);
+            fade = true;
+            fadeTimer = 1.0f;
+            startFadeOut = true;
+            collider.enabled = false;
+        }
+    }
+
+    void StartFadeOut()
+    {
+        if(!startFadeOut) return;
+        if (fadeTimer > 0)
+        {
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0f + fadeTimer);
+            fadeTimer -= Time.deltaTime;
+        }
+        else if (fade && fadeTimer <= 0)
+        {
             Destroy(gameObject);
             playerScript.Kill();
         }

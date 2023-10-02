@@ -7,8 +7,6 @@ using Random = UnityEngine.Random;
 
 public class PlayerMovementScript : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-
     public Vector2 targetPosition;
     public bool startWalking;
     public bool shouldWalk;
@@ -24,11 +22,13 @@ public class PlayerMovementScript : MonoBehaviour
     public int minimumWalkDuration;
     public int maximumWalkDuration;
     public PlayerStatsManager playerStatsManager;
+    public Animator animator;
     
     // Start is called before the first frame update
     void Start()
     {
         startWalking = true;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,22 +37,23 @@ public class PlayerMovementScript : MonoBehaviour
         if (startWalking)
         {
             targetPosition = new Vector2(Random.Range(-moveRange, moveRange), Random.Range(-moveRange, moveRange));
-            walkSpeed = Random.Range(minimumWalkDuration, maximumWalkDuration);
             startWalking = false;
             shouldWalk = true;
             initialPosition = gameObject.transform.position;
+            animator.enabled = true;
         }
         
         if (shouldWalk && playerStatsManager.health > 0)
         {
-            walkTimer += Time.deltaTime/walkSpeed;
-            gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*walkTimer);
-            if (walkTimer >= 1)
+            walkTimer += Time.deltaTime*(walkSpeed/10);
+            gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*(walkTimer/(targetPosition-initialPosition).magnitude));
+            if (walkTimer >= (targetPosition - initialPosition).magnitude)
             {
                 shouldWalk = false;
                 shouldPause = true;
                 pauseDuration = Random.Range(minimumPauseDuration, maximumPauseDuration);
                 walkTimer = 0;
+                animator.enabled = false;
             }
         }
 

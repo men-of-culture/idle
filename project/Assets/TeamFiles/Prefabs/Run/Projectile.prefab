@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.41, y: -4.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 14d1238625c744144bc4c27735d9b613, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcece644a2824354ba8758ec05fb9194, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,6 +104,8 @@ MonoBehaviour:
   rotationSpeed: 20
   lifeTime: 3
   stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
+  explosionPrefab: {fileID: 3762773739065059160, guid: d33b2acf37ddc0c499f745a902c96841, type: 3}
+  monsterHitPosition: {x: 0, y: 0, z: 0}
 --- !u!58 &6330545117694733823
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,9 +138,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.001585722, y: -0.095142126}
   serializedVersion: 2
-  m_Radius: 0.71
+  m_Radius: 0.24856043
 --- !u!50 &-4591674836851622654
 Rigidbody2D:
   serializedVersion: 4

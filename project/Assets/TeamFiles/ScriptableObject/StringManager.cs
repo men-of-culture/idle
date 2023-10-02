@@ -17,6 +17,7 @@ public class StringManager : ScriptableObject
     // This section is used for tags
     public readonly string playerTag = "Player";
     public readonly string projectileTag = "Projectile";
+    public readonly string monsterTag = "Monster";
 
 
     // This section is used for animations

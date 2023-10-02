@@ -27,6 +27,9 @@ public class ProjectileScript : MonoBehaviour
     [SerializeField]
     private StringManager stringManager;
 
+    public GameObject explosionPrefab;
+    public Vector3 monsterHitPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +61,17 @@ public class ProjectileScript : MonoBehaviour
 
         if(lifeTimeTimer >= lifeTime)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(stringManager.monsterTag))
+        {
+            Debug.Log("This Projectile trigger was hit by: Monster");
+            var x = Instantiate(explosionPrefab, transform.parent);
+            x.transform.position = transform.position + ((other.transform.position-transform.position)/2);
             Destroy(gameObject);
         }
     }
