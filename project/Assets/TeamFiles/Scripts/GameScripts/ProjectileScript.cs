@@ -61,6 +61,9 @@ public class ProjectileScript : MonoBehaviour
 
         if(lifeTimeTimer >= lifeTime)
         {
+            Debug.Log("This Projectile trigger was hit by: Monster");
+            var x = Instantiate(explosionPrefab, transform.parent);
+            x.transform.position = transform.position;
             Destroy(gameObject);
         }
     }
