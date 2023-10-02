@@ -566,10 +566,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 986042877}
-    - target: {fileID: 398969192107431768, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleEscMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 1035996766220184698, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: m_Name
       value: MainCanvas
