@@ -33,6 +33,8 @@ public class MonsterScript : MonoBehaviour
 
     private bool startFadeOut;
 
+    private CircleCollider2D collider;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,7 @@ public class MonsterScript : MonoBehaviour
         targetPosition = playerScript.transform.position - transform.position;
         spriteRenderer.flipX = targetPosition.x < 0;
         deathAudioSource = transform.parent.GetComponent<AudioSource>();
+        collider = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -91,6 +94,7 @@ public class MonsterScript : MonoBehaviour
             fade = true;
             fadeTimer = 1.0f;
             startFadeOut = true;
+            collider.enabled = false;
         }
     }
 
