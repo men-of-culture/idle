@@ -45,7 +45,7 @@ public class MonsterScript : MonoBehaviour
         //moveInterval = Random.Range(1f, 5f);
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerScript = FindObjectOfType<PlayerScript>();
-        targetPosition = playerScript.transform.position - transform.position;
+        //targetPosition = playerScript.transform.position;
         spriteRenderer.flipX = targetPosition.x < 0;
         deathAudioSource = transform.parent.GetComponent<AudioSource>();
         collider = GetComponent<CircleCollider2D>();
@@ -77,7 +77,7 @@ public class MonsterScript : MonoBehaviour
         //moveTimer -= Time.deltaTime;
         
         // need to update this when player is moving
-        targetPosition = playerScript.transform.position - transform.position;
+        targetPosition = playerScript.transform.position;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -120,6 +120,6 @@ public class MonsterScript : MonoBehaviour
 
     void MonsterMove()
     {
-        transform.position += targetPosition * ((movementSpeed/100f) * Time.deltaTime);
+        transform.position += (targetPosition-transform.position).normalized * ((movementSpeed/10f) * Time.deltaTime);
     }
 }
