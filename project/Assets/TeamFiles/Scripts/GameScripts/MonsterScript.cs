@@ -46,7 +46,7 @@ public class MonsterScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerScript = FindObjectOfType<PlayerScript>();
         //targetPosition = playerScript.transform.position;
-        spriteRenderer.flipX = targetPosition.x < 0;
+        //spriteRenderer.flipX = targetPosition.x < 0;
         deathAudioSource = transform.parent.GetComponent<AudioSource>();
         collider = GetComponent<CircleCollider2D>();
         lootList = GameObject.Find("LootList").transform;
@@ -120,6 +120,7 @@ public class MonsterScript : MonoBehaviour
 
     void MonsterMove()
     {
+        spriteRenderer.flipX = (targetPosition-transform.position).x < 0;
         transform.position += (targetPosition-transform.position).normalized * ((movementSpeed/10f) * Time.deltaTime);
     }
 }
