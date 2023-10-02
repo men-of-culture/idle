@@ -14,6 +14,7 @@ public class lootScript : MonoBehaviour
     private bool startFadeOut;
     private BoxCollider2D collider;
     private PlayerScript playerScript;
+    private PlayerMovementScript playerMovementScript;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class lootScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
         playerScript = FindObjectOfType<PlayerScript>();
+        playerMovementScript = FindObjectOfType<PlayerMovementScript>();
     }
 
     // Update is called once per frame
@@ -50,6 +52,7 @@ public class lootScript : MonoBehaviour
             fadeTimer = 1.0f;
             startFadeOut = true;
             collider.enabled = false;
+            playerMovementScript.StartPause();
         }
     }
 
@@ -63,8 +66,11 @@ public class lootScript : MonoBehaviour
         }
         else if (fade && fadeTimer <= 0)
         {
-            Destroy(gameObject);
             playerScript.Kill();
+
+            playerMovementScript.StartWalking();
+
+            Destroy(gameObject);
         }
     }
 }

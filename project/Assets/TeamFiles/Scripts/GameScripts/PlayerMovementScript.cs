@@ -44,6 +44,7 @@ public class PlayerMovementScript : MonoBehaviour
             shouldWalk = true;
             initialPosition = gameObject.transform.position;
             animator.enabled = true;
+            GetTargetPositionClosest();
         }
         
         if (shouldWalk && playerStatsManager.health > 0)
@@ -52,11 +53,7 @@ public class PlayerMovementScript : MonoBehaviour
             gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*(walkTimer/(targetPosition-initialPosition).magnitude));
             if (walkTimer >= (targetPosition - initialPosition).magnitude)
             {
-                shouldWalk = false;
-                shouldPause = true;
-                pauseDuration = Random.Range(minimumPauseDuration, maximumPauseDuration);
-                walkTimer = 0;
-                animator.enabled = false;
+                StartPause();
             }
         }
 
@@ -65,11 +62,41 @@ public class PlayerMovementScript : MonoBehaviour
             pauseTimer += Time.deltaTime;
             if (pauseTimer >= pauseDuration)
             {
-                shouldPause = false;
-                startWalking = true;
-                pauseTimer = 0;
+                StartWalking();
             }
         }
+    }
+
+    void GetTargetPositionClosest()
+    {
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        foreach(Transform potentialTarget in lootList.transform)
+        {
+            Vector2 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if(dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                targetPosition = potentialTarget.position;
+            }
+        }
+    }
+
+    public void StartWalking()
+    {
+        shouldPause = false;
+        startWalking = true;
+        pauseTimer = 0;
+    }
+
+    public void StartPause()
+    {
+        shouldWalk = false;
+        shouldPause = true;
+        pauseDuration = Random.Range(minimumPauseDuration, maximumPauseDuration);
+        walkTimer = 0;
+        animator.enabled = false;
     }
 
     void OnTriggerEnter2d(Collider2D other)
