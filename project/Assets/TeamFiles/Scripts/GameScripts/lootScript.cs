@@ -70,7 +70,7 @@ public class lootScript : MonoBehaviour
         if (fadeTimer > 0)
         {
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0f + fadeTimer);
-            fadeTimer -= Time.deltaTime;
+            fadeTimer -= Time.deltaTime*3;
         }
         else if (fadeTimer <= 0)
         {
