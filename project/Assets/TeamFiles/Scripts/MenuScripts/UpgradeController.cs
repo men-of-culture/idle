@@ -23,6 +23,9 @@ public class UpgradeController : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI lifetimeKillsText;
+
+    [SerializeField]
+    private TextMeshProUGUI longestRunText;
     
     [SerializeField]
     private List<TextMeshProUGUI> upgradeTextObjects;
@@ -39,6 +42,9 @@ public class UpgradeController : MonoBehaviour
 
         // Set lifetime kills text
         lifetimeKillsText.text = PlayerPrefs.GetInt(stringManager.lifetimeKills).ToString();
+
+        // set Longest run text
+        longestRunText.text = PlayerPrefs.GetInt(stringManager.longestRun).ToString("F0");
 
         // Add all upgradeTextObjects and upgradeNames to upgradeList
         upgradeList = new List<Tuple<TextMeshProUGUI, string>>();

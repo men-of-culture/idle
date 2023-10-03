@@ -379,6 +379,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66b9ea46c22b83147a1c7427fd4bbe4a, type: 3}
+--- !u!114 &1266345608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2773469522664971146, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+  m_PrefabInstance: {fileID: 1410710994512392991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1514811460 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 187587559254327476, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
@@ -969,6 +980,10 @@ PrefabInstance:
       propertyPath: upgradeButton
       value: 
       objectReference: {fileID: 1514811460}
+    - target: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
+      propertyPath: longestRunText
+      value: 
+      objectReference: {fileID: 1266345608}
     - target: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
       propertyPath: lifetimeKillsText
       value: 

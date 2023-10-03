@@ -10,7 +10,7 @@ public class MonsterSpawnerManager : MonoBehaviour
     private float spawnTimer = 0f;
     private int spawnCount = 100;
 
-    private float timer = 0f;
+    public float timer = 0f;
     
     [SerializeField]
     public PlayerStatsManager playerStatsManager;

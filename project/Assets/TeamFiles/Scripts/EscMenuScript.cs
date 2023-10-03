@@ -32,6 +32,9 @@ public class EscMenuScript : MonoBehaviour
 
     [SerializeField]
     private AudioSource popAudioSource;
+
+    [SerializeField]
+    private MonsterSpawnerManager monsterSpawnerManager;
     
     // Start is called before the first frame update
     void Start()
@@ -60,6 +63,7 @@ public class EscMenuScript : MonoBehaviour
         }
 
         volumeSlider.value = playerStatsManager.volume;
+        monsterSpawnerManager = GameObject.FindObjectOfType<MonsterSpawnerManager>();
     }
 
     // Update is called once per frame
@@ -82,6 +86,11 @@ public class EscMenuScript : MonoBehaviour
         PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) + playerStatsManager.kills);
         PlayerPrefs.SetInt(stringManager.lifetimeKills, PlayerPrefs.GetInt(stringManager.lifetimeKills) + playerStatsManager.kills);
         changeScenePrefab.GetComponent<SceneChangerScript>().FadeToScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+        if(PlayerPrefs.GetInt(stringManager.longestRun) < Mathf.Floor(monsterSpawnerManager.timer))
+        {
+            PlayerPrefs.SetInt(stringManager.longestRun, (int)Mathf.Floor(monsterSpawnerManager.timer));
+        }
     }
     
     public void ExitGame()
