@@ -48,7 +48,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         playerStatsManager.reset();
-        playerStatsManager.health += PlayerPrefs.GetInt(stringManager.upgradeThree, 1);
+        playerStatsManager.health += PlayerPrefs.GetInt(stringManager.upgradeThree);
         healthText.text = playerStatsManager.health.ToString();
 
         playerStatsManager.attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeTwo, 1);
