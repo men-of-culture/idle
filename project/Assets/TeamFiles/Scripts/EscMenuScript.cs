@@ -123,6 +123,7 @@ public class EscMenuScript : MonoBehaviour
 
     public void ToggleEndExit()
     {
+        popAudioSource.Play();
         // disable canvas
         escMenuCanvas.enabled = !escMenuCanvas.enabled;
 
@@ -132,6 +133,7 @@ public class EscMenuScript : MonoBehaviour
 
     public void EndRun()
     {
+        popAudioSource.Play();
         PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) + playerStatsManager.kills);
         PlayerPrefs.SetInt(stringManager.lifetimeKills, PlayerPrefs.GetInt(stringManager.lifetimeKills) + playerStatsManager.kills);
         changeScenePrefab.GetComponent<SceneChangerScript>().FadeToScene(SceneManager.GetActiveScene().buildIndex - 1);
