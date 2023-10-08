@@ -219,6 +219,7 @@ MonoBehaviour:
   spawnInterval: 5
   initialSpawnInterval: 5
   spawnDistanceFromPlayer: 3
+  spawnBounds: {x: 26.65, y: 15}
 --- !u!1 &6273956483250604840
 GameObject:
   m_ObjectHideFlags: 0

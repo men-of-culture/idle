@@ -29,6 +29,7 @@ public class MonsterSpawnerManager : MonoBehaviour
 
     public float spawnDistanceFromPlayer;
     private Transform playerTransform;
+    public Vector2 spawnBounds;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +67,9 @@ public class MonsterSpawnerManager : MonoBehaviour
         Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
         var spawnPosition = randomSpawnPoint.position + new Vector3(Random.Range(-4f, 4f), 0, 0);
+
+        // we can get rid of spawnpoints with spawnDistanceFromPlayer and this:
+        spawnPosition = new Vector3(0,0,0) + new Vector3(Random.Range(-spawnBounds.x, spawnBounds.x), Random.Range(-spawnBounds.y, spawnBounds.y), 0);
 
         // make sure monsters dont spawn on top of player
         if((spawnPosition-playerTransform.position).magnitude < spawnDistanceFromPlayer)
