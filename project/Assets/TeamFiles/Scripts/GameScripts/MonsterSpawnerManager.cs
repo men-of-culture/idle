@@ -80,11 +80,11 @@ public class MonsterSpawnerManager : MonoBehaviour
             // make sure they spawn inside bounds, flip value if outside
             if(spawnPosition.x > spawnBounds.x || spawnPosition.x < -spawnPosition.x)
             {
-                spawnPosition = spawnPosition - new Vector3(-(spawnPosition-playerTransform.position).x*2, 0, 0);
+                spawnPosition = spawnPosition - new Vector3((spawnPosition-playerTransform.position).x*2, 0, 0);
             }
             if(spawnPosition.y > spawnBounds.y || spawnPosition.y < -spawnPosition.y)
             {
-                spawnPosition = spawnPosition - new Vector3(0, -(spawnPosition-playerTransform.position).y*2, 0);
+                spawnPosition = spawnPosition - new Vector3(0, (spawnPosition-playerTransform.position).y*2, 0);
             }
         }
 
