@@ -76,6 +76,16 @@ public class MonsterSpawnerManager : MonoBehaviour
         {
             spawnPosition = spawnPosition + ((spawnPosition-playerTransform.position).normalized * spawnDistanceFromPlayer);
             spawnPosition = new Vector3(spawnPosition.x, spawnPosition.y, 0);
+
+            // make sure they spawn inside bounds, flip value if outside
+            if(spawnPosition.x > spawnBounds.x || spawnPosition.x < -spawnPosition.x)
+            {
+                spawnPosition = new Vector3(-(spawnPosition-playerTransform.position).x, spawnPosition.y, 0);
+            }
+            if(spawnPosition.y > spawnBounds.y || spawnPosition.y < -spawnPosition.y)
+            {
+                spawnPosition = new Vector3(spawnPosition.x, -(spawnPosition-playerTransform.position).y, 0);
+            }
         }
 
         Instantiate(monsterPrefab, spawnPosition, Quaternion.identity, monsterList);
