@@ -122,7 +122,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4980376917084354408}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: Upgrade
+        m_MethodName: BlacksmithToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -474,7 +474,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuCanvas: {fileID: 7196476040961256732}
-  upgradeCanvas: {fileID: 0}
+  blacksmithCanvas: {fileID: 0}
+  churchCanvas: {fileID: 0}
+  wizardCanvas: {fileID: 0}
+  knightCanvas: {fileID: 0}
   playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
   backButton: {fileID: 0}
   eventSystem: {fileID: 0}
@@ -1365,7 +1368,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4980376917084354408}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: Upgrade
+        m_MethodName: ChurchToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1497,7 +1500,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4980376917084354408}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: Upgrade
+        m_MethodName: WizardToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
