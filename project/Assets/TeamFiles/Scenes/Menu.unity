@@ -468,6 +468,17 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 7196476040961256732, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
   m_PrefabInstance: {fileID: 1410710994512392991}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2116251897 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9011450141009357742, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+  m_PrefabInstance: {fileID: 1410710994512392991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1044937652222623226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -984,6 +995,10 @@ PrefabInstance:
       propertyPath: longestRunText
       value: 
       objectReference: {fileID: 1266345608}
+    - target: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
+      propertyPath: mainCurrencyText
+      value: 
+      objectReference: {fileID: 2116251897}
     - target: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
       propertyPath: lifetimeKillsText
       value: 

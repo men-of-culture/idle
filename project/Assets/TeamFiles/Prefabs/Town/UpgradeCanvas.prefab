@@ -482,7 +482,9 @@ MonoBehaviour:
   upgradeButton: {fileID: 0}
   eventSystem: {fileID: 0}
   currencyText: {fileID: 598585570233570857}
+  mainCurrencyText: {fileID: 0}
   lifetimeKillsText: {fileID: 0}
+  longestRunText: {fileID: 0}
   upgradeTextObjects:
   - {fileID: 7028556799549521660}
   - {fileID: 5802534753168737099}

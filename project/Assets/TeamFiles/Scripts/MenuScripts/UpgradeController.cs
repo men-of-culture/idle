@@ -20,6 +20,9 @@ public class UpgradeController : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI currencyText;
+    
+    [SerializeField]
+    private TextMeshProUGUI mainCurrencyText;
 
     [SerializeField]
     private TextMeshProUGUI lifetimeKillsText;
@@ -39,6 +42,9 @@ public class UpgradeController : MonoBehaviour
     {
         // Set initial currency text
         currencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
+
+        // Set initial mainCurrency text
+        mainCurrencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
 
         // Set lifetime kills text
         lifetimeKillsText.text = PlayerPrefs.GetInt(stringManager.lifetimeKills).ToString();
@@ -79,6 +85,7 @@ public class UpgradeController : MonoBehaviour
         // Pay
         PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) - (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier));
         currencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
+        mainCurrencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
         
         // Upgrade
         PlayerPrefs.SetInt(upgrade.Item2, PlayerPrefs.GetInt(upgrade.Item2) + 1);
