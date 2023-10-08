@@ -70,21 +70,22 @@ public class MonsterSpawnerManager : MonoBehaviour
 
         // we can get rid of spawnpoints with spawnDistanceFromPlayer and this:
         var spawnPosition = new Vector3(0,0,0) + new Vector3(Random.Range(-spawnBounds.x, spawnBounds.x), Random.Range(-spawnBounds.y, spawnBounds.y), 0);
+        var vectorToPlayer = spawnPosition-playerTransform.position;
 
         // make sure monsters dont spawn on top of player
-        if((spawnPosition-playerTransform.position).magnitude < spawnDistanceFromPlayer)
+        if(vectorToPlayer.magnitude < spawnDistanceFromPlayer)
         {
-            spawnPosition = spawnPosition + ((spawnPosition-playerTransform.position).normalized * spawnDistanceFromPlayer);
+            spawnPosition = spawnPosition + (vectorToPlayer.normalized * spawnDistanceFromPlayer);
             spawnPosition = new Vector3(spawnPosition.x, spawnPosition.y, 0);
 
             // make sure they spawn inside bounds, flip value if outside
             if(spawnPosition.x > spawnBounds.x || spawnPosition.x < -spawnPosition.x)
             {
-                spawnPosition = new Vector3(-(spawnPosition-playerTransform.position).x, spawnPosition.y, 0);
+                spawnPosition = new Vector3(-vectorToPlayer.x, spawnPosition.y, 0);
             }
             if(spawnPosition.y > spawnBounds.y || spawnPosition.y < -spawnPosition.y)
             {
-                spawnPosition = new Vector3(spawnPosition.x, -(spawnPosition-playerTransform.position).y, 0);
+                spawnPosition = new Vector3(spawnPosition.x, -vectorToPlayer.y, 0);
             }
         }
 
