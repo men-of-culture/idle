@@ -212,11 +212,13 @@ MonoBehaviour:
   - {fileID: 8995850416179456531}
   - {fileID: 6766943937989688263}
   - {fileID: 7085734820822778507}
+  timer: 0
   playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
   monsterList: {fileID: 896627294349143352}
   timerText: {fileID: 0}
   spawnInterval: 5
   initialSpawnInterval: 5
+  spawnDistanceFromPlayer: 3
 --- !u!1 &6273956483250604840
 GameObject:
   m_ObjectHideFlags: 0
