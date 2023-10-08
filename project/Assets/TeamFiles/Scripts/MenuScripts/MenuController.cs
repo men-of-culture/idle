@@ -24,6 +24,14 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private GameObject changeScenePrefab;
     
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Back();
+        }
+    }
+
     public void Play()
     {
         playerStatsManager.reset();
