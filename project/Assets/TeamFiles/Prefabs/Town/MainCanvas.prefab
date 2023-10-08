@@ -968,7 +968,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4980376917084354408}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: KnightToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
