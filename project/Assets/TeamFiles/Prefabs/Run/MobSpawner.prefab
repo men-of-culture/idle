@@ -218,7 +218,7 @@ MonoBehaviour:
   timerText: {fileID: 0}
   spawnInterval: 5
   initialSpawnInterval: 5
-  spawnDistanceFromPlayer: 3
+  spawnDistanceFromPlayer: 6
   spawnBounds: {x: 26.65, y: 15}
 --- !u!1 &6273956483250604840
 GameObject:
