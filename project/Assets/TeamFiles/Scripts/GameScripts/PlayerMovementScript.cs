@@ -25,13 +25,14 @@ public class PlayerMovementScript : MonoBehaviour
     public Animator animator;
 
     public Transform lootList;
+    public StringManager stringManager;
     
     // Start is called before the first frame update
     void Start()
     {
         startWalking = true;
         animator = GetComponent<Animator>();
-        lootList = GameObject.Find("LootList").transform;
+        lootList = GameObject.Find(stringManager.lootList).transform;
     }
 
     // Update is called once per frame

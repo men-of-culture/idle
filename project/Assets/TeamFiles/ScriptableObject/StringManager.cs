@@ -30,4 +30,5 @@ public class StringManager : ScriptableObject
     public readonly string volume = "volume";
 
     public readonly string monsterList = "MonsterList";
+    public readonly string lootList = "LootList";
 }

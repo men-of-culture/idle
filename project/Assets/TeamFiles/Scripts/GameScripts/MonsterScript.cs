@@ -49,7 +49,7 @@ public class MonsterScript : MonoBehaviour
         //spriteRenderer.flipX = targetPosition.x < 0;
         deathAudioSource = transform.parent.GetComponent<AudioSource>();
         collider = GetComponent<CircleCollider2D>();
-        lootList = GameObject.Find("LootList").transform;
+        lootList = GameObject.Find(stringManager.lootList).transform;
     }
 
     // Update is called once per frame
