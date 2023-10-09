@@ -67,7 +67,7 @@ public class PlayerMovementScript : MonoBehaviour
             }
         }
 
-        Debug.DrawLine(transform.position, targetPosition, Color.blue);
+        Debug.DrawLine(new Vector3(transform.position.x-0.5f, transform.position.y, 0), targetPosition, Color.blue);
     }
 
     void GetTargetPositionClosest()

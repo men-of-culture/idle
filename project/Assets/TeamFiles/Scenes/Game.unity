@@ -912,6 +912,14 @@ PrefabInstance:
       propertyPath: changeScenePrefab
       value: 
       objectReference: {fileID: 1579120521}
+    - target: {fileID: 5771201513959845133, guid: 0e1a6ac99820f194087f79ce47b3a604, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1579120520}
+    - target: {fileID: 5771201513959845133, guid: 0e1a6ac99820f194087f79ce47b3a604, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndRun
+      objectReference: {fileID: 0}
     - target: {fileID: 6924450282618947282, guid: 0e1a6ac99820f194087f79ce47b3a604, type: 3}
       propertyPath: m_Pivot.x
       value: 0
