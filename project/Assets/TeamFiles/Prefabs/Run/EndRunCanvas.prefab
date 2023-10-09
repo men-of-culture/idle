@@ -630,9 +630,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3155407331462249450}
-        m_TargetAssemblyTypeName: EndRunScript, Assembly-CSharp
-        m_MethodName: BackToMenuButton
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: EscMenuScript, Assembly-CSharp
+        m_MethodName: EndRun
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -782,7 +782,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 62d6545f93ecac640ab33f3f2bcd4ab7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7fab20e0dbbbe614aadf9d1e6ff71696, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
