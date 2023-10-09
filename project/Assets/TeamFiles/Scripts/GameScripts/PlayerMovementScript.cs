@@ -66,6 +66,8 @@ public class PlayerMovementScript : MonoBehaviour
                 StartWalking();
             }
         }
+
+        Debug.DrawLine(transform.position, targetPosition, Color.blue);
     }
 
     void GetTargetPositionClosest()
