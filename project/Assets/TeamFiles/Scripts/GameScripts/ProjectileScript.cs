@@ -18,7 +18,7 @@ public class ProjectileScript : MonoBehaviour
     
     private GameObject monsterList;
 
-    private Vector3 nearestMonster;
+    public Vector3 nearestMonster;
 
     private float lifeTimeTimer = 0f;
 
@@ -34,7 +34,7 @@ public class ProjectileScript : MonoBehaviour
     void Start()
     {
         // TODO: Look at it when it's not 2AM in the morning
-        monsterList = GameObject.Find(stringManager.monsterList);
+        /*monsterList = GameObject.Find(stringManager.monsterList);
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
         foreach(Transform potentialTarget in monsterList.transform)
@@ -46,7 +46,7 @@ public class ProjectileScript : MonoBehaviour
                 closestDistanceSqr = dSqrToTarget;
                 nearestMonster = directionToTarget;
             }
-        }
+        }*/
 
         attackAudioSource = transform.parent.GetComponent<AudioSource>();
         attackAudioSource.Play();
