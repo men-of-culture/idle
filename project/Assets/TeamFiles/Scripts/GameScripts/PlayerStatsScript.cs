@@ -62,6 +62,11 @@ public class PlayerStatsScript : MonoBehaviour
             //     expCountText.text = PlayerPrefs.GetInt("lifetimeKills").ToString();
             // }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            playerStatsCanvas.enabled = false;
+        }
         
     }
 
