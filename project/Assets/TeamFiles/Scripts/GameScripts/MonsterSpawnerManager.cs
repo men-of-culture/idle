@@ -54,6 +54,8 @@ public class MonsterSpawnerManager : MonoBehaviour
         timer += Time.deltaTime;
         timerText.text = timer.ToString("F0");
         spawnTimer -= Time.deltaTime;
+
+        Debug.DrawCircle(new Vector3(playerTransform.position.x-0.5f, playerTransform.position.y, 0), spawnDistanceFromPlayer, 32, Color.green);
     }
 
     void SpawnEnemy()
