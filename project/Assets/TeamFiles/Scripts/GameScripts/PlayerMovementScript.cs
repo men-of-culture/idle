@@ -23,12 +23,16 @@ public class PlayerMovementScript : MonoBehaviour
     public int maximumWalkDuration;
     public PlayerStatsManager playerStatsManager;
     public Animator animator;
+
+    public Transform lootList;
+    public StringManager stringManager;
     
     // Start is called before the first frame update
     void Start()
     {
         startWalking = true;
         animator = GetComponent<Animator>();
+        lootList = GameObject.Find(stringManager.lootList).transform;
     }
 
     // Update is called once per frame
@@ -36,11 +40,12 @@ public class PlayerMovementScript : MonoBehaviour
     {
         if (startWalking)
         {
-            targetPosition = new Vector2(Random.Range(-moveRange, moveRange), Random.Range(-moveRange, moveRange));
+            targetPosition = lootList.childCount == 0 ? new Vector2(0, 0) : lootList.GetChild(0).position;
             startWalking = false;
             shouldWalk = true;
             initialPosition = gameObject.transform.position;
             animator.enabled = true;
+            GetTargetPositionClosest();
         }
         
         if (shouldWalk && playerStatsManager.health > 0)
@@ -49,11 +54,7 @@ public class PlayerMovementScript : MonoBehaviour
             gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*(walkTimer/(targetPosition-initialPosition).magnitude));
             if (walkTimer >= (targetPosition - initialPosition).magnitude)
             {
-                shouldWalk = false;
-                shouldPause = true;
-                pauseDuration = Random.Range(minimumPauseDuration, maximumPauseDuration);
-                walkTimer = 0;
-                animator.enabled = false;
+                StartPause();
             }
         }
 
@@ -62,11 +63,43 @@ public class PlayerMovementScript : MonoBehaviour
             pauseTimer += Time.deltaTime;
             if (pauseTimer >= pauseDuration)
             {
-                shouldPause = false;
-                startWalking = true;
-                pauseTimer = 0;
+                StartWalking();
             }
         }
+
+        Debug.DrawLine(new Vector3(transform.position.x-0.5f, transform.position.y, 0), targetPosition, Color.blue);
+    }
+
+    void GetTargetPositionClosest()
+    {
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        foreach(Transform potentialTarget in lootList.transform)
+        {
+            Vector2 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if(dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                targetPosition = potentialTarget.position;
+            }
+        }
+    }
+
+    public void StartWalking()
+    {
+        shouldPause = false;
+        startWalking = true;
+        pauseTimer = 0;
+    }
+
+    public void StartPause()
+    {
+        shouldWalk = false;
+        shouldPause = true;
+        pauseDuration = Random.Range(minimumPauseDuration, maximumPauseDuration);
+        walkTimer = 0;
+        animator.enabled = false;
     }
 
     void OnTriggerEnter2d(Collider2D other)

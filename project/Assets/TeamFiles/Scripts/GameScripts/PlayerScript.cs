@@ -40,6 +40,12 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private GameObject projectileList;
+
+    [SerializeField]
+    private Text attspdText;
+
+    [SerializeField]
+    private float attackRange;
     
     // Start is called before the first frame update
     void Start()
@@ -48,18 +54,71 @@ public class PlayerScript : MonoBehaviour
         playerStatsManager.health += PlayerPrefs.GetInt(stringManager.upgradeThree);
         healthText.text = playerStatsManager.health.ToString();
 
-        playerStatsManager.attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeTwo);
+        playerStatsManager.attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeTwo, 1);
+        attspdText.text = (1f/playerStatsManager.attackSpeed).ToString("F1")+"/s";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(attackSpeedTimer >= playerStatsManager.attackSpeed && monsterList.transform.childCount > 0 && playerStatsManager.health > 0)
+        // add this as an extension of the Debug class
+        var dirToNearestMonster = DrawAttackRangeCircle();
+
+        if(attackSpeedTimer >= playerStatsManager.attackSpeed && monsterList.transform.childCount > 0 && playerStatsManager.health > 0 && dirToNearestMonster.magnitude < attackRange)
         {
-            Instantiate(ProjectilePrefab, transform.position, Quaternion.identity, projectileList.transform);
+            var x = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity, projectileList.transform);
+            x.GetComponent<ProjectileScript>().nearestMonster = dirToNearestMonster;
             attackSpeedTimer = 0f;
         }
         attackSpeedTimer += Time.deltaTime;
+    }
+
+    Vector2 DrawAttackRangeCircle()
+    {
+        var dirToNearestMonster = NearestMonster();
+        var vec2 = dirToNearestMonster.normalized*attackRange;
+        var circleColor = Color.yellow;
+        var spritePos = new Vector3(transform.position.x-0.5f, transform.position.y, 0);
+
+        if(monsterList.transform.childCount == 0)
+        {
+
+        }
+        else if(dirToNearestMonster.magnitude > attackRange)
+        {
+            Debug.DrawLine(spritePos, spritePos+new Vector3(vec2.x, vec2.y, 0), circleColor);
+        }
+        else
+        {
+            circleColor = Color.red;
+            Debug.DrawLine(spritePos, spritePos+new Vector3(dirToNearestMonster.x, dirToNearestMonster.y, 0), circleColor);
+        }
+
+        // draw circle
+        Debug.DrawCircle(spritePos, attackRange, 32, circleColor);
+
+        return dirToNearestMonster;
+    }
+
+
+    private Vector2 NearestMonster()
+    {
+        // TODO: Look at it when it's not 2AM in the morning
+        var nearestMonster = new Vector2(100f, 100f);
+        monsterList = GameObject.Find(stringManager.monsterList);
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        foreach(Transform potentialTarget in monsterList.transform)
+        {
+            Vector2 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if(dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                nearestMonster = directionToTarget;
+            }
+        }
+        return nearestMonster;
     }
 
     public void HitByMonster()
@@ -80,7 +139,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Kill()
     {
-        playerStatsManager.kills++;
-        killsText.text = playerStatsManager.kills.ToString();
+        playerStatsManager.loot++;
+        killsText.text = playerStatsManager.loot.ToString();
     }
 }

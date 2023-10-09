@@ -12,6 +12,7 @@ public class StringManager : ScriptableObject
     // This sections is used for currency and kills/exp
     public readonly string currency = "currency";
     public readonly string lifetimeKills = "lifetimeKills";
+    public readonly string longestRun = "longestRun";
 
 
     // This section is used for tags
@@ -29,4 +30,5 @@ public class StringManager : ScriptableObject
     public readonly string volume = "volume";
 
     public readonly string monsterList = "MonsterList";
+    public readonly string lootList = "LootList";
 }

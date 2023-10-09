@@ -35,6 +35,9 @@ public class MonsterScript : MonoBehaviour
 
     private CircleCollider2D collider;
 
+    public GameObject lootPrefab;
+    public Transform lootList;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +45,11 @@ public class MonsterScript : MonoBehaviour
         //moveInterval = Random.Range(1f, 5f);
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerScript = FindObjectOfType<PlayerScript>();
-        targetPosition = playerScript.transform.position - transform.position;
-        spriteRenderer.flipX = targetPosition.x < 0;
+        //targetPosition = playerScript.transform.position;
+        //spriteRenderer.flipX = targetPosition.x < 0;
         deathAudioSource = transform.parent.GetComponent<AudioSource>();
         collider = GetComponent<CircleCollider2D>();
+        lootList = GameObject.Find(stringManager.lootList).transform;
     }
 
     // Update is called once per frame
@@ -73,7 +77,7 @@ public class MonsterScript : MonoBehaviour
         //moveTimer -= Time.deltaTime;
         
         // need to update this when player is moving
-        targetPosition = playerScript.transform.position - transform.position;
+        targetPosition = playerScript.transform.position;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -108,13 +112,19 @@ public class MonsterScript : MonoBehaviour
         }
         else if (fade && fadeTimer <= 0)
         {
+            playerStatsManager.kills++;
+            if(Random.Range(1, 3) == 2)
+            {
+                var x = Instantiate(lootPrefab, lootList);
+                x.transform.position = gameObject.transform.position;
+            }
             Destroy(gameObject);
-            playerScript.Kill();
         }
     }
 
     void MonsterMove()
     {
-        transform.position += targetPosition * ((movementSpeed/100f) * Time.deltaTime);
+        spriteRenderer.flipX = (targetPosition-transform.position).x < 0;
+        transform.position += (targetPosition-transform.position).normalized * ((movementSpeed/10f) * Time.deltaTime);
     }
 }
