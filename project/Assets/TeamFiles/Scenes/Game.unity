@@ -1239,6 +1239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerStatsCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4612270136646563274, guid: 563dfdfd0478fc94eb6650c99553dad9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5624556485053147752, guid: 563dfdfd0478fc94eb6650c99553dad9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
