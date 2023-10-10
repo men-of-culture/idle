@@ -24,10 +24,12 @@ public class SwordScript : MonoBehaviour
         if(nearestMonster.x >= 0)
         {
             transform.GetChild(0).transform.localEulerAngles -= new Vector3(0,0,angle);
+            transform.localEulerAngles -= new Vector3(0,0,angle/2);
         }
         else
         {
             transform.GetChild(0).transform.localEulerAngles += new Vector3(0,0,angle);
+            transform.localEulerAngles -= new Vector3(0,0,angle/2);
         }
     }
 
