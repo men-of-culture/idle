@@ -74,7 +74,7 @@ public class PlayerScript : MonoBehaviour
     {
 
         if(weapon == "sword") attackRange = 4;
-        if(weapon == "bomb") attackRange = 10;
+        if(weapon == "bomb") attackRange = 12;
         if(weapon == "arrow") attackRange = 20;
 
         var dirToNearestMonster = DrawAttackRangeCircle();
