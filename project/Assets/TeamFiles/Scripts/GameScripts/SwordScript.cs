@@ -34,7 +34,7 @@ public class SwordScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        timer += Time.deltaTime*3;
         transform.Rotate(new Vector3(0, 0, 1f), 360f * Time.deltaTime / 1f);
 
         if(timer >= 1f)
