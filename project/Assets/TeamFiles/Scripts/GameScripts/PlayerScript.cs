@@ -56,7 +56,14 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private float attackRange;
 
-    public string weapon;
+    public enum Weapon
+    {
+        Sword,
+        Bomb,
+        Arrow
+    }
+
+    public Weapon weapon;
     
     // Start is called before the first frame update
     void Start()
@@ -72,26 +79,25 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(weapon == "sword") attackRange = 4;
-        if(weapon == "bomb") attackRange = 12;
-        if(weapon == "arrow") attackRange = 20;
+        if(weapon == Weapon.Sword) attackRange = 4;
+        if(weapon == Weapon.Bomb) attackRange = 12;
+        if(weapon == Weapon.Arrow) attackRange = 20;
 
         var dirToNearestMonster = DrawAttackRangeCircle();
 
         if(attackSpeedTimer >= playerStatsManager.attackSpeed && monsterList.transform.childCount > 0 && playerStatsManager.health > 0 && dirToNearestMonster.magnitude < attackRange)
         {
-            if(weapon == "bomb")
+            if(weapon == Weapon.Bomb)
             {
                 var x = Instantiate(bombPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
                 x.GetComponent<ProjectileScript>().nearestMonster = dirToNearestMonster;
             }
-            if(weapon == "arrow")
+            if(weapon == Weapon.Arrow)
             {
                 var x = Instantiate(arrowPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
                 x.GetComponent<ArrowScript>().nearestMonster = dirToNearestMonster;
             }
-            if(weapon == "sword")
+            if(weapon == Weapon.Sword)
             {
                 var x = Instantiate(swordPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
                 x.GetComponent<SwordScript>().nearestMonster = dirToNearestMonster;
