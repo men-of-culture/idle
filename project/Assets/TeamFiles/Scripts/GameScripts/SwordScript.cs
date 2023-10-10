@@ -14,6 +14,7 @@ public class SwordScript : MonoBehaviour
 
     private float degrees = 90f;
     private float speed = 3f;
+    private bool targetCenter = true;
 
     // Start is called before the first frame update
     void Start()
@@ -24,15 +25,17 @@ public class SwordScript : MonoBehaviour
         var angle = Vector2.Angle(new Vector2(0,1), nearestMonster);
         transform.GetChild(0).transform.localEulerAngles = new Vector3(0, 0, 65f);
         
+        var attackDegrees = targetCenter ? degrees/2 : 0;
+
         if(nearestMonster.x >= 0)
         {
             transform.GetChild(0).transform.localEulerAngles -= new Vector3(0,0,angle);
-            transform.localEulerAngles -= new Vector3(0,0,degrees/2);
+            transform.localEulerAngles -= new Vector3(0,0,attackDegrees);
         }
         else
         {
             transform.GetChild(0).transform.localEulerAngles += new Vector3(0,0,angle);
-            transform.localEulerAngles -= new Vector3(0,0,degrees/2);
+            transform.localEulerAngles -= new Vector3(0,0,attackDegrees);
         }
     }
 
