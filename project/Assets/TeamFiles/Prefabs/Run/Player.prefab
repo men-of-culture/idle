@@ -151,6 +151,9 @@ MonoBehaviour:
   playercanvas: {fileID: 0}
   endRunCanvas: {fileID: 0}
   ProjectilePrefab: {fileID: 6068342186667689025, guid: 3597bf32edeb728418c77e1087407314, type: 3}
+  swordPrefab: {fileID: 7486980341889164600, guid: b4e5afe997ff18547b7031d079125fe4, type: 3}
+  bombPrefab: {fileID: 6068342186667689025, guid: 3597bf32edeb728418c77e1087407314, type: 3}
+  arrowPrefab: {fileID: 6068342186667689025, guid: f523ac86d42bff642860da12cb88e184, type: 3}
   monsterList: {fileID: 0}
   healthText: {fileID: 0}
   killsText: {fileID: 0}
@@ -159,6 +162,7 @@ MonoBehaviour:
   projectileList: {fileID: 0}
   attspdText: {fileID: 0}
   attackRange: 15
+  weapon: arrow
 --- !u!50 &-2124407486419122880
 Rigidbody2D:
   serializedVersion: 4

@@ -24,6 +24,15 @@ public class PlayerScript : MonoBehaviour
     private GameObject ProjectilePrefab;
 
     [SerializeField]
+    private GameObject swordPrefab;
+
+    [SerializeField]
+    private GameObject bombPrefab;
+
+    [SerializeField]
+    private GameObject arrowPrefab;
+
+    [SerializeField]
     private GameObject monsterList;
 
     [SerializeField]
@@ -46,6 +55,8 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private float attackRange;
+
+    public string weapon;
     
     // Start is called before the first frame update
     void Start()
@@ -61,13 +72,32 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // add this as an extension of the Debug class
+
+        if(weapon == "sword") attackRange = 4;
+        if(weapon == "bomb") attackRange = 10;
+        if(weapon == "arrow") attackRange = 20;
+
         var dirToNearestMonster = DrawAttackRangeCircle();
 
         if(attackSpeedTimer >= playerStatsManager.attackSpeed && monsterList.transform.childCount > 0 && playerStatsManager.health > 0 && dirToNearestMonster.magnitude < attackRange)
         {
-            var x = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity, projectileList.transform);
-            x.GetComponent<ProjectileScript>().nearestMonster = dirToNearestMonster;
+            if(weapon == "bomb")
+            {
+                var x = Instantiate(bombPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
+                x.GetComponent<ProjectileScript>().nearestMonster = dirToNearestMonster;
+            }
+            if(weapon == "arrow")
+            {
+                var x = Instantiate(arrowPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
+                x.GetComponent<ArrowScript>().nearestMonster = dirToNearestMonster;
+            }
+            if(weapon == "sword")
+            {
+                var x = Instantiate(swordPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
+                x.GetComponent<SwordScript>().nearestMonster = dirToNearestMonster;
+                x.transform.parent = transform;
+            }
+
             attackSpeedTimer = 0f;
         }
         attackSpeedTimer += Time.deltaTime;
