@@ -12,7 +12,7 @@ public class SwordScript : MonoBehaviour
 
     public Vector2 nearestMonster;
 
-    private float degrees = 90f;
+    private float degrees = 45f;
     private float speed = 3f;
     private bool targetCenter = true;
 
