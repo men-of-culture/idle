@@ -12,6 +12,9 @@ public class SwordScript : MonoBehaviour
 
     public Vector2 nearestMonster;
 
+    private float degrees = 90f;
+    private float speed = 3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,20 +27,20 @@ public class SwordScript : MonoBehaviour
         if(nearestMonster.x >= 0)
         {
             transform.GetChild(0).transform.localEulerAngles -= new Vector3(0,0,angle);
-            transform.localEulerAngles -= new Vector3(0,0,angle/2);
+            transform.localEulerAngles -= new Vector3(0,0,degrees/2);
         }
         else
         {
             transform.GetChild(0).transform.localEulerAngles += new Vector3(0,0,angle);
-            transform.localEulerAngles -= new Vector3(0,0,angle/2);
+            transform.localEulerAngles -= new Vector3(0,0,degrees/2);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime*3;
-        transform.Rotate(new Vector3(0, 0, 1f), 360f * Time.deltaTime / 1f);
+        timer += Time.deltaTime*speed;
+        transform.Rotate(new Vector3(0, 0, 1f), degrees * Time.deltaTime / (1f/speed));
 
         if(timer >= 1f)
         {
