@@ -4,6 +4,13 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Weapon
+{
+    Sword,
+    Bomb,
+    Arrow
+}
+
 public class PlayerScript : MonoBehaviour
 {
     private float attackSpeedTimer = 0f;
@@ -58,13 +65,6 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private float attackRange;
-
-    public enum Weapon
-    {
-        Sword,
-        Bomb,
-        Arrow
-    }
 
     public Weapon weapon;
     public int damage;
