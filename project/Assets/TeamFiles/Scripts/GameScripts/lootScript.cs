@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lootScript : MonoBehaviour
+public class LootScript : MonoBehaviour
 {
 
     public float fadeTimer = 1.0f;
@@ -16,6 +16,7 @@ public class lootScript : MonoBehaviour
     private PlayerScript playerScript;
     private PlayerMovementScript playerMovementScript;
     private bool fadeIn;
+    public int loot;
 
     // Start is called before the first frame update
     void Start()
@@ -74,7 +75,7 @@ public class lootScript : MonoBehaviour
         }
         else if (fadeTimer <= 0)
         {
-            playerScript.Kill();
+            playerScript.Loot(loot);
 
             playerMovementScript.StartWalking();
 

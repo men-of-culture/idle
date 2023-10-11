@@ -67,6 +67,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     public Weapon weapon;
+    public int damage;
     
     // Start is called before the first frame update
     void Start()
@@ -74,6 +75,9 @@ public class PlayerScript : MonoBehaviour
         playerStatsManager.reset();
         playerStatsManager.health += PlayerPrefs.GetInt(stringManager.upgradeThree);
         healthText.text = playerStatsManager.health.ToString();
+
+        playerStatsManager.damage += PlayerPrefs.GetInt(stringManager.upgradeOne);
+        damage = playerStatsManager.damage;
 
         playerStatsManager.attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeTwo, 1);
         attspdText.text = (1f/playerStatsManager.attackSpeed).ToString("F1")+"/s";
@@ -163,16 +167,16 @@ public class PlayerScript : MonoBehaviour
         return nearestMonster;
     }
 
-    public void HitByMonster()
+    public void HitByMonster(int monsterDamage)
     {
         // make a check: if armor - damage < 0, træk resten fra hp
         if(playerStatsManager.armor == 0)
         {
-            playerStatsManager.health--;
+            playerStatsManager.health -= monsterDamage;
         }
         else
         {
-            playerStatsManager.armor--;
+            playerStatsManager.armor -= monsterDamage;
         }
 
         healthText.text = playerStatsManager.health.ToString();
@@ -189,9 +193,9 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    public void Kill()
+    public void Loot(int loot)
     {
-        playerStatsManager.loot++;
+        playerStatsManager.loot += loot;
         killsText.text = playerStatsManager.loot.ToString();
     }
 }

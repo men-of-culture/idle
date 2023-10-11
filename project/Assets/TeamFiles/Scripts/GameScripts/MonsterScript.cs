@@ -41,6 +41,9 @@ public class MonsterScript : MonoBehaviour
     public bool shouldMove;
     public float attackTimer = 0f;
     public float attackSpeed = 1f;
+    public int damage = 1;
+    public int loot = 1;
+    public int health = 1;
 
 
     // Start is called before the first frame update
@@ -82,6 +85,11 @@ public class MonsterScript : MonoBehaviour
         //moveTimer -= Time.deltaTime;
         
         MonsterAttack();
+
+        if(!startFadeOut && health <= 0)
+        {
+            startFadeOut = true;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -94,6 +102,9 @@ public class MonsterScript : MonoBehaviour
 
         if (other.CompareTag(stringManager.projectileTag))
         {
+            health -= playerScript.damage;
+            if(health > 0) return;
+
             deathAudioSource.Play();
             Debug.Log("This monster trigger was hit by: Projectile");
 
@@ -128,6 +139,7 @@ public class MonsterScript : MonoBehaviour
             {
                 var x = Instantiate(lootPrefab, lootList);
                 x.transform.position = gameObject.transform.position;
+                x.GetComponent<LootScript>().loot = loot;
             }
             Destroy(gameObject);
         }
@@ -153,7 +165,7 @@ public class MonsterScript : MonoBehaviour
         }
         if(attackTimer <= 0 && !shouldMove)
         {
-            playerScript.HitByMonster();
+            playerScript.HitByMonster(damage);
             attackTimer = attackSpeed;
         }
     }
