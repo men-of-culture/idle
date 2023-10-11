@@ -67,8 +67,16 @@ public class PlayerCanvasScript : MonoBehaviour
     {
         playerStatsManager.attackSpeed = 5;
     }
+    public void NormalAttack()
+    {
+        playerStatsManager.attackSpeed = 1f;
+    }
     public void FastAttack()
     {
         playerStatsManager.attackSpeed = .33f;
+    }
+    public void ResetTime()
+    {
+        monsterSpawnerManager.timer = 1;
     }
 }
