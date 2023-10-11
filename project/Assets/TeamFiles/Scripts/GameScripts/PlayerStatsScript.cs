@@ -39,15 +39,18 @@ public class PlayerStatsScript : MonoBehaviour
 
     [SerializeField]
     private Text expCountText;
+
+    private StringManager stringManager;
     
     // Start is called before the first frame update
     void Start()
     {
-        damageText.text = PlayerPrefs.GetInt("upgradeOne").ToString();
-        attackSpeedText.text = PlayerPrefs.GetInt("upgradeTwo").ToString();
-        healthText.text = PlayerPrefs.GetInt("upgradeThree").ToString();
-        goldCountText.text = PlayerPrefs.GetInt("currency").ToString();
-        expCountText.text = PlayerPrefs.GetInt("lifetimeKills").ToString();
+        damageText.text = PlayerPrefs.GetInt(stringManager.upgradeOne, 1).ToString();
+        attackSpeedText.text = PlayerPrefs.GetInt(stringManager.upgradeTwo, 1).ToString();
+        healthText.text = PlayerPrefs.GetInt(stringManager.upgradeThree, 10).ToString();
+        goldCountText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
+        expCountText.text = PlayerPrefs.GetInt(stringManager.lifetimeKills).ToString();
+        armorText.text = PlayerPrefs.GetInt(stringManager.upgradeFour).ToString();
         playerStatsCanvas = GetComponent<Canvas>();
     }
 

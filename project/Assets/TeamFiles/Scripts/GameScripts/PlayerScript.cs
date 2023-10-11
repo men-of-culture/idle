@@ -39,6 +39,9 @@ public class PlayerScript : MonoBehaviour
     private Text healthText;
 
     [SerializeField]
+    private Text armorText;
+
+    [SerializeField]
     private Text killsText;
 
     [SerializeField]
@@ -74,6 +77,9 @@ public class PlayerScript : MonoBehaviour
 
         playerStatsManager.attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeTwo, 1);
         attspdText.text = (1f/playerStatsManager.attackSpeed).ToString("F1")+"/s";
+
+        playerStatsManager.armor += PlayerPrefs.GetInt(stringManager.upgradeFour);
+        armorText.text = playerStatsManager.armor.ToString();
     }
 
     // Update is called once per frame
@@ -159,8 +165,18 @@ public class PlayerScript : MonoBehaviour
 
     public void HitByMonster()
     {
-        playerStatsManager.health--;
+        // make a check: if armor - damage < 0, træk resten fra hp
+        if(playerStatsManager.armor == 0)
+        {
+            playerStatsManager.health--;
+        }
+        else
+        {
+            playerStatsManager.armor--;
+        }
+
         healthText.text = playerStatsManager.health.ToString();
+        armorText.text = playerStatsManager.armor.ToString();
         gameObject.GetComponent<AudioSource>().Play();
         playercanvas.GetComponent<Animator>().Play(stringManager.healthFadeInSound);
         StartCoroutine(cameraShake.Shake(.15f, .4f));

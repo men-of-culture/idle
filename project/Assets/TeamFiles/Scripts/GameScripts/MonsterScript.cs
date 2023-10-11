@@ -145,6 +145,8 @@ public class MonsterScript : MonoBehaviour
 
     void MonsterAttack()
     {
+        if(playerStatsManager.health <= 0) return;
+
         if(attackTimer > 0)
         {
             attackTimer -= Time.deltaTime;
