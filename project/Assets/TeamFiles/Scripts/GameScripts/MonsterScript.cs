@@ -38,6 +38,10 @@ public class MonsterScript : MonoBehaviour
     public GameObject lootPrefab;
     public Transform lootList;
 
+    public bool shouldMove;
+    public float attackTimer = 0f;
+    public float attackSpeed = 1f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +54,7 @@ public class MonsterScript : MonoBehaviour
         deathAudioSource = transform.parent.GetComponent<AudioSource>();
         collider = GetComponent<CircleCollider2D>();
         lootList = GameObject.Find(stringManager.lootList).transform;
+        shouldMove = true;
     }
 
     // Update is called once per frame
@@ -69,15 +74,14 @@ public class MonsterScript : MonoBehaviour
         
         //if (moveTimer <= 0)
         //{
-        if (playerStatsManager.health <= 0 || startFadeOut) return;
-            MonsterMove();
-        //    moveTimer = moveInterval;
+        
+        MonsterMove();
+        //    moveTimer = moveInterval; 
         //}
 
         //moveTimer -= Time.deltaTime;
         
-        // need to update this when player is moving
-        targetPosition = playerScript.transform.position;
+        MonsterAttack();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -85,8 +89,7 @@ public class MonsterScript : MonoBehaviour
         if (other.CompareTag(stringManager.playerTag))
         {
             Debug.Log("This monster trigger was hit by: "+other.name);
-            playerScript.HitByMonster();
-            Destroy(gameObject);
+            shouldMove = false;
         }
 
         if (other.CompareTag(stringManager.projectileTag))
@@ -99,6 +102,14 @@ public class MonsterScript : MonoBehaviour
             fadeTimer = 1.0f;
             startFadeOut = true;
             collider.enabled = false;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(stringManager.playerTag))
+        {
+            shouldMove = true;
         }
     }
 
@@ -124,7 +135,24 @@ public class MonsterScript : MonoBehaviour
 
     void MonsterMove()
     {
-        spriteRenderer.flipX = (targetPosition-transform.position).x < 0;
-        transform.position += (targetPosition-transform.position).normalized * ((movementSpeed/10f) * Time.deltaTime);
+        if ((playerStatsManager.health > 0 || !startFadeOut) && shouldMove)
+        {
+            spriteRenderer.flipX = (targetPosition-transform.position).x < 0;
+            transform.position += (targetPosition-transform.position).normalized * ((movementSpeed/10f) * Time.deltaTime);
+            targetPosition = playerScript.transform.position;
+        }
+    }
+
+    void MonsterAttack()
+    {
+        if(attackTimer > 0)
+        {
+            attackTimer -= Time.deltaTime;
+        }
+        if(attackTimer <= 0 && !shouldMove)
+        {
+            playerScript.HitByMonster();
+            attackTimer = attackSpeed;
+        }
     }
 }
