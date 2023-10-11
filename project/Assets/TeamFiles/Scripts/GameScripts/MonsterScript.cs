@@ -147,7 +147,7 @@ public class MonsterScript : MonoBehaviour
 
     void MonsterMove()
     {
-        if ((playerStatsManager.health > 0 || !startFadeOut) && shouldMove)
+        if (playerStatsManager.health > 0 && !startFadeOut && shouldMove)
         {
             spriteRenderer.flipX = (targetPosition-transform.position).x < 0;
             transform.position += (targetPosition-transform.position).normalized * ((movementSpeed/10f) * Time.deltaTime);
