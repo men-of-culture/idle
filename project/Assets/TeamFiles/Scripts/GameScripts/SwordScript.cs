@@ -12,8 +12,8 @@ public class SwordScript : MonoBehaviour
 
     public Vector2 nearestMonster;
 
-    private float degrees = 45f;
-    private float speed = 3f;
+    public float degrees = 45f;
+    public float duration = .33f;
     private bool targetCenter = true;
 
     // Start is called before the first frame update
@@ -42,8 +42,8 @@ public class SwordScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime*speed;
-        transform.Rotate(new Vector3(0, 0, 1f), degrees * Time.deltaTime / (1f/speed));
+        timer += Time.deltaTime/duration;
+        transform.Rotate(new Vector3(0, 0, 1f), degrees * Time.deltaTime / (1f*duration));
 
         if(timer >= 1f)
         {
