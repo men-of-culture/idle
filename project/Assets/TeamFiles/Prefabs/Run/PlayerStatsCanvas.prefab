@@ -1576,6 +1576,7 @@ MonoBehaviour:
   expGainText: {fileID: 2985548081496366529}
   goldCountText: {fileID: 6598121017751941616}
   expCountText: {fileID: 6960730913537330489}
+  stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
 --- !u!1 &4276627598000761901
 GameObject:
   m_ObjectHideFlags: 0

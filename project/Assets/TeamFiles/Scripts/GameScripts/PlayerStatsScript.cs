@@ -40,6 +40,7 @@ public class PlayerStatsScript : MonoBehaviour
     [SerializeField]
     private Text expCountText;
 
+    [SerializeField]
     private StringManager stringManager;
     
     // Start is called before the first frame update
