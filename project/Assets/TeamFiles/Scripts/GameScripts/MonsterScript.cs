@@ -58,6 +58,9 @@ public class MonsterScript : MonoBehaviour
         collider = GetComponent<CircleCollider2D>();
         lootList = GameObject.Find(stringManager.lootList).transform;
         shouldMove = true;
+        movementSpeed = Random.Range(movementSpeed*0.8f, movementSpeed*1.2f);
+        var x = Random.Range(0.8f, 1.2f);
+        transform.localScale = new Vector3(transform.localScale.x*x, transform.localScale.y*x, 1);
     }
 
     // Update is called once per frame
