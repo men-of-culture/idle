@@ -35,6 +35,16 @@ public class MonsterScript : MonoBehaviour
 
     private CircleCollider2D collider;
 
+    public GameObject lootPrefab;
+    public Transform lootList;
+
+    public bool shouldMove;
+    public float attackTimer = 0f;
+    public float attackSpeed = 1f;
+    public int damage = 1;
+    public int loot = 1;
+    public int health = 1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +52,15 @@ public class MonsterScript : MonoBehaviour
         //moveInterval = Random.Range(1f, 5f);
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerScript = FindObjectOfType<PlayerScript>();
-        targetPosition = playerScript.transform.position - transform.position;
-        spriteRenderer.flipX = targetPosition.x < 0;
+        //targetPosition = playerScript.transform.position;
+        //spriteRenderer.flipX = targetPosition.x < 0;
         deathAudioSource = transform.parent.GetComponent<AudioSource>();
         collider = GetComponent<CircleCollider2D>();
+        lootList = GameObject.Find(stringManager.lootList).transform;
+        shouldMove = true;
+        movementSpeed = Random.Range(movementSpeed*0.8f, movementSpeed*1.2f);
+        var x = Random.Range(0.8f, 1.2f);
+        transform.localScale = new Vector3(transform.localScale.x*x, transform.localScale.y*x, 1);
     }
 
     // Update is called once per frame
@@ -65,15 +80,19 @@ public class MonsterScript : MonoBehaviour
         
         //if (moveTimer <= 0)
         //{
-        if (playerStatsManager.health <= 0 || startFadeOut) return;
-            MonsterMove();
-        //    moveTimer = moveInterval;
+        
+        MonsterMove();
+        //    moveTimer = moveInterval; 
         //}
 
         //moveTimer -= Time.deltaTime;
         
-        // need to update this when player is moving
-        targetPosition = playerScript.transform.position - transform.position;
+        MonsterAttack();
+
+        if(!startFadeOut && health <= 0)
+        {
+            startFadeOut = true;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -81,12 +100,14 @@ public class MonsterScript : MonoBehaviour
         if (other.CompareTag(stringManager.playerTag))
         {
             Debug.Log("This monster trigger was hit by: "+other.name);
-            playerScript.HitByMonster();
-            Destroy(gameObject);
+            shouldMove = false;
         }
 
         if (other.CompareTag(stringManager.projectileTag))
         {
+            health -= playerScript.damage;
+            if(health > 0) return;
+
             deathAudioSource.Play();
             Debug.Log("This monster trigger was hit by: Projectile");
 
@@ -95,6 +116,14 @@ public class MonsterScript : MonoBehaviour
             fadeTimer = 1.0f;
             startFadeOut = true;
             collider.enabled = false;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(stringManager.playerTag))
+        {
+            shouldMove = true;
         }
     }
 
@@ -108,13 +137,39 @@ public class MonsterScript : MonoBehaviour
         }
         else if (fade && fadeTimer <= 0)
         {
+            playerStatsManager.kills++;
+            if(Random.Range(1, 3) == 2)
+            {
+                var x = Instantiate(lootPrefab, lootList);
+                x.transform.position = gameObject.transform.position;
+                x.GetComponent<LootScript>().loot = loot;
+            }
             Destroy(gameObject);
-            playerScript.Kill();
         }
     }
 
     void MonsterMove()
     {
-        transform.position += targetPosition * ((movementSpeed/100f) * Time.deltaTime);
+        if (playerStatsManager.health > 0 && !startFadeOut && shouldMove)
+        {
+            spriteRenderer.flipX = (targetPosition-transform.position).x < 0;
+            transform.position += (targetPosition-transform.position).normalized * ((movementSpeed/10f) * Time.deltaTime);
+            targetPosition = playerScript.transform.position;
+        }
+    }
+
+    void MonsterAttack()
+    {
+        if(playerStatsManager.health <= 0) return;
+
+        if(attackTimer > 0)
+        {
+            attackTimer -= Time.deltaTime;
+        }
+        if(attackTimer <= 0 && !shouldMove)
+        {
+            playerScript.HitByMonster(damage);
+            attackTimer = attackSpeed;
+        }
     }
 }

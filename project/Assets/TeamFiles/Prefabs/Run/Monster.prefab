@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1163337488, guid: 9407a89dfeee8d74d8c078f43e7bd7ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -141,6 +141,9 @@ MonoBehaviour:
   fadeTimer: 1
   movementSpeed: 10
   stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
+  deathAudioSource: {fileID: 0}
+  lootPrefab: {fileID: 3426835282050436179, guid: 2ea3cc976b4da1a4c8585e8ed2282dae, type: 3}
+  lootList: {fileID: 0}
 --- !u!95 &5934572231585500831
 Animator:
   serializedVersion: 5
