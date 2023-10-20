@@ -84,6 +84,10 @@ public class PlayerScript : MonoBehaviour
 
         playerStatsManager.armor += PlayerPrefs.GetInt(stringManager.upgradeFour);
         armorText.text = playerStatsManager.armor.ToString();
+
+        if(playerStatsManager.blessing == "sword") weapon = Weapon.Sword;
+        if(playerStatsManager.blessing == "arrow") weapon = Weapon.Arrow;
+        if(playerStatsManager.blessing == "bomb") weapon = Weapon.Bomb;
     }
 
     // Update is called once per frame

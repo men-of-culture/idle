@@ -18,6 +18,13 @@ public class PlayerCanvasScript : MonoBehaviour
     public PlayerStatsManager playerStatsManager;
     public MonsterSpawnerManager monsterSpawnerManager;
 
+    void Start()
+    {
+        if (playerStatsManager.blessing == "sword") ActivateSword();
+        if (playerStatsManager.blessing == "arrow") ActivateArrow();
+        if (playerStatsManager.blessing == "bomb") ActivateBomb();
+    }
+
     public void ActivateSword()
     {
         swordActiveImage.enabled = true;
@@ -27,6 +34,7 @@ public class PlayerCanvasScript : MonoBehaviour
         swordIcon.sizeDelta = new Vector2(90, 90);
         arrowIcon.sizeDelta = new Vector2(70, 70);
         bombIcon.sizeDelta = new Vector2(70, 70);
+        playerStatsManager.blessing = "sword";
     }
     public void ActivateArrow()
     {
@@ -37,6 +45,7 @@ public class PlayerCanvasScript : MonoBehaviour
         swordIcon.sizeDelta = new Vector2(70, 70);
         arrowIcon.sizeDelta = new Vector2(90, 90);
         bombIcon.sizeDelta = new Vector2(70, 70);
+        playerStatsManager.blessing = "arrow";
     }
     public void ActivateBomb()
     {
@@ -47,6 +56,7 @@ public class PlayerCanvasScript : MonoBehaviour
         swordIcon.sizeDelta = new Vector2(70, 70);
         arrowIcon.sizeDelta = new Vector2(70, 70);
         bombIcon.sizeDelta = new Vector2(90, 90);
+        playerStatsManager.blessing = "bomb";
     }
 
     public void MoreHealth()

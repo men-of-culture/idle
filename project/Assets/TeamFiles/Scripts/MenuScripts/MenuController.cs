@@ -52,16 +52,19 @@ public class MenuController : MonoBehaviour
     {
         playeruiCanvas.enabled = false;
         wizardCanvas.enabled = true;
+        escMenuScript.hasOpenCanvas = true;
     }
     public void ChurchToggle()
     {
         playeruiCanvas.enabled = false;
         churchCanvas.enabled = true;
+        escMenuScript.hasOpenCanvas = true;
     }
     public void KnightToggle()
     {
         playeruiCanvas.enabled = false;
         knightCanvas.enabled = true;
+        escMenuScript.hasOpenCanvas = true;
     }
 
     public void Back()

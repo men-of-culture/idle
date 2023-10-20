@@ -11,6 +11,7 @@ public class PlayerStatsManager : ScriptableObject
     public int kills = 0;
     public float volume = 1;
     public int loot = 0;
+    public string blessing = "sword";
 
     public void reset()
     {
