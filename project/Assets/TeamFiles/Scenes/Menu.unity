@@ -389,6 +389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EscapeMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8343958263867130326, guid: 66b9ea46c22b83147a1c7427fd4bbe4a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -521,6 +525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChurchCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4118906539970794102, guid: 71a8670d077461b4c80adcc685e8e6c0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7263984491998081540, guid: 71a8670d077461b4c80adcc685e8e6c0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -618,9 +626,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 986042877}
+    - target: {fileID: 718444893136691095, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -904
+      objectReference: {fileID: 0}
+    - target: {fileID: 856263934976375676, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -747
+      objectReference: {fileID: 0}
     - target: {fileID: 1035996766220184698, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: m_Name
       value: MainCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757064296151764178, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -905.45905
       objectReference: {fileID: 0}
     - target: {fileID: 1900336275713294597, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: m_Pivot.x
@@ -702,6 +722,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2509375750015210886, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -747
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773469522664971146, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3801528578893148060, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -747
+      objectReference: {fileID: 0}
     - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: backButton
       value: 
@@ -730,6 +762,18 @@ PrefabInstance:
       propertyPath: changeScenePrefab
       value: 
       objectReference: {fileID: 673104454}
+    - target: {fileID: 5649056614422160877, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -904
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169360141634877821, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011450141009357742, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -827,9 +871,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5699859265927205260, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6489076666394606243, guid: c4b682990d28f524daea8c738a49d953, type: 3}
       propertyPath: m_Name
       value: KnightCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489076666394606243, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8248704076420965673, guid: c4b682990d28f524daea8c738a49d953, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -935,6 +987,10 @@ PrefabInstance:
     - target: {fileID: 7362978788871296974, guid: 2cfaa9fbba710554ca5b5ac25685db05, type: 3}
       propertyPath: m_Name
       value: WizardCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362978788871296974, guid: 2cfaa9fbba710554ca5b5ac25685db05, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
