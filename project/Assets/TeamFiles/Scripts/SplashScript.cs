@@ -13,7 +13,7 @@ public class SplashScript : MonoBehaviour
     
     void Start()
     {
-        var volume = PlayerPrefs.GetFloat(stringManager.volume);
+        var volume = PlayerPrefs.GetFloat(stringManager.volume, 1);
         AudioListener.volume = volume;
         playerStatsManager.volume = volume;
     }
