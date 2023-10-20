@@ -626,21 +626,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 986042877}
-    - target: {fileID: 718444893136691095, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -904
-      objectReference: {fileID: 0}
-    - target: {fileID: 856263934976375676, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -747
-      objectReference: {fileID: 0}
     - target: {fileID: 1035996766220184698, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: m_Name
       value: MainCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1757064296151764178, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -905.45905
       objectReference: {fileID: 0}
     - target: {fileID: 1900336275713294597, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: m_Pivot.x
@@ -722,18 +710,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2509375750015210886, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -747
-      objectReference: {fileID: 0}
-    - target: {fileID: 2773469522664971146, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3801528578893148060, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -747
-      objectReference: {fileID: 0}
     - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: backButton
       value: 
@@ -762,18 +738,6 @@ PrefabInstance:
       propertyPath: changeScenePrefab
       value: 
       objectReference: {fileID: 673104454}
-    - target: {fileID: 5649056614422160877, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -904
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169360141634877821, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011450141009357742, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
