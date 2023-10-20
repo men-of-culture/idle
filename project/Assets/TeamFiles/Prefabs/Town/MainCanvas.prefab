@@ -258,7 +258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5649056614422160877
 RectTransform:
   m_ObjectHideFlags: 0
@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9e8893100b3cb4999a7790d86f1e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuCanvas: {fileID: 7196476040961256732}
+  playeruiCanvas: {fileID: 0}
   blacksmithCanvas: {fileID: 0}
   churchCanvas: {fileID: 0}
   wizardCanvas: {fileID: 0}
@@ -705,7 +705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &856263934976375676
 RectTransform:
   m_ObjectHideFlags: 0
@@ -914,7 +914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3801528578893148060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1996,7 +1996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1757064296151764178
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2423,7 +2423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2509375750015210886
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2558,7 +2558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3828345383615399495
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3049,7 +3049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &718444893136691095
 RectTransform:
   m_ObjectHideFlags: 0

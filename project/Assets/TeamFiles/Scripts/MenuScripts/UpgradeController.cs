@@ -10,7 +10,7 @@ public class UpgradeController : MonoBehaviour
     [SerializeField]
     private StringManager stringManager;
     
-    public Canvas menuCanvas, upgradeCanvas;
+    public Canvas playeruiCanvas, upgradeCanvas;
     public int priceMultiplier = 5;
 
     [SerializeField]
@@ -104,7 +104,7 @@ public class UpgradeController : MonoBehaviour
     public void Back()
     {
         upgradeCanvas.enabled = false;
-        menuCanvas.enabled = true;
+        playeruiCanvas.enabled = true;
         eventSystem.firstSelectedGameObject = upgradeButton;
     }
 

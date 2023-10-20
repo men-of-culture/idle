@@ -607,7 +607,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &914366146118629879
 MonoBehaviour:
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
-  menuCanvas: {fileID: 0}
+  playeruiCanvas: {fileID: 0}
   upgradeCanvas: {fileID: 7754630980009064353}
   priceMultiplier: 5
   upgradeButton: {fileID: 0}
