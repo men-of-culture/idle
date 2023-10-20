@@ -40,7 +40,7 @@ public class MenuController : MonoBehaviour
 
     public void BlacksmithToggle()
     {
-        menuCanvas.enabled = false;
+        //menuCanvas.enabled = false;
         blacksmithCanvas.enabled = true;
 
         eventSystem.firstSelectedGameObject = backButton;
