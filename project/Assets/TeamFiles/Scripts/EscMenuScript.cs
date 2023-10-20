@@ -50,6 +50,8 @@ public class EscMenuScript : MonoBehaviour
 
     [SerializeField]
     private MonsterSpawnerManager monsterSpawnerManager;
+
+    public bool hasOpenCanvas;
     
     // Start is called before the first frame update
     void Start()
@@ -108,7 +110,7 @@ public class EscMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !hasOpenCanvas)
         {
             ToggleEscMenu();
         }

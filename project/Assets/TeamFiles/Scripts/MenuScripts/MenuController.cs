@@ -23,6 +23,8 @@ public class MenuController : MonoBehaviour
 
     [SerializeField]
     private GameObject changeScenePrefab;
+
+    public EscMenuScript escMenuScript;
     
     void Update()
     {
@@ -44,6 +46,7 @@ public class MenuController : MonoBehaviour
         blacksmithCanvas.enabled = true;
 
         eventSystem.firstSelectedGameObject = backButton;
+        escMenuScript.hasOpenCanvas = true;
     }
     public void WizardToggle()
     {
@@ -68,6 +71,7 @@ public class MenuController : MonoBehaviour
         churchCanvas.enabled = false;
         wizardCanvas.enabled = false;
         blacksmithCanvas.enabled = false;
+        escMenuScript.hasOpenCanvas = false;
     }
 
     public void Exit()

@@ -730,6 +730,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 417787249}
     - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: escMenuScript
+      value: 
+      objectReference: {fileID: 986042877}
+    - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: playeruiCanvas
       value: 
       objectReference: {fileID: 6986493587125138580}
