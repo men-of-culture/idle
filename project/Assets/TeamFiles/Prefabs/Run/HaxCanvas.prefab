@@ -124,7 +124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7095940390158138140}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerCanvasScript, Assembly-CSharp
         m_MethodName: ActivateBomb
         m_Mode: 1
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7095940390158138140}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerCanvasScript, Assembly-CSharp
         m_MethodName: ActivateArrow
         m_Mode: 1
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7095940390158138140}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerCanvasScript, Assembly-CSharp
         m_MethodName: LessHealth
         m_Mode: 1
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7095940390158138140}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerCanvasScript, Assembly-CSharp
         m_MethodName: MoreHealth
         m_Mode: 1
@@ -1527,7 +1527,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7095940390158138140}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerCanvasScript, Assembly-CSharp
         m_MethodName: SlowAttack
         m_Mode: 1
@@ -1551,9 +1551,6 @@ GameObject:
   - component: {fileID: 885091684136461856}
   - component: {fileID: 6498162803493510643}
   - component: {fileID: 3657018945392306441}
-  - component: {fileID: 7011903815619526238}
-  - component: {fileID: 6805473310269074007}
-  - component: {fileID: 7095940390158138140}
   m_Layer: 5
   m_Name: HaxCanvas
   m_TagString: Untagged
@@ -1653,145 +1650,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!95 &7011903815619526238
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160995394549639121}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6b10673d02668804da8e3126aa8bd669, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!82 &6805473310269074007
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160995394549639121}
-  m_Enabled: 0
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 440a5d754df895342ac655fce4d4f89d, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.2
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &7095940390158138140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160995394549639121}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be2124c62d9b13b42bd44b1e362b929d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordActiveImage: {fileID: 2970601399032833334}
-  arrowActiveImage: {fileID: 4815681353247480764}
-  bombActiveImage: {fileID: 1032546945574379199}
-  swordIcon: {fileID: 6082538535696206348}
-  arrowIcon: {fileID: 3779140305187169727}
-  bombIcon: {fileID: 5474646009584231675}
-  playerCanvasScript: {fileID: 7095940390158138140}
-  playerScript: {fileID: 0}
-  playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
-  monsterSpawnerManager: {fileID: 0}
 --- !u!1 &5815554578213521285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,7 +1771,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7095940390158138140}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerCanvasScript, Assembly-CSharp
         m_MethodName: MoreTime
         m_Mode: 1
@@ -2180,7 +2038,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7095940390158138140}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerCanvasScript, Assembly-CSharp
         m_MethodName: ResetTime
         m_Mode: 1
@@ -2675,7 +2533,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7095940390158138140}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerCanvasScript, Assembly-CSharp
         m_MethodName: ActivateSword
         m_Mode: 1
@@ -2808,7 +2666,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7095940390158138140}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerCanvasScript, Assembly-CSharp
         m_MethodName: NormalAttack
         m_Mode: 1
@@ -3343,7 +3201,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7095940390158138140}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerCanvasScript, Assembly-CSharp
         m_MethodName: FastAttack
         m_Mode: 1

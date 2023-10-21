@@ -1109,6 +1109,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1426927281406249659, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
   m_PrefabInstance: {fileID: 3735097021933209021}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5454520377492430127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
+  m_PrefabInstance: {fileID: 3735097021933209021}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5454520377492430126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2124c62d9b13b42bd44b1e362b929d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5823368800104339606 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6715219111564804520, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
@@ -1204,6 +1215,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4676313890922835668}
     m_Modifications:
+    - target: {fileID: 1374769687680947392, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
+    - target: {fileID: 1394906750865055996, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
+    - target: {fileID: 3747354361591408005, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
     - target: {fileID: 4983191587828182433, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1288,18 +1311,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: HaxCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7095940390158138140, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
-      propertyPath: playerScript
-      value: 
-      objectReference: {fileID: 681161061}
-    - target: {fileID: 7095940390158138140, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
-      propertyPath: monsterSpawnerManager
-      value: 
-      objectReference: {fileID: 279561450}
-    m_RemovedComponents:
-    - {fileID: 7095940390158138140, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
-    - {fileID: 6805473310269074007, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
-    - {fileID: 7011903815619526238, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
