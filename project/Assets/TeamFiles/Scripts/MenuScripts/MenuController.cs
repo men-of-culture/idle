@@ -11,6 +11,7 @@ public class MenuController : MonoBehaviour
     public Canvas churchCanvas;
     public Canvas wizardCanvas;
     public Canvas knightCanvas;
+    public Canvas playerCanvas;
 
     [SerializeField]
     private PlayerStatsManager playerStatsManager;
@@ -67,10 +68,18 @@ public class MenuController : MonoBehaviour
         escMenuScript.hasOpenCanvas = true;
     }
 
+    public void PlayerToggle()
+    {
+        playeruiCanvas.enabled = false;
+        playerCanvas.enabled = true;
+        escMenuScript.hasOpenCanvas = true;
+    }
+
     public void Back()
     {
         playeruiCanvas.enabled = true;
         knightCanvas.enabled = false;
+        playerCanvas.enabled = false;
         churchCanvas.enabled = false;
         wizardCanvas.enabled = false;
         blacksmithCanvas.enabled = false;
