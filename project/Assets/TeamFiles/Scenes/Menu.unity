@@ -389,10 +389,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EscapeMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 8343958263867130326, guid: 66b9ea46c22b83147a1c7427fd4bbe4a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -853,26 +849,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699859265927205260, guid: c4b682990d28f524daea8c738a49d953, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5699859265927205260, guid: c4b682990d28f524daea8c738a49d953, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
+    - target: {fileID: 615530403773430013, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1580509396}
     - target: {fileID: 6489076666394606243, guid: c4b682990d28f524daea8c738a49d953, type: 3}
       propertyPath: m_Name
       value: KnightCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6489076666394606243, guid: c4b682990d28f524daea8c738a49d953, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8248704076420965673, guid: c4b682990d28f524daea8c738a49d953, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1580509396}
+    - target: {fileID: 8467674059596971781, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1744732582}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -966,10 +958,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3832536585372469513, guid: 2cfaa9fbba710554ca5b5ac25685db05, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
+    - target: {fileID: 3872703613418563424, guid: 2cfaa9fbba710554ca5b5ac25685db05, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1744732582}
     - target: {fileID: 6178445343093533080, guid: 2cfaa9fbba710554ca5b5ac25685db05, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -978,10 +970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WizardCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7362978788871296974, guid: 2cfaa9fbba710554ca5b5ac25685db05, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 7626027872858175750, guid: 2cfaa9fbba710554ca5b5ac25685db05, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1580509396}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
