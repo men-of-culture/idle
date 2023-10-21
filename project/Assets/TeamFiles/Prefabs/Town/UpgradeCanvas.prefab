@@ -667,6 +667,7 @@ MonoBehaviour:
   priceMultiplier: 5
   upgradeButton: {fileID: 0}
   eventSystem: {fileID: 0}
+  mageCurrencyText: {fileID: 0}
   currencyText: {fileID: 598585570233570857}
   mainCurrencyText: {fileID: 0}
   lifetimeKillsText: {fileID: 0}
@@ -701,10 +702,10 @@ MonoBehaviour:
   swordButtonbg: {fileID: 7944962922348253231}
   helmButtonbg: {fileID: 4289155745686638579}
   shieldButtonbg: {fileID: 1048235685784306246}
-  npcDmgText: {fileID: 5600592837672448568}
-  npcAttspdText: {fileID: 8343469475588174279}
-  npcHealthText: {fileID: 3361478619763397358}
-  npcArmorText: {fileID: 5853695369540008692}
+  npcDmgText: {fileID: 0}
+  npcAttspdText: {fileID: 0}
+  npcHealthText: {fileID: 0}
+  npcArmorText: {fileID: 0}
 --- !u!1 &1757185356361185917
 GameObject:
   m_ObjectHideFlags: 0

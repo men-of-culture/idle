@@ -21,6 +21,8 @@ public class ChurchCanvasScript : MonoBehaviour
 
     public Canvas playeruiCanvas, churchCanvas;
 
+    public Image swordBlessingImage, arrowBlessingImage, bombBlessingImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,11 @@ public class ChurchCanvasScript : MonoBehaviour
         bombContext.enabled = false;
 
         playerStatsManager.blessing = "sword";
+
+        swordBlessingImage.enabled = true;
+        arrowBlessingImage.enabled = false;
+        bombBlessingImage.enabled = false;
+        
     }
     public void SelectArrow()
     {
@@ -58,6 +65,10 @@ public class ChurchCanvasScript : MonoBehaviour
         bombContext.enabled = false;
 
         playerStatsManager.blessing = "arrow";
+
+        swordBlessingImage.enabled = false;
+        arrowBlessingImage.enabled = true;
+        bombBlessingImage.enabled = false;
     }
     public void SelectBomb()
     {
@@ -70,5 +81,9 @@ public class ChurchCanvasScript : MonoBehaviour
         bombContext.enabled = true;
 
         playerStatsManager.blessing = "bomb";
+
+        swordBlessingImage.enabled = false;
+        arrowBlessingImage.enabled = false;
+        bombBlessingImage.enabled = true;
     }
 }

@@ -20,6 +20,9 @@ public class UpgradeController : MonoBehaviour
     private EventSystem eventSystem;
 
     [SerializeField]
+    private TextMeshProUGUI mageCurrencyText;
+
+    [SerializeField]
     private TextMeshProUGUI currencyText;
     
     [SerializeField]
@@ -68,6 +71,7 @@ public class UpgradeController : MonoBehaviour
     {
         // Set initial currency text
         currencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
+        mageCurrencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
 
         // Set initial mainCurrency text
         mainCurrencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
@@ -89,6 +93,25 @@ public class UpgradeController : MonoBehaviour
         foreach (var upgrade in upgradeList)
         {
             upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
+            // temp "show upgrade lvl" fix
+            if(upgrade.Item2 == "upgradeOne")
+            {
+                upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
+            }
+            if(upgrade.Item2 == "upgradeThree")
+            {
+                var x = PlayerPrefs.GetInt(upgrade.Item2);
+                var y = x-1;
+                var z = y/5;
+                upgrade.Item1.text = z.ToString();
+            }
+            if(upgrade.Item2 == "upgradeFour")
+            {
+                var x = PlayerPrefs.GetInt(upgrade.Item2);
+                var y = x-1;
+                var z = y/2;
+                upgrade.Item1.text = z.ToString();
+            }
         }
 
         var upgradex = upgradeList[1];
@@ -121,11 +144,33 @@ public class UpgradeController : MonoBehaviour
         PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) - (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier));
         currencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
         mainCurrencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
+        mageCurrencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
         
         // Upgrade
         var upgradeMultiplier = upgradeListIndex > 1 ? upgradeListIndex == 2 ? 5 : 2 : 1; 
         PlayerPrefs.SetInt(upgrade.Item2, PlayerPrefs.GetInt(upgrade.Item2) + upgradeMultiplier);
         upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
+
+        // temp upgrade text fix
+        if(upgrade.Item2 == "upgradeOne")
+        {
+            upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
+        }
+        if(upgrade.Item2 == "upgradeThree")
+        {
+            var x = PlayerPrefs.GetInt(upgrade.Item2);
+            var y = x-1;
+            var z = y/5;
+            upgrade.Item1.text = z.ToString();
+        }
+        if(upgrade.Item2 == "upgradeFour")
+        {
+            var x = PlayerPrefs.GetInt(upgrade.Item2);
+            var y = x-1;
+            var z = y/2;
+            upgrade.Item1.text = z.ToString();
+        }
+        //
 
         var currencyTextObj = upgradeListIndex > 1 ? upgradeListIndex == 2 ? helmBuytext : shieldBuytext : swordBuytext; 
         currencyTextObj.text = (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier).ToString();

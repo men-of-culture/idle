@@ -1321,6 +1321,9 @@ MonoBehaviour:
   playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
   playeruiCanvas: {fileID: 0}
   churchCanvas: {fileID: 6825209979677166987}
+  swordBlessingImage: {fileID: 0}
+  arrowBlessingImage: {fileID: 0}
+  bombBlessingImage: {fileID: 0}
 --- !u!1 &4187864959347347611
 GameObject:
   m_ObjectHideFlags: 0
