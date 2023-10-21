@@ -1223,7 +1223,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5454520377492430127}
+    - target: {fileID: 2628331098948735687, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
     - target: {fileID: 3747354361591408005, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
+    - target: {fileID: 4408632110088001615, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5454520377492430127}
@@ -1311,6 +1319,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: HaxCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5812892806665311290, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
+    - target: {fileID: 5971760569360518571, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
+    - target: {fileID: 8221822020458026031, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
+    - target: {fileID: 8731875754814282024, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
+    - target: {fileID: 8837339607817209886, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
