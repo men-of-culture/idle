@@ -102,9 +102,9 @@ public class PlayerCanvasScript : MonoBehaviour
         bombIcon.sizeDelta = new Vector2(70, 70);
         playerStatsManager.blessing = "sword";
 
-        swordBlessingImage.enabled = true;
+        /*swordBlessingImage.enabled = true;
         arrowBlessingImage.enabled = false;
-        bombBlessingImage.enabled = false;
+        bombBlessingImage.enabled = false;*/
     }
     public void ActivateArrow()
     {
@@ -117,9 +117,9 @@ public class PlayerCanvasScript : MonoBehaviour
         bombIcon.sizeDelta = new Vector2(70, 70);
         playerStatsManager.blessing = "arrow";
 
-        swordBlessingImage.enabled = false;
+        /*swordBlessingImage.enabled = false;
         arrowBlessingImage.enabled = true;
-        bombBlessingImage.enabled = false;
+        bombBlessingImage.enabled = false;*/
     }
     public void ActivateBomb()
     {
@@ -132,9 +132,9 @@ public class PlayerCanvasScript : MonoBehaviour
         bombIcon.sizeDelta = new Vector2(90, 90);
         playerStatsManager.blessing = "bomb";
 
-        swordBlessingImage.enabled = false;
+        /*swordBlessingImage.enabled = false;
         arrowBlessingImage.enabled = false;
-        bombBlessingImage.enabled = true;
+        bombBlessingImage.enabled = true;*/
     }
 
     public void MoreHealth()
