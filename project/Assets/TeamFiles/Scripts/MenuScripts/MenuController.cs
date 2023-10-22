@@ -43,6 +43,7 @@ public class MenuController : MonoBehaviour
 
     public void BlacksmithToggle()
     {
+        Back();
         playeruiCanvas.enabled = false;
         blacksmithCanvas.enabled = true;
 
@@ -51,18 +52,21 @@ public class MenuController : MonoBehaviour
     }
     public void WizardToggle()
     {
+        Back();
         playeruiCanvas.enabled = false;
         wizardCanvas.enabled = true;
         escMenuScript.hasOpenCanvas = true;
     }
     public void ChurchToggle()
     {
+        Back();
         playeruiCanvas.enabled = false;
         churchCanvas.enabled = true;
         escMenuScript.hasOpenCanvas = true;
     }
     public void KnightToggle()
     {
+        Back();
         playeruiCanvas.enabled = false;
         knightCanvas.enabled = true;
         escMenuScript.hasOpenCanvas = true;
@@ -70,6 +74,7 @@ public class MenuController : MonoBehaviour
 
     public void PlayerToggle()
     {
+        Back();
         playeruiCanvas.enabled = false;
         playerCanvas.enabled = true;
         escMenuScript.hasOpenCanvas = true;
