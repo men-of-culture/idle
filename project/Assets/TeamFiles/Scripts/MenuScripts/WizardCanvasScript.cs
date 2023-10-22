@@ -41,6 +41,10 @@ public class WizardCanvasScript : MonoBehaviour
     void Start()
     {
         // add to playerprefs and check, set playerStatsManger.perkx = 1 here
+        if(PlayerPrefs.GetInt("perk1", 0) == 1) playerStatsManager.perk1 = 1;
+        if(PlayerPrefs.GetInt("perk2", 0) == 1) playerStatsManager.perk2 = 1;
+        if(PlayerPrefs.GetInt("perk3", 0) == 1) playerStatsManager.perk3 = 1;
+
         if (playerStatsManager.perk1 == 1) ActivatePerk1();
         if (playerStatsManager.perk2 == 1) ActivatePerk2();
         if (playerStatsManager.perk3 == 1) ActivatePerk3();
@@ -59,6 +63,7 @@ public class WizardCanvasScript : MonoBehaviour
         if(PlayerPrefs.GetInt("currency") < 500) return;
 
         PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - 500);
+        PlayerPrefs.SetInt("perk1", 1);
         currencyText.text = PlayerPrefs.GetInt("currency").ToString();
         playerStatsManager.perk1 = 1;
         ActivatePerk1();
@@ -68,6 +73,7 @@ public class WizardCanvasScript : MonoBehaviour
         if(PlayerPrefs.GetInt("currency") < 500) return;
         
         PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - 500);
+        PlayerPrefs.SetInt("perk2", 1);
         currencyText.text = PlayerPrefs.GetInt("currency").ToString();
         playerStatsManager.perk2 = 1;
         ActivatePerk2();
@@ -77,6 +83,7 @@ public class WizardCanvasScript : MonoBehaviour
         if(PlayerPrefs.GetInt("currency") < 5000) return;
 
         PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - 5000);
+        PlayerPrefs.SetInt("perk3", 1);
         currencyText.text = PlayerPrefs.GetInt("currency").ToString();
         playerStatsManager.perk3 = 1;
         ActivatePerk3();

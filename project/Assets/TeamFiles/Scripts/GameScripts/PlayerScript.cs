@@ -136,7 +136,7 @@ public class PlayerScript : MonoBehaviour
 
     void SecondTargetPerk(Vector2 dirToSecondNearestMonster)
     {
-        if(playerStatsManager.perk2 != 1) return;
+        if(playerStatsManager.perk3 != 1) return;
         if(dirToSecondNearestMonster.magnitude < attackRange)
         {
             if(weapon == Weapon.Sword)
