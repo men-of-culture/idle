@@ -20,11 +20,75 @@ public class PlayerCanvasScript : MonoBehaviour
 
     public Image swordBlessingImage, arrowBlessingImage, bombBlessingImage;
 
+    public Image perk1ActiveImage, perk2ActiveImage, perk3ActiveImage;
+
     void Start()
     {
         if (playerStatsManager.blessing == "sword") ActivateSword();
         if (playerStatsManager.blessing == "arrow") ActivateArrow();
         if (playerStatsManager.blessing == "bomb") ActivateBomb();
+
+        if(PlayerPrefs.GetInt("perk1") == 1)
+        {
+            playerStatsManager.perk1 = 1;
+            perk1ActiveImage.enabled = true;
+        }
+        if(PlayerPrefs.GetInt("perk2") == 1)
+        {
+            playerStatsManager.perk2 = 1;
+            perk2ActiveImage.enabled = true;
+        }
+        if(PlayerPrefs.GetInt("perk3") == 1)
+        {
+            playerStatsManager.perk3 = 1;
+            perk3ActiveImage.enabled = true;
+        }
+    }
+
+    public void TogglePerk1()
+    {
+        if(PlayerPrefs.GetInt("perk1") == 1)
+        {
+            PlayerPrefs.SetInt("perk1", 0);
+            playerStatsManager.perk1 = 0;
+            perk1ActiveImage.enabled = false;
+        }
+        else if(PlayerPrefs.GetInt("perk1") == 0)
+        {
+            PlayerPrefs.SetInt("perk1", 1);
+            playerStatsManager.perk1 = 1;
+            perk1ActiveImage.enabled = true;
+        }
+    }
+    public void TogglePerk2()
+    {
+        if(PlayerPrefs.GetInt("perk2") == 1)
+        {
+            PlayerPrefs.SetInt("perk2", 0);
+            playerStatsManager.perk2 = 0;
+            perk2ActiveImage.enabled = false;
+        }
+        else if(PlayerPrefs.GetInt("perk2") == 0)
+        {
+            PlayerPrefs.SetInt("perk2", 1);
+            playerStatsManager.perk2 = 1;
+            perk2ActiveImage.enabled = true;
+        }
+    }
+    public void TogglePerk3()
+    {
+        if(PlayerPrefs.GetInt("perk3") == 1)
+        {
+            PlayerPrefs.SetInt("perk3", 0);
+            playerStatsManager.perk3 = 0;
+            perk3ActiveImage.enabled = false;
+        }
+        else if(PlayerPrefs.GetInt("perk3") == 0)
+        {
+            PlayerPrefs.SetInt("perk3", 1);
+            playerStatsManager.perk3 = 1;
+            perk3ActiveImage.enabled = true;
+        }
     }
 
     public void ActivateSword()
