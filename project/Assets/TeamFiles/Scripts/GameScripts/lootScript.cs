@@ -11,12 +11,16 @@ public class LootScript : MonoBehaviour
 
     [SerializeField]
     private StringManager stringManager;
+    
+    [SerializeField]
+    private PlayerStatsManager playerStatsManager;
     private bool startFadeOut;
     private BoxCollider2D collider;
     private PlayerScript playerScript;
     private PlayerMovementScript playerMovementScript;
     private bool fadeIn;
     public int loot;
+    public int lootMagnetSpeed = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +38,7 @@ public class LootScript : MonoBehaviour
     {
         StartFadeIn();
         StartFadeOut();
+        LootMagnetPerk();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -46,6 +51,14 @@ public class LootScript : MonoBehaviour
             collider.enabled = false;
             playerMovementScript.StartPause();
             fadeTimer = 1.0f;
+        }
+    }
+
+    void LootMagnetPerk()
+    {
+        if(playerStatsManager.perk1 == 1 && !fadeIn && !startFadeOut)
+        {
+            transform.position += ((playerScript.transform.position-transform.position).normalized*Time.deltaTime/10)*lootMagnetSpeed;
         }
     }
 

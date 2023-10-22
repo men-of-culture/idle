@@ -68,6 +68,8 @@ public class PlayerScript : MonoBehaviour
 
     public Weapon weapon;
     public int damage;
+
+    public float armorRegenTimer = 10f;
     
     // Start is called before the first frame update
     void Start()
@@ -98,6 +100,7 @@ public class PlayerScript : MonoBehaviour
         if(weapon == Weapon.Arrow) attackRange = 20;
 
         var dirToNearestMonster = DrawAttackRangeCircle();
+        var dirToSecondNearestMonster = SecondNearestMonster();
 
         if(attackSpeedTimer >= playerStatsManager.attackSpeed && monsterList.transform.childCount > 0 && playerStatsManager.health > 0 && dirToNearestMonster.magnitude < attackRange)
         {
@@ -105,22 +108,68 @@ public class PlayerScript : MonoBehaviour
             {
                 var x = Instantiate(bombPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
                 x.GetComponent<ProjectileScript>().nearestMonster = dirToNearestMonster;
+                
+                SecondTargetPerk(dirToSecondNearestMonster);
             }
             if(weapon == Weapon.Arrow)
             {
                 var x = Instantiate(arrowPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
                 x.GetComponent<ArrowScript>().nearestMonster = dirToNearestMonster;
+
+                SecondTargetPerk(dirToSecondNearestMonster);
             }
             if(weapon == Weapon.Sword)
             {
                 var x = Instantiate(swordPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
                 x.GetComponent<SwordScript>().nearestMonster = dirToNearestMonster;
                 x.transform.parent = transform;
+
+                SecondTargetPerk(dirToSecondNearestMonster);
             }
 
             attackSpeedTimer = 0f;
         }
         attackSpeedTimer += Time.deltaTime;
+
+        ArmorRegenPerk();
+    }
+
+    void SecondTargetPerk(Vector2 dirToSecondNearestMonster)
+    {
+        if(playerStatsManager.perk2 != 1) return;
+        if(dirToSecondNearestMonster.magnitude < attackRange)
+        {
+            if(weapon == Weapon.Sword)
+            {
+                var x = Instantiate(swordPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
+                x.GetComponent<SwordScript>().nearestMonster = dirToSecondNearestMonster;
+                x.transform.parent = transform;
+            }
+            if(weapon == Weapon.Arrow)
+            {
+                var x = Instantiate(arrowPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
+                x.GetComponent<ArrowScript>().nearestMonster = dirToSecondNearestMonster;
+            }
+            if(weapon == Weapon.Bomb)
+            {
+                var x = Instantiate(bombPrefab, new Vector3(transform.position.x-0.5f, transform.position.y, 0), Quaternion.identity, projectileList.transform);
+                x.GetComponent<ProjectileScript>().nearestMonster = dirToSecondNearestMonster;
+            }
+        }
+    }
+
+    void ArmorRegenPerk()
+    {
+        if(playerStatsManager.perk2 == 1)
+        {
+            armorRegenTimer -= Time.deltaTime;
+            if(playerStatsManager.armor < PlayerPrefs.GetInt(stringManager.upgradeFour) && armorRegenTimer <= 0)
+            {
+                playerStatsManager.armor += 1;
+                armorRegenTimer = 10f;
+                armorText.text = playerStatsManager.armor.ToString();
+            }
+        }
     }
 
     Vector2 DrawAttackRangeCircle()
@@ -169,6 +218,28 @@ public class PlayerScript : MonoBehaviour
             }
         }
         return nearestMonster;
+    }
+
+    private Vector2 SecondNearestMonster()
+    {
+        // TODO: Look at it when it's not 2AM in the morning
+        var nearestMonster = new Vector2(100f, 100f);
+        var secondNearestMonster = new Vector2(100f, 100f);
+        monsterList = GameObject.Find(stringManager.monsterList);
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        foreach(Transform potentialTarget in monsterList.transform)
+        {
+            Vector2 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if(dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                secondNearestMonster = nearestMonster;
+                nearestMonster = directionToTarget;
+            }
+        }
+        return secondNearestMonster;
     }
 
     public void HitByMonster(int monsterDamage)
