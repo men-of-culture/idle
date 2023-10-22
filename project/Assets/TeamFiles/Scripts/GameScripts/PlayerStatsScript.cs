@@ -42,6 +42,9 @@ public class PlayerStatsScript : MonoBehaviour
 
     [SerializeField]
     private StringManager stringManager;
+
+    [SerializeField]
+    private EscMenuScript escMenuScript;
     
     // Start is called before the first frame update
     void Start()
@@ -70,6 +73,7 @@ public class PlayerStatsScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             playerStatsCanvas.enabled = false;
+            escMenuScript.hasOpenCanvas = false;
         }
         
     }
@@ -77,5 +81,7 @@ public class PlayerStatsScript : MonoBehaviour
     public void TogglePlayerStats()
     {
         playerStatsCanvas.enabled = !playerStatsCanvas.enabled;
+        if (playerStatsCanvas.enabled) escMenuScript.hasOpenCanvas = true;
+        else escMenuScript.hasOpenCanvas = false;
     }
 }

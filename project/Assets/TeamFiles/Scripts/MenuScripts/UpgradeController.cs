@@ -136,44 +136,35 @@ public class UpgradeController : MonoBehaviour
     {
         // Find upgrade from index in upgradeList
         var upgrade = upgradeList[upgradeListIndex];
+        var upgradeMultiplier = upgradeListIndex > 1 ? upgradeListIndex == 2 ? 5 : 2 : 1;
+
+        var x = PlayerPrefs.GetInt(upgrade.Item2);
+        var y = x-1;
+        var z = y/upgradeMultiplier;
+
+        // temp upgrade text fix
+        //if (upgrade.Item2 == "upgradeThree") z = y/5;
+        //if (upgrade.Item2 == "upgradeFour") z = y/2;
         
         // Price check
-        if (!(PlayerPrefs.GetInt(stringManager.currency) >= PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier)) return;
+        if (!(PlayerPrefs.GetInt(stringManager.currency) >= z * priceMultiplier)) return;
         
         // Pay
-        PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) - (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier));
+        PlayerPrefs.SetInt(stringManager.currency, PlayerPrefs.GetInt(stringManager.currency) - z * priceMultiplier);
         currencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
         mainCurrencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
         mageCurrencyText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
         
         // Upgrade
-        var upgradeMultiplier = upgradeListIndex > 1 ? upgradeListIndex == 2 ? 5 : 2 : 1; 
         PlayerPrefs.SetInt(upgrade.Item2, PlayerPrefs.GetInt(upgrade.Item2) + upgradeMultiplier);
         upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
-
-        // temp upgrade text fix
-        if(upgrade.Item2 == "upgradeOne")
-        {
-            upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
-        }
-        if(upgrade.Item2 == "upgradeThree")
-        {
-            var x = PlayerPrefs.GetInt(upgrade.Item2);
-            var y = x-1;
-            var z = y/5;
-            upgrade.Item1.text = z.ToString();
-        }
-        if(upgrade.Item2 == "upgradeFour")
-        {
-            var x = PlayerPrefs.GetInt(upgrade.Item2);
-            var y = x-1;
-            var z = y/2;
-            upgrade.Item1.text = z.ToString();
-        }
+            
+        // temp fix
+        upgrade.Item1.text = z.ToString();
         //
 
         var currencyTextObj = upgradeListIndex > 1 ? upgradeListIndex == 2 ? helmBuytext : shieldBuytext : swordBuytext; 
-        currencyTextObj.text = (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier).ToString();
+        currencyTextObj.text = (z * priceMultiplier).ToString();
 
         // refresh npc icons text
         npcDmgText.text = PlayerPrefs.GetInt(upgradeList[0].Item2).ToString();
@@ -236,7 +227,7 @@ public class UpgradeController : MonoBehaviour
         shieldBuytext.enabled = false;
 
         var upgrade = upgradeList[2];
-        helmBuytext.text = (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier).ToString();
+        helmBuytext.text = (PlayerPrefs.GetInt(upgrade.Item2) / 5 * priceMultiplier).ToString();
     }
     public void SelectShieldUpgrade()
     {
@@ -264,6 +255,6 @@ public class UpgradeController : MonoBehaviour
         shieldBuytext.enabled = true;
 
         var upgrade = upgradeList[3];
-        shieldBuytext.text = (PlayerPrefs.GetInt(upgrade.Item2) * priceMultiplier).ToString();
+        shieldBuytext.text = (PlayerPrefs.GetInt(upgrade.Item2) / 2 * priceMultiplier).ToString();
     }
 }
