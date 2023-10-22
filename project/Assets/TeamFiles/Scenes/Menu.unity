@@ -280,6 +280,17 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 5699859265927205260, guid: c4b682990d28f524daea8c738a49d953, type: 3}
   m_PrefabInstance: {fileID: 3556569684817628287}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &825986708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2938720085663413135, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
+  m_PrefabInstance: {fileID: 5640626029484172356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &986042877 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 745365721043427583, guid: 66b9ea46c22b83147a1c7427fd4bbe4a, type: 3}
@@ -1417,6 +1428,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 202646988158544075}
     - target: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
+      propertyPath: ascensionText
+      value: 
+      objectReference: {fileID: 825986708}
+    - target: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
       propertyPath: npcAttspdText
       value: 
       objectReference: {fileID: 5195402257911345367}
@@ -1431,7 +1446,7 @@ PrefabInstance:
     - target: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
       propertyPath: longestRunText
       value: 
-      objectReference: {fileID: 241057510776265039}
+      objectReference: {fileID: 8675783119145453179}
     - target: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
       propertyPath: playeruiCanvas
       value: 
@@ -1447,7 +1462,7 @@ PrefabInstance:
     - target: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
       propertyPath: lifetimeKillsText
       value: 
-      objectReference: {fileID: 8675783119145453179}
+      objectReference: {fileID: 241057510776265039}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

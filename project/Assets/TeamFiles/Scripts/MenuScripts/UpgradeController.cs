@@ -33,6 +33,9 @@ public class UpgradeController : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI longestRunText;
+
+    [SerializeField]
+    private TextMeshProUGUI ascensionText;
     
     [SerializeField]
     private List<TextMeshProUGUI> upgradeTextObjects;
@@ -81,6 +84,9 @@ public class UpgradeController : MonoBehaviour
 
         // set Longest run text
         longestRunText.text = PlayerPrefs.GetInt(stringManager.longestRun).ToString("F0");
+
+        // set ascension
+        ascensionText.text = PlayerPrefs.GetInt("ascension").ToString("F0");
 
         // Add all upgradeTextObjects and upgradeNames to upgradeList
         upgradeList = new List<Tuple<TextMeshProUGUI, string>>();

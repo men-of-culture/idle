@@ -27,6 +27,9 @@ public class PlayerStatsScript : MonoBehaviour
     private TextMeshProUGUI lifetimeKillsText;
 
     [SerializeField]
+    private TextMeshProUGUI ascensionText;
+
+    [SerializeField]
     private Text projectileCountText;
 
     [SerializeField]
@@ -64,6 +67,7 @@ public class PlayerStatsScript : MonoBehaviour
         healthText.text = PlayerPrefs.GetInt(stringManager.upgradeThree, 10).ToString();
         armorText.text = PlayerPrefs.GetInt(stringManager.upgradeFour).ToString();
         goldCountText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
+        ascensionText.text = PlayerPrefs.GetInt("ascension").ToString();
         //expCountText.text = PlayerPrefs.GetInt(stringManager.lifetimeKills).ToString();
         playerStatsCanvas = GetComponent<Canvas>();
 
