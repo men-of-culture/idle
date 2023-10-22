@@ -139,7 +139,7 @@ public class UpgradeController : MonoBehaviour
         var upgradeMultiplier = upgradeListIndex > 1 ? upgradeListIndex == 2 ? 5 : 2 : 1;
 
         var x = PlayerPrefs.GetInt(upgrade.Item2);
-        var y = x-1;
+        var y = x/*-1*/;
         var z = y/upgradeMultiplier;
 
         // temp upgrade text fix
@@ -160,7 +160,7 @@ public class UpgradeController : MonoBehaviour
         upgrade.Item1.text = PlayerPrefs.GetInt(upgrade.Item2).ToString();
             
         // temp fix
-        upgrade.Item1.text = z.ToString();
+        upgrade.Item1.text = (z+1).ToString();
         //
 
         var currencyTextObj = upgradeListIndex > 1 ? upgradeListIndex == 2 ? helmBuytext : shieldBuytext : swordBuytext; 
