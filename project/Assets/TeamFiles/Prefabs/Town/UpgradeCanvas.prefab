@@ -672,6 +672,7 @@ MonoBehaviour:
   mainCurrencyText: {fileID: 0}
   lifetimeKillsText: {fileID: 0}
   longestRunText: {fileID: 0}
+  ascensionText: {fileID: 0}
   upgradeTextObjects:
   - {fileID: 7028556799549521660}
   - {fileID: 5802534753168737099}
@@ -679,7 +680,7 @@ MonoBehaviour:
   - {fileID: 1924682942213625209}
   upgradeNames:
   - upgradeOne
-  - upgradeTwo
+  - upgradeOne
   - upgradeThree
   - upgradeFour
   selectedColor: {r: 1, g: 0.9921569, b: 0.50980395, a: 1}

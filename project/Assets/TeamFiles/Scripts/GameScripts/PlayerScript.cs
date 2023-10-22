@@ -81,7 +81,7 @@ public class PlayerScript : MonoBehaviour
         playerStatsManager.damage += PlayerPrefs.GetInt(stringManager.upgradeOne);
         damage = playerStatsManager.damage;
 
-        playerStatsManager.attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeTwo, 1);
+        playerStatsManager.attackSpeed *= 1f / (float)PlayerPrefs.GetInt(stringManager.upgradeOne, 1);
         attspdText.text = (1f/playerStatsManager.attackSpeed).ToString("F1")+"/s";
 
         playerStatsManager.armor += PlayerPrefs.GetInt(stringManager.upgradeFour);

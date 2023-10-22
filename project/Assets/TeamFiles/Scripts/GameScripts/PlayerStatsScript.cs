@@ -63,7 +63,7 @@ public class PlayerStatsScript : MonoBehaviour
     void Start()
     {
         damageText.text = PlayerPrefs.GetInt(stringManager.upgradeOne, 1).ToString();
-        attackSpeedText.text = PlayerPrefs.GetInt(stringManager.upgradeTwo, 1).ToString();
+        attackSpeedText.text = PlayerPrefs.GetInt(stringManager.upgradeOne, 1).ToString();
         healthText.text = PlayerPrefs.GetInt(stringManager.upgradeThree, 10).ToString();
         armorText.text = PlayerPrefs.GetInt(stringManager.upgradeFour).ToString();
         goldCountText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();

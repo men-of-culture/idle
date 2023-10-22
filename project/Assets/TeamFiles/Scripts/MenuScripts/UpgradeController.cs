@@ -125,7 +125,7 @@ public class UpgradeController : MonoBehaviour
 
         // refresh npc icons text
         npcDmgText.text = PlayerPrefs.GetInt(upgradeList[0].Item2).ToString();
-        npcAttspdText.text = PlayerPrefs.GetInt(upgradeList[1].Item2).ToString();
+        npcAttspdText.text = PlayerPrefs.GetInt(upgradeList[0].Item2).ToString();
         npcHealthText.text = PlayerPrefs.GetInt(upgradeList[2].Item2).ToString();
         npcArmorText.text = PlayerPrefs.GetInt(upgradeList[3].Item2).ToString();
     }
