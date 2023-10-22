@@ -430,6 +430,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ba8fa98fbf6e9418254d0ab72e2a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &703684465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8081578909059389138, guid: 563dfdfd0478fc94eb6650c99553dad9, type: 3}
+  m_PrefabInstance: {fileID: 9055287275224730916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1035593786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -606,6 +617,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1379206899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 196419445263717005, guid: 563dfdfd0478fc94eb6650c99553dad9, type: 3}
+  m_PrefabInstance: {fileID: 9055287275224730916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1579120519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -704,6 +726,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5834967224343823306, guid: 66b9ea46c22b83147a1c7427fd4bbe4a, type: 3}
   m_PrefabInstance: {fileID: 1579120519}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1918877793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3667378814235691319, guid: 563dfdfd0478fc94eb6650c99553dad9, type: 3}
+  m_PrefabInstance: {fileID: 9055287275224730916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &73022780522686409 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 804574135303934742, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
@@ -858,6 +891,10 @@ PrefabInstance:
       propertyPath: changeScenePrefab
       value: 
       objectReference: {fileID: 1579120521}
+    - target: {fileID: 4338123205229432323, guid: 0e1a6ac99820f194087f79ce47b3a604, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5771201513959845133, guid: 0e1a6ac99820f194087f79ce47b3a604, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1037,12 +1074,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1426927281406249659, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: m_Name
-      value: PlayerCanvas
+      value: RunPlayerCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 2356093860738278194, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 9142311454489843339}
+    - target: {fileID: 5210711095702848231, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: bombIcon
       value: 
@@ -1071,6 +1112,18 @@ PrefabInstance:
       propertyPath: swordActiveImage
       value: 
       objectReference: {fileID: 1905979302274842324}
+    - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
+      propertyPath: bombBlessingImage
+      value: 
+      objectReference: {fileID: 1918877793}
+    - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
+      propertyPath: arrowBlessingImage
+      value: 
+      objectReference: {fileID: 1379206899}
+    - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
+      propertyPath: swordBlessingImage
+      value: 
+      objectReference: {fileID: 703684465}
     - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: monsterSpawnerManager
       value: 

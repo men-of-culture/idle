@@ -2,22 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerStatsScript : MonoBehaviour
 {
     public Canvas playerStatsCanvas;
 
     [SerializeField]
-    private Text damageText;
+    private TextMeshProUGUI damageText;
 
     [SerializeField]
-    private Text attackSpeedText;
+    private TextMeshProUGUI attackSpeedText;
 
     [SerializeField]
-    private Text healthText;
+    private TextMeshProUGUI healthText;
 
     [SerializeField]
-    private Text armorText;
+    private TextMeshProUGUI armorText;
+
+    [SerializeField]
+    private TextMeshProUGUI longestRunText;
+
+    [SerializeField]
+    private TextMeshProUGUI lifetimeKillsText;
 
     [SerializeField]
     private Text projectileCountText;
@@ -35,13 +42,16 @@ public class PlayerStatsScript : MonoBehaviour
     private Text expGainText;
 
     [SerializeField]
-    private Text goldCountText;
+    private TextMeshProUGUI goldCountText;
 
     [SerializeField]
     private Text expCountText;
 
     [SerializeField]
     private StringManager stringManager;
+
+    [SerializeField]
+    private PlayerStatsManager playerStatsManager;
 
     [SerializeField]
     private EscMenuScript escMenuScript;
@@ -52,10 +62,13 @@ public class PlayerStatsScript : MonoBehaviour
         damageText.text = PlayerPrefs.GetInt(stringManager.upgradeOne, 1).ToString();
         attackSpeedText.text = PlayerPrefs.GetInt(stringManager.upgradeTwo, 1).ToString();
         healthText.text = PlayerPrefs.GetInt(stringManager.upgradeThree, 10).ToString();
-        goldCountText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
-        expCountText.text = PlayerPrefs.GetInt(stringManager.lifetimeKills).ToString();
         armorText.text = PlayerPrefs.GetInt(stringManager.upgradeFour).ToString();
+        goldCountText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
+        //expCountText.text = PlayerPrefs.GetInt(stringManager.lifetimeKills).ToString();
         playerStatsCanvas = GetComponent<Canvas>();
+
+        longestRunText.text = PlayerPrefs.GetInt(stringManager.longestRun).ToString();
+        lifetimeKillsText.text = PlayerPrefs.GetInt(stringManager.lifetimeKills).ToString();
     }
 
     // Update is called once per frame
@@ -72,10 +85,15 @@ public class PlayerStatsScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            playerStatsCanvas.enabled = false;
-            escMenuScript.hasOpenCanvas = false;
+            ClosePlayerStats();
         }
         
+    }
+
+    public void ClosePlayerStats()
+    {
+        playerStatsCanvas.enabled = false;
+        escMenuScript.hasOpenCanvas = false;
     }
 
     public void TogglePlayerStats()
