@@ -1333,7 +1333,8 @@ MonoBehaviour:
   swordBlessingImage: {fileID: 0}
   arrowBlessingImage: {fileID: 0}
   bombBlessingImage: {fileID: 0}
-  setAscension: 0
+  setPlayerprefsAscension: 0
+  bypassPlayerprefsAscension: 1
 --- !u!1 &4187864959347347611
 GameObject:
   m_ObjectHideFlags: 0
