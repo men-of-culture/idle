@@ -44,7 +44,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         if (startWalking)
         {
-            targetPosition = lootList.childCount == 0 ? new Vector2(0, 0) : lootList.GetChild(0).position;
+            targetPosition = lootList.childCount == 0 ? new Vector2(0, 0) : lootList.GetChild(0).GetComponent<LootScript>().startFadeOut == true ? new Vector2(0, 0) : lootList.GetChild(0).position;
             startWalking = false;
             shouldWalk = true;
             initialPosition = gameObject.transform.position;
