@@ -60,9 +60,9 @@ public class WizardCanvasScript : MonoBehaviour
 
     public void BuyPerk1()
     {
-        if(PlayerPrefs.GetInt("currency") < 500) return;
+        if(PlayerPrefs.GetInt("currency") < 100) return;
 
-        PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - 500);
+        PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - 100);
         PlayerPrefs.SetInt("perk1", 1);
         currencyText.text = PlayerPrefs.GetInt("currency").ToString();
         playerStatsManager.perk1 = 1;
@@ -80,9 +80,9 @@ public class WizardCanvasScript : MonoBehaviour
     }
     public void BuyPerk3()
     {
-        if(PlayerPrefs.GetInt("currency") < 5000) return;
+        if(PlayerPrefs.GetInt("currency") < 2500) return;
 
-        PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - 5000);
+        PlayerPrefs.SetInt("currency", PlayerPrefs.GetInt("currency") - 2500);
         PlayerPrefs.SetInt("perk3", 1);
         currencyText.text = PlayerPrefs.GetInt("currency").ToString();
         playerStatsManager.perk3 = 1;

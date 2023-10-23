@@ -33,7 +33,7 @@ public class MonsterScript : MonoBehaviour
 
     private bool startFadeOut;
 
-    private CircleCollider2D collider;
+    private CircleCollider2D circleCollider2D;
 
     public GameObject lootPrefab;
     public Transform lootList;
@@ -55,7 +55,7 @@ public class MonsterScript : MonoBehaviour
         //targetPosition = playerScript.transform.position;
         //spriteRenderer.flipX = targetPosition.x < 0;
         deathAudioSource = transform.parent.GetComponent<AudioSource>();
-        collider = GetComponent<CircleCollider2D>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
         lootList = GameObject.Find(stringManager.lootList).transform;
         shouldMove = true;
         movementSpeed = Random.Range(movementSpeed*0.8f, movementSpeed*1.2f);
@@ -115,7 +115,7 @@ public class MonsterScript : MonoBehaviour
             fade = true;
             fadeTimer = 1.0f;
             startFadeOut = true;
-            collider.enabled = false;
+            circleCollider2D.enabled = false;
         }
     }
 

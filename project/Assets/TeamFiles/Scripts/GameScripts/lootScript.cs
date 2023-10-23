@@ -15,7 +15,7 @@ public class LootScript : MonoBehaviour
     [SerializeField]
     private PlayerStatsManager playerStatsManager;
     private bool startFadeOut;
-    private BoxCollider2D collider;
+    private BoxCollider2D boxCollider2D;
     private PlayerScript playerScript;
     private PlayerMovementScript playerMovementScript;
     private bool fadeIn;
@@ -26,7 +26,7 @@ public class LootScript : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collider = GetComponent<BoxCollider2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
         playerScript = FindObjectOfType<PlayerScript>();
         playerMovementScript = FindObjectOfType<PlayerMovementScript>();
         fadeIn = true;
@@ -48,7 +48,7 @@ public class LootScript : MonoBehaviour
         {
             Debug.Log("This loot trigger was hit by: "+other.name);
             startFadeOut = true;
-            collider.enabled = false;
+            boxCollider2D.enabled = false;
             playerMovementScript.StartPause();
             fadeTimer = 1.0f;
         }
@@ -56,7 +56,7 @@ public class LootScript : MonoBehaviour
 
     void LootMagnetPerk()
     {
-        if(playerStatsManager.perk1 == 1 && !fadeIn && !startFadeOut)
+        if(playerStatsManager.perk2 == 1 && !fadeIn && !startFadeOut)
         {
             transform.position += ((playerScript.transform.position-transform.position).normalized*Time.deltaTime/10)*lootMagnetSpeed;
         }
