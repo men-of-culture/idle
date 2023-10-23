@@ -375,7 +375,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Hello Adventurer!
 
-    I''m Bogus the knight, ready to grab that juicy
+    I''m Tardius the knight, ready to grab that juicy
     loot from stupid ass monsters?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

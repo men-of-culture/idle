@@ -1333,8 +1333,6 @@ MonoBehaviour:
   swordBlessingImage: {fileID: 0}
   arrowBlessingImage: {fileID: 0}
   bombBlessingImage: {fileID: 0}
-  setPlayerprefsAscension: 0
-  bypassPlayerprefsAscension: 1
 --- !u!1 &4187864959347347611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2642,7 +2640,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Hello Adventurer!
 
-    I''m father Dingus,
+    I''m father Bogus,
 
     choose an active blessing!'
   m_isRightToLeft: 0
