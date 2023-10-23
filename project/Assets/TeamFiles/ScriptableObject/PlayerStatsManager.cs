@@ -6,7 +6,7 @@ public class PlayerStatsManager : ScriptableObject
 {
     public int damage = 1;
     public int health = 10;
-    public int armor = 5;
+    public int armor = 0;
     public float attackSpeed = 5.0f;
     public int kills = 0;
     public float volume = 1;
