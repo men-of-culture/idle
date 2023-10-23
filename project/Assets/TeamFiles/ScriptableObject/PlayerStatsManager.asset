@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: PlayerStatsManager
   m_EditorClassIdentifier: 
   damage: 1
-  health: 16
-  armor: 5
+  health: 10
+  armor: 0
   attackSpeed: 5
-  kills: 3
-  volume: 0.8092091
+  kills: 0
+  volume: 0.5
   loot: 0
+  blessing: sword
+  perk1: 0
+  perk2: 0
+  perk3: 0
+  ascension: 0
