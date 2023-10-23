@@ -131,8 +131,8 @@ public class UpgradeController : MonoBehaviour
         upgradex.Item1.text = (PlayerPrefs.GetInt(upgradex.Item2) / 2).ToString();
 
         // refresh npc icons text
-        npcDmgText.text = PlayerPrefs.GetInt(upgradeList[0].Item2).ToString();
-        npcAttspdText.text = PlayerPrefs.GetInt(upgradeList[0].Item2).ToString();
+        npcDmgText.text = (PlayerPrefs.GetInt(upgradeList[0].Item2)+1).ToString();
+        npcAttspdText.text = (PlayerPrefs.GetInt(upgradeList[0].Item2)+1).ToString();
         npcHealthText.text = (PlayerPrefs.GetInt(upgradeList[2].Item2)+10).ToString();
         npcArmorText.text = PlayerPrefs.GetInt(upgradeList[3].Item2).ToString();
     }
@@ -180,8 +180,8 @@ public class UpgradeController : MonoBehaviour
         currencyTextObj.text = (z * priceMultiplier).ToString();
 
         // refresh npc icons text
-        npcDmgText.text = PlayerPrefs.GetInt(upgradeList[0].Item2).ToString();
-        npcAttspdText.text = PlayerPrefs.GetInt(upgradeList[0].Item2).ToString();
+        npcDmgText.text = (PlayerPrefs.GetInt(upgradeList[0].Item2)+1).ToString();
+        npcAttspdText.text = (PlayerPrefs.GetInt(upgradeList[0].Item2)+1).ToString();
         npcHealthText.text = (PlayerPrefs.GetInt(upgradeList[2].Item2)+10).ToString();
         npcArmorText.text = PlayerPrefs.GetInt(upgradeList[3].Item2).ToString();
 
