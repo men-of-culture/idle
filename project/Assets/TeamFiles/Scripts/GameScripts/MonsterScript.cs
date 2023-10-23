@@ -31,7 +31,7 @@ public class MonsterScript : MonoBehaviour
     [SerializeField]
     private AudioSource deathAudioSource;
 
-    private bool startFadeOut;
+    public bool startFadeOut;
 
     private CircleCollider2D circleCollider2D;
 
