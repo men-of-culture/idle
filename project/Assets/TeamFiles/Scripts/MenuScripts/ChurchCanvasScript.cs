@@ -107,7 +107,6 @@ public class ChurchCanvasScript : MonoBehaviour
         swordBlessingImage.enabled = true;
         arrowBlessingImage.enabled = false;
         bombBlessingImage.enabled = false;
-        
     }
     public void SelectArrow()
     {

@@ -42,8 +42,11 @@ public class WizardCanvasScript : MonoBehaviour
     {
         // add to playerprefs and check, set playerStatsManger.perkx = 1 here
         if(PlayerPrefs.GetInt("perk1", 0) == 1) playerStatsManager.perk1 = 1;
+        else playerStatsManager.perk1 = 0;
         if(PlayerPrefs.GetInt("perk2", 0) == 1) playerStatsManager.perk2 = 1;
+        else playerStatsManager.perk2 = 0;
         if(PlayerPrefs.GetInt("perk3", 0) == 1) playerStatsManager.perk3 = 1;
+        else playerStatsManager.perk3 = 0;
 
         if (playerStatsManager.perk1 == 1) ActivatePerk1();
         if (playerStatsManager.perk2 == 1) ActivatePerk2();

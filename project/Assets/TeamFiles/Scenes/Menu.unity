@@ -763,17 +763,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 986042877}
     - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: ascensionBgImg
+      value: 
+      objectReference: {fileID: 3556569684817628290}
+    - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: playeruiCanvas
       value: 
       objectReference: {fileID: 6986493587125138580}
+    - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: ascensionContext
+      value: 
+      objectReference: {fileID: 3556569684817628288}
     - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: blacksmithCanvas
       value: 
       objectReference: {fileID: 39121776}
     - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: buyAscensionText
+      value: 
+      objectReference: {fileID: 3556569684817628293}
+    - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: changeScenePrefab
       value: 
       objectReference: {fileID: 673104454}
+    - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: buyAscensionButton
+      value: 
+      objectReference: {fileID: 3556569684817628292}
+    - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: ascensionBgBorderImg
+      value: 
+      objectReference: {fileID: 3556569684817628289}
+    - target: {fileID: 4980376917084354408, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
+      propertyPath: buyAscensionButtonImg
+      value: 
+      objectReference: {fileID: 3556569684817628291}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -875,10 +899,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1580509396}
-    - target: {fileID: 5699859265927205260, guid: c4b682990d28f524daea8c738a49d953, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 5142897194902628037, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1580509396}
     - target: {fileID: 6489076666394606243, guid: c4b682990d28f524daea8c738a49d953, type: 3}
       propertyPath: m_Name
       value: KnightCanvas
@@ -896,6 +920,72 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+--- !u!114 &3556569684817628288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4237864998220706106, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+  m_PrefabInstance: {fileID: 3556569684817628287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3556569684817628289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2055458810737610313, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+  m_PrefabInstance: {fileID: 3556569684817628287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3556569684817628290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3067595517242125953, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+  m_PrefabInstance: {fileID: 3556569684817628287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3556569684817628291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5037652646138111251, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+  m_PrefabInstance: {fileID: 3556569684817628287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3556569684817628292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5142897194902628037, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+  m_PrefabInstance: {fileID: 3556569684817628287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3556569684817628293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2205697175004768918, guid: c4b682990d28f524daea8c738a49d953, type: 3}
+  m_PrefabInstance: {fileID: 3556569684817628287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3556871352378757313 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3145019271232746456, guid: 51d9211fd882dc84384f8717547c78c6, type: 3}
