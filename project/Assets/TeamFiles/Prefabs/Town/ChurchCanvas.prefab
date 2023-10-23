@@ -1242,7 +1242,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4118906539970794102}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -1315,6 +1315,15 @@ MonoBehaviour:
   swordIcon: {fileID: 1040374902785804742}
   arrowIcon: {fileID: 3840289765139165219}
   bombIcon: {fileID: 1860991493439199645}
+  swordButton: {fileID: 8769617285293409834}
+  arrowButton: {fileID: 7199703027477625372}
+  bombButton: {fileID: 8166392083151382267}
+  swordButtonImg: {fileID: 2520448540236992363}
+  arrowButtonImg: {fileID: 8886080818817154126}
+  bombButtonImg: {fileID: 8669429119038945279}
+  swordButtonText: {fileID: 5955965323049215191}
+  arrowButtonText: {fileID: 5312283195512496068}
+  bombButtonText: {fileID: 2393489768600071011}
   swordContext: {fileID: 4798715349759239377}
   arrowContext: {fileID: 1841561930897704727}
   bombContext: {fileID: 919674489224062436}
@@ -1324,6 +1333,7 @@ MonoBehaviour:
   swordBlessingImage: {fileID: 0}
   arrowBlessingImage: {fileID: 0}
   bombBlessingImage: {fileID: 0}
+  setAscension: 0
 --- !u!1 &4187864959347347611
 GameObject:
   m_ObjectHideFlags: 0

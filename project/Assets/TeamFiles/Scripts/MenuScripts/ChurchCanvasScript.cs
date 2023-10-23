@@ -12,6 +12,17 @@ public class ChurchCanvasScript : MonoBehaviour
     public Image swordIcon;
     public Image arrowIcon;
     public Image bombIcon;
+
+    public Button swordButton;
+    public Button arrowButton;
+    public Button bombButton;
+    public Image swordButtonImg;
+    public Image arrowButtonImg;
+    public Image bombButtonImg;
+    public TextMeshProUGUI swordButtonText;
+    public TextMeshProUGUI arrowButtonText;
+    public TextMeshProUGUI bombButtonText;
+
     public TextMeshProUGUI swordContext;
     public TextMeshProUGUI arrowContext;
     public TextMeshProUGUI bombContext;
@@ -22,10 +33,61 @@ public class ChurchCanvasScript : MonoBehaviour
     public Canvas playeruiCanvas, churchCanvas;
 
     public Image swordBlessingImage, arrowBlessingImage, bombBlessingImage;
+    public int setPlayerprefsAscension = 0;
+
+    public bool bypassPlayerprefsAscension;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(!bypassPlayerprefsAscension)
+        {
+            PlayerPrefs.SetInt("ascension", setPlayerprefsAscension);
+            playerStatsManager.ascension = PlayerPrefs.GetInt("ascension");
+        }
+
+        swordIcon.enabled = true;
+        swordButton.enabled = true;
+        swordButtonImg.enabled = true;
+        swordButtonText.enabled = true;
+
+        if (playerStatsManager.ascension <= 0)
+        {
+            arrowIcon.enabled = false;
+            arrowButton.enabled = false;
+            arrowButtonImg.enabled = false;
+            arrowButtonText.enabled = false;
+
+            bombIcon.enabled = false;
+            bombButton.enabled = false;
+            bombButtonImg.enabled = false;
+            bombButtonText.enabled = false;
+        }
+        if (playerStatsManager.ascension == 1)
+        {
+            arrowIcon.enabled = true;
+            arrowButton.enabled = true;
+            arrowButtonImg.enabled = true;
+            arrowButtonText.enabled = true;
+
+            bombIcon.enabled = false;
+            bombButton.enabled = false;
+            bombButtonImg.enabled = false;
+            bombButtonText.enabled = false;
+        }
+        if (playerStatsManager.ascension >= 2)
+        {
+            arrowIcon.enabled = true;
+            arrowButton.enabled = true;
+            arrowButtonImg.enabled = true;
+            arrowButtonText.enabled = true;
+
+            bombIcon.enabled = true;
+            bombButton.enabled = true;
+            bombButtonImg.enabled = true;
+            bombButtonText.enabled = true;
+        }
+
         if (playerStatsManager.blessing == "sword") SelectSword();
         if (playerStatsManager.blessing == "arrow") SelectArrow();
         if (playerStatsManager.blessing == "bomb") SelectBomb();
