@@ -33,6 +33,11 @@ public class MenuController : MonoBehaviour
         {
             Back();
         }
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            if(playerCanvas.enabled == true) Back();
+            else if(escMenuScript.hasOpenCanvas == false) PlayerToggle();
+        }
     }
 
     public void Play()
