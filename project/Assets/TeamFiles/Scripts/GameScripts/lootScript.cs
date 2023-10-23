@@ -31,6 +31,8 @@ public class LootScript : MonoBehaviour
         playerMovementScript = FindObjectOfType<PlayerMovementScript>();
         fadeIn = true;
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0f);
+
+        loot = loot + (loot * PlayerPrefs.GetInt("ascension"));
     }
 
     // Update is called once per frame
