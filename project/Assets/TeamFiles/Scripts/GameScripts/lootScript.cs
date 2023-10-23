@@ -14,7 +14,7 @@ public class LootScript : MonoBehaviour
     
     [SerializeField]
     private PlayerStatsManager playerStatsManager;
-    private bool startFadeOut;
+    public bool startFadeOut;
     private BoxCollider2D boxCollider2D;
     private PlayerScript playerScript;
     private PlayerMovementScript playerMovementScript;
@@ -49,8 +49,9 @@ public class LootScript : MonoBehaviour
             Debug.Log("This loot trigger was hit by: "+other.name);
             startFadeOut = true;
             boxCollider2D.enabled = false;
-            playerMovementScript.StartPause();
             fadeTimer = 1.0f;
+            playerMovementScript.startLooting = true;
+            playerMovementScript.lootingTimer = 1f;
         }
     }
 
@@ -89,8 +90,6 @@ public class LootScript : MonoBehaviour
         else if (fadeTimer <= 0)
         {
             playerScript.Loot(loot);
-
-            playerMovementScript.StartWalking();
 
             Destroy(gameObject);
         }

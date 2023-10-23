@@ -26,6 +26,10 @@ public class PlayerMovementScript : MonoBehaviour
 
     public Transform lootList;
     public StringManager stringManager;
+
+    public bool looting;
+    public float lootingTimer;
+    public bool startLooting;
     
     // Start is called before the first frame update
     void Start()
@@ -67,6 +71,8 @@ public class PlayerMovementScript : MonoBehaviour
             }
         }
 
+        Looting();
+
         Debug.DrawLine(new Vector3(transform.position.x-0.5f, transform.position.y, 0), targetPosition, Color.blue);
     }
 
@@ -76,12 +82,38 @@ public class PlayerMovementScript : MonoBehaviour
         Vector3 currentPosition = transform.position;
         foreach(Transform potentialTarget in lootList.transform)
         {
-            Vector2 directionToTarget = potentialTarget.position - currentPosition;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if(dSqrToTarget < closestDistanceSqr)
+            if(potentialTarget.GetComponent<LootScript>().startFadeOut == false)
             {
-                closestDistanceSqr = dSqrToTarget;
-                targetPosition = potentialTarget.position;
+                Vector2 directionToTarget = potentialTarget.position - currentPosition;
+                float dSqrToTarget = directionToTarget.sqrMagnitude;
+                if(dSqrToTarget < closestDistanceSqr)
+                {
+                    closestDistanceSqr = dSqrToTarget;
+                    targetPosition = potentialTarget.position;
+                }
+            }
+        }
+    }
+
+    public void Looting()
+    {
+        if(startLooting)
+        {
+            startLooting = false;
+            looting = true;
+            shouldWalk = false;
+            shouldPause = false;
+            walkTimer = 0;
+            pauseTimer = 0;
+        }
+        if(looting)
+        {
+            lootingTimer -= Time.deltaTime*3;
+            if(lootingTimer <= 0)
+            {
+                StartWalking();
+                looting = false;
+                lootingTimer = 1f;
             }
         }
     }

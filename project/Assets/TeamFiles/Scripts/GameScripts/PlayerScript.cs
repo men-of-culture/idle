@@ -233,13 +233,16 @@ public class PlayerScript : MonoBehaviour
         Vector3 currentPosition = transform.position;
         foreach(Transform potentialTarget in monsterList.transform)
         {
-            Vector2 directionToTarget = potentialTarget.position - currentPosition;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if(dSqrToTarget < closestDistanceSqr)
+            if(potentialTarget.GetComponent<MonsterScript>().startFadeOut == false)
             {
-                closestDistanceSqr = dSqrToTarget;
-                secondNearestMonster = nearestMonster;
-                nearestMonster = directionToTarget;
+                Vector2 directionToTarget = potentialTarget.position - currentPosition;
+                float dSqrToTarget = directionToTarget.sqrMagnitude;
+                if(dSqrToTarget < closestDistanceSqr)
+                {
+                    closestDistanceSqr = dSqrToTarget;
+                    secondNearestMonster = nearestMonster;
+                    nearestMonster = directionToTarget;
+                }
             }
         }
         return secondNearestMonster;
