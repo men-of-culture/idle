@@ -650,6 +650,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1499999510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7572188744240763610, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+  m_PrefabInstance: {fileID: 7112255105671714991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1579120519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1130,6 +1141,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 681161061}
     - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
+      propertyPath: ascensionText
+      value: 
+      objectReference: {fileID: 1499999510}
+    - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: bombActiveImage
       value: 
       objectReference: {fileID: 2851839990492546923}
@@ -1326,6 +1341,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5454520377492430127}
     - target: {fileID: 3747354361591408005, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5454520377492430127}
+    - target: {fileID: 3871708742357375254, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5454520377492430127}

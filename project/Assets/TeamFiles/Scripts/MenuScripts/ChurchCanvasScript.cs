@@ -33,18 +33,11 @@ public class ChurchCanvasScript : MonoBehaviour
     public Canvas playeruiCanvas, churchCanvas;
 
     public Image swordBlessingImage, arrowBlessingImage, bombBlessingImage;
-    public int setPlayerprefsAscension = 0;
-
-    public bool bypassPlayerprefsAscension;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(!bypassPlayerprefsAscension)
-        {
-            PlayerPrefs.SetInt("ascension", setPlayerprefsAscension);
-            playerStatsManager.ascension = PlayerPrefs.GetInt("ascension");
-        }
+        playerStatsManager.ascension = PlayerPrefs.GetInt("ascension");
 
         swordIcon.enabled = true;
         swordButton.enabled = true;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerCanvasScript : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlayerCanvasScript : MonoBehaviour
     public Image swordBlessingImage, arrowBlessingImage, bombBlessingImage;
 
     public Image perk1ActiveImage, perk2ActiveImage, perk3ActiveImage;
+
+    public TextMeshProUGUI ascensionText;
 
     void Start()
     {
@@ -42,6 +45,30 @@ public class PlayerCanvasScript : MonoBehaviour
         {
             playerStatsManager.perk3 = 1;
             perk3ActiveImage.enabled = true;
+        }
+        
+        ascensionText.text = PlayerPrefs.GetInt("ascension").ToString();
+    }
+
+    public void ToggleAscension()
+    {
+        if(PlayerPrefs.GetInt("ascension") == 0)
+        {
+            PlayerPrefs.SetInt("ascension", 1);
+            playerStatsManager.ascension = 1;
+            ascensionText.text = 1.ToString();
+        }
+        else if(PlayerPrefs.GetInt("ascension") == 1)
+        {
+            PlayerPrefs.SetInt("ascension", 2);
+            playerStatsManager.ascension = 2;
+            ascensionText.text = 2.ToString();
+        }
+        else if(PlayerPrefs.GetInt("ascension") == 2)
+        {
+            PlayerPrefs.SetInt("ascension", 0);
+            playerStatsManager.ascension = 0;
+            ascensionText.text = 0.ToString();
         }
     }
 
