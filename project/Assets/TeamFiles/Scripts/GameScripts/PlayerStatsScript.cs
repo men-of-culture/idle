@@ -62,9 +62,9 @@ public class PlayerStatsScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damageText.text = (PlayerPrefs.GetInt(stringManager.upgradeOne, 1)+1).ToString();
-        attackSpeedText.text = (PlayerPrefs.GetInt(stringManager.upgradeOne, 1)+1).ToString();
-        healthText.text = (PlayerPrefs.GetInt(stringManager.upgradeThree, 10)+10).ToString();
+        damageText.text = (PlayerPrefs.GetInt(stringManager.upgradeOne)+1).ToString();
+        attackSpeedText.text = (PlayerPrefs.GetInt(stringManager.upgradeOne)+1).ToString();
+        healthText.text = (PlayerPrefs.GetInt(stringManager.upgradeThree)+10).ToString();
         armorText.text = PlayerPrefs.GetInt(stringManager.upgradeFour).ToString();
         goldCountText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
         ascensionText.text = PlayerPrefs.GetInt("ascension").ToString();
