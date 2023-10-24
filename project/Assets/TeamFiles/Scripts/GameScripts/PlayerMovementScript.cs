@@ -30,6 +30,7 @@ public class PlayerMovementScript : MonoBehaviour
     public bool looting;
     public float lootingTimer;
     public bool startLooting;
+    public Transform closestTransform;
     
     // Start is called before the first frame update
     void Start()
@@ -49,13 +50,14 @@ public class PlayerMovementScript : MonoBehaviour
             shouldWalk = true;
             initialPosition = gameObject.transform.position;
             animator.enabled = true;
-            GetTargetPositionClosest();
+            closestTransform = GetTargetPositionClosest();
         }
         
         if (shouldWalk && playerStatsManager.health > 0)
         {
+            var closestTransformPos = new Vector2(closestTransform.position.x, closestTransform.position.y);
             walkTimer += Time.deltaTime*(walkSpeed/10);
-            gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*(walkTimer/(targetPosition-initialPosition).magnitude));
+            gameObject.transform.position = initialPosition+((closestTransformPos-initialPosition)*(walkTimer/(closestTransformPos-initialPosition).magnitude));
             if (walkTimer >= (targetPosition - initialPosition).magnitude)
             {
                 StartPause();
@@ -76,10 +78,12 @@ public class PlayerMovementScript : MonoBehaviour
         Debug.DrawLine(new Vector3(transform.position.x-0.5f, transform.position.y, 0), targetPosition, Color.blue);
     }
 
-    void GetTargetPositionClosest()
+    Transform GetTargetPositionClosest()
     {
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
+        targetPosition = new Vector2(0, 0);
+        var targetTransform = GameObject.Find("LootList").transform;
         foreach(Transform potentialTarget in lootList.transform)
         {
             if(potentialTarget.GetComponent<LootScript>().startFadeOut == false)
@@ -90,9 +94,11 @@ public class PlayerMovementScript : MonoBehaviour
                 {
                     closestDistanceSqr = dSqrToTarget;
                     targetPosition = potentialTarget.position;
+                    targetTransform = potentialTarget;
                 }
             }
         }
+        return targetTransform;
     }
 
     public void Looting()
@@ -113,7 +119,6 @@ public class PlayerMovementScript : MonoBehaviour
             {
                 StartWalking();
                 looting = false;
-                lootingTimer = 1f;
             }
         }
     }

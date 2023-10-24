@@ -148,5 +148,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
   playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
+  startFadeOut: 0
   loot: 0
   lootMagnetSpeed: 2
+  magnetTowardsMiddle: 1
+  lootTime: 1

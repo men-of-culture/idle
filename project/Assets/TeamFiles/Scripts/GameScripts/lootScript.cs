@@ -21,6 +21,9 @@ public class LootScript : MonoBehaviour
     private bool fadeIn;
     public int loot;
     public int lootMagnetSpeed = 1;
+    public bool magnetTowardsMiddle;
+
+    public float lootTime = 0.3f;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +56,7 @@ public class LootScript : MonoBehaviour
             boxCollider2D.enabled = false;
             fadeTimer = 1.0f;
             playerMovementScript.startLooting = true;
-            playerMovementScript.lootingTimer = 1f;
+            playerMovementScript.lootingTimer = lootTime;
         }
     }
 
@@ -61,7 +64,14 @@ public class LootScript : MonoBehaviour
     {
         if(playerStatsManager.perk1 == 1 && !fadeIn && !startFadeOut)
         {
-            transform.position += ((playerScript.transform.position-transform.position).normalized*Time.deltaTime/10)*lootMagnetSpeed;
+            if(magnetTowardsMiddle)
+            {
+                transform.position += ((new Vector3(0, 0, 0)-transform.position).normalized*Time.deltaTime/10)*lootMagnetSpeed;
+            }
+            else
+            {
+                transform.position += ((playerScript.transform.position-transform.position).normalized*Time.deltaTime/10)*lootMagnetSpeed;
+            }
         }
     }
 
