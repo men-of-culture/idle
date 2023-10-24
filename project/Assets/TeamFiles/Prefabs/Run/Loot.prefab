@@ -151,5 +151,5 @@ MonoBehaviour:
   startFadeOut: 0
   loot: 0
   lootMagnetSpeed: 2
-  magnetTowardsMiddle: 1
-  lootTime: 1
+  magnetTowardsMiddle: 0
+  lootTime: 0.1
