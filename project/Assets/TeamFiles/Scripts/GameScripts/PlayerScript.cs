@@ -160,7 +160,7 @@ public class PlayerScript : MonoBehaviour
 
     void ArmorRegenPerk()
     {
-        if(playerStatsManager.perk1 == 1)
+        if(playerStatsManager.perk2 == 1)
         {
             armorRegenTimer -= Time.deltaTime;
             if(playerStatsManager.armor < PlayerPrefs.GetInt(stringManager.upgradeFour) && armorRegenTimer <= 0)

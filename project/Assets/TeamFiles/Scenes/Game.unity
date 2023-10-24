@@ -1155,11 +1155,11 @@ PrefabInstance:
     - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: perk1ActiveImage
       value: 
-      objectReference: {fileID: 637957538}
+      objectReference: {fileID: 94714020}
     - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: perk2ActiveImage
       value: 
-      objectReference: {fileID: 94714020}
+      objectReference: {fileID: 637957538}
     - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: perk3ActiveImage
       value: 

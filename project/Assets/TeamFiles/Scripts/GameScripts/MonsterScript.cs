@@ -106,16 +106,7 @@ public class MonsterScript : MonoBehaviour
         if (other.CompareTag(stringManager.projectileTag))
         {
             health -= playerScript.damage;
-            if(health > 0) return;
-
-            deathAudioSource.Play();
-            Debug.Log("This monster trigger was hit by: Projectile");
-
-            spriteRenderer.color += new Color(0f,0f,0f,1f);
-            fade = true;
-            fadeTimer = 1.0f;
-            startFadeOut = true;
-            circleCollider2D.enabled = false;
+            MonsterDeath();
         }
     }
 
@@ -125,6 +116,20 @@ public class MonsterScript : MonoBehaviour
         {
             shouldMove = true;
         }
+    }
+
+    void MonsterDeath()
+    {
+        if(health > 0) return;
+
+        deathAudioSource.Play();
+        Debug.Log("This monster trigger was hit by: Projectile");
+
+        spriteRenderer.color += new Color(0f,0f,0f,1f);
+        fade = true;
+        fadeTimer = 1.0f;
+        startFadeOut = true;
+        circleCollider2D.enabled = false;
     }
 
     void StartFadeOut()
@@ -170,6 +175,11 @@ public class MonsterScript : MonoBehaviour
         {
             playerScript.HitByMonster(damage);
             attackTimer = attackSpeed;
+            if(playerStatsManager.perk2 == 1 && playerStatsManager.armor > 0)
+            {
+                health -= damage;
+                MonsterDeath();
+            }
         }
     }
 }

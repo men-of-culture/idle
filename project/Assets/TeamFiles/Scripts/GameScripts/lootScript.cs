@@ -59,7 +59,7 @@ public class LootScript : MonoBehaviour
 
     void LootMagnetPerk()
     {
-        if(playerStatsManager.perk2 == 1 && !fadeIn && !startFadeOut)
+        if(playerStatsManager.perk1 == 1 && !fadeIn && !startFadeOut)
         {
             transform.position += ((playerScript.transform.position-transform.position).normalized*Time.deltaTime/10)*lootMagnetSpeed;
         }
