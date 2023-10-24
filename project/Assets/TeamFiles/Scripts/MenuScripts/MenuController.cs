@@ -6,8 +6,11 @@ using UnityEngine.EventSystems;
 
 public class MenuController : MonoBehaviour
 {
-    public Canvas menuCanvas;
-    public Canvas upgradeCanvas;
+    public Canvas playeruiCanvas;
+    public Canvas blacksmithCanvas;
+    public Canvas churchCanvas;
+    public Canvas wizardCanvas;
+    public Canvas knightCanvas;
 
     [SerializeField]
     private PlayerStatsManager playerStatsManager;
@@ -20,19 +23,55 @@ public class MenuController : MonoBehaviour
 
     [SerializeField]
     private GameObject changeScenePrefab;
+
+    public EscMenuScript escMenuScript;
     
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Back();
+        }
+    }
+
     public void Play()
     {
         playerStatsManager.reset();
         changeScenePrefab.GetComponent<SceneChangerScript>().FadeToScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void Upgrade()
+    public void BlacksmithToggle()
     {
-        menuCanvas.enabled = false;
-        upgradeCanvas.enabled = true;
+        playeruiCanvas.enabled = false;
+        blacksmithCanvas.enabled = true;
 
         eventSystem.firstSelectedGameObject = backButton;
+        escMenuScript.hasOpenCanvas = true;
+    }
+    public void WizardToggle()
+    {
+        playeruiCanvas.enabled = false;
+        wizardCanvas.enabled = true;
+    }
+    public void ChurchToggle()
+    {
+        playeruiCanvas.enabled = false;
+        churchCanvas.enabled = true;
+    }
+    public void KnightToggle()
+    {
+        playeruiCanvas.enabled = false;
+        knightCanvas.enabled = true;
+    }
+
+    public void Back()
+    {
+        playeruiCanvas.enabled = true;
+        knightCanvas.enabled = false;
+        churchCanvas.enabled = false;
+        wizardCanvas.enabled = false;
+        blacksmithCanvas.enabled = false;
+        escMenuScript.hasOpenCanvas = false;
     }
 
     public void Exit()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4591674836851622654}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Projectile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: bcece644a2824354ba8758ec05fb9194, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,6 +103,7 @@ MonoBehaviour:
   damage: 0
   rotationSpeed: 20
   lifeTime: 3
+  nearestMonster: {x: 0, y: 0, z: 0}
   stringManager: {fileID: 11400000, guid: 4815194c6f0b3a043bfc798e7927bd5c, type: 2}
   explosionPrefab: {fileID: 3762773739065059160, guid: d33b2acf37ddc0c499f745a902c96841, type: 3}
   monsterHitPosition: {x: 0, y: 0, z: 0}
