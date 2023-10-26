@@ -108,8 +108,8 @@ public class MenuController : MonoBehaviour
         escMenuScript.hasOpenCanvas = true;
 
         // ascend canvas
-        if(playerStatsManager.ascension < 2)
-        {
+        //if(playerStatsManager.ascension < 2)
+        //{
             if(PlayerPrefs.GetInt("currency") >= 10000)
             {
                 // show ascension
@@ -130,7 +130,7 @@ public class MenuController : MonoBehaviour
                 ascensionContext.enabled = false;
             }
             
-        }
+        //}
     }
 
     public void PlayerToggle()
