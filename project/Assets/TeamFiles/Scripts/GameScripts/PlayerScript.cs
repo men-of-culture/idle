@@ -160,16 +160,16 @@ public class PlayerScript : MonoBehaviour
 
     void ArmorRegenPerk()
     {
-        if(playerStatsManager.perk2 == 1)
-        {
+        //if(playerStatsManager.perk2 == 1)
+        //{
             armorRegenTimer -= Time.deltaTime;
             if(playerStatsManager.armor < PlayerPrefs.GetInt(stringManager.upgradeFour) && armorRegenTimer <= 0)
             {
-                playerStatsManager.armor += 1;
+                playerStatsManager.armor += 1+(int)Mathf.Floor((float)PlayerPrefs.GetInt(stringManager.upgradeFour)*0.1f);
                 armorRegenTimer = 10f;
                 armorText.text = playerStatsManager.armor.ToString();
             }
-        }
+        //}
     }
 
     Vector2 DrawAttackRangeCircle()
