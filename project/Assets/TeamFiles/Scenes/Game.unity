@@ -1133,6 +1133,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6168275092831361552}
     - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
+      propertyPath: haxCanvas
+      value: 
+      objectReference: {fileID: 6362024563289701977}
+    - target: {fileID: 5421953495812035703, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: swordIcon
       value: 
       objectReference: {fileID: 2343166542523075253}
@@ -1248,6 +1252,11 @@ RectTransform:
 --- !u!224 &6362024563289701976 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4983191587828182433, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
+  m_PrefabInstance: {fileID: 7112255105671714991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &6362024563289701977 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 885091684136461856, guid: eb3469d400a5ed44a9f5e0aac8a9bdd5, type: 3}
   m_PrefabInstance: {fileID: 7112255105671714991}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &6631233840504192031 stripped

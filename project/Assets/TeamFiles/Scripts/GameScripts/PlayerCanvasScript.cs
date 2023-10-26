@@ -25,6 +25,8 @@ public class PlayerCanvasScript : MonoBehaviour
 
     public TextMeshProUGUI ascensionText;
 
+    public Canvas haxCanvas;
+
     void Start()
     {
         if (playerStatsManager.blessing == "sword") ActivateSword();
@@ -48,6 +50,26 @@ public class PlayerCanvasScript : MonoBehaviour
         }
         
         ascensionText.text = PlayerPrefs.GetInt("ascension").ToString();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            ToggleHax();
+        }
+    }
+
+    public void ToggleHax()
+    {
+        if(haxCanvas.enabled)
+        {
+            haxCanvas.enabled = false;
+        }
+        else
+        {
+            haxCanvas.enabled = true;
+        }
     }
 
     public void ToggleAscension()
