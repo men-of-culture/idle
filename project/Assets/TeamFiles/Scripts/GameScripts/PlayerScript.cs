@@ -165,7 +165,7 @@ public class PlayerScript : MonoBehaviour
             armorRegenTimer -= Time.deltaTime;
             if(playerStatsManager.armor < PlayerPrefs.GetInt(stringManager.upgradeFour) && armorRegenTimer <= 0)
             {
-                playerStatsManager.armor += 1+(int)Mathf.Floor((float)PlayerPrefs.GetInt(stringManager.upgradeFour)*0.1f);
+                playerStatsManager.armor += 1+(int)Mathf.Floor((float)PlayerPrefs.GetInt(stringManager.upgradeFour)/2*0.1f);
                 armorRegenTimer = 10f;
                 armorText.text = playerStatsManager.armor.ToString();
             }
