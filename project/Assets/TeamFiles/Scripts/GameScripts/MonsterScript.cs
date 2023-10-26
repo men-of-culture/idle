@@ -178,7 +178,6 @@ public class MonsterScript : MonoBehaviour
             if(playerStatsManager.perk2 == 1 && playerStatsManager.armor > 0)
             {
                 health -= damage;
-                if (health > 0) return;
                 MonsterDeath();
             }
         }
