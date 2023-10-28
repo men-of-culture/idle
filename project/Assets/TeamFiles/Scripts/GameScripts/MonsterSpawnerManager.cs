@@ -30,6 +30,7 @@ public class MonsterSpawnerManager : MonoBehaviour
     private Transform playerTransform;
     public Vector2 spawnBounds;
     public int bossSpawned;
+    public int bossSpawnTime = 120;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +63,7 @@ public class MonsterSpawnerManager : MonoBehaviour
 
     void SpawnBoss()
     {
-        if(bossSpawned < Mathf.Floor(timer/60))
+        if(bossSpawned < Mathf.Floor(timer/(bossSpawnTime)))
         {
             bossSpawned += 1;
             var spawnPosition = new Vector3(0,0,0) + new Vector3(Random.Range(-spawnBounds.x, spawnBounds.x), Random.Range(-spawnBounds.y, spawnBounds.y), 0);

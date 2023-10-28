@@ -88,6 +88,7 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 6
   spawnBounds: {x: 26.65, y: 15}
   bossSpawned: 0
+  bossSpawnTime: 120
 --- !u!1 &6866210086872798910
 GameObject:
   m_ObjectHideFlags: 0
