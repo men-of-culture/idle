@@ -6,7 +6,6 @@ using UnityEngine;
 public class MonsterSpawnerManager : MonoBehaviour
 {
     public GameObject monsterPrefab;
-    public Transform[] spawnPoints;
     private float spawnTimer = 0f;
     private int spawnCount = 100;
 
@@ -60,17 +59,6 @@ public class MonsterSpawnerManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        /*if (spawnPoints.Length == 0)
-        {
-            Debug.LogWarning("No spawn points found. Please add child GameObjects to this spawner to act as spawn points.");
-            return;
-        }
-
-        Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-        var spawnPosition = randomSpawnPoint.position + new Vector3(Random.Range(-4f, 4f), 0, 0);*/
-
-        // we can get rid of spawnpoints with spawnDistanceFromPlayer and this:
         var spawnPosition = new Vector3(0,0,0) + new Vector3(Random.Range(-spawnBounds.x, spawnBounds.x), Random.Range(-spawnBounds.y, spawnBounds.y), 0);
 
         // make sure monsters dont spawn on top of player
@@ -90,6 +78,10 @@ public class MonsterSpawnerManager : MonoBehaviour
             }
         }
 
-        Instantiate(monsterPrefab, spawnPosition, Quaternion.identity, monsterList);
+        var x = Instantiate(monsterPrefab, spawnPosition, Quaternion.identity, monsterList);
+        var mobScript = x.GetComponent<MonsterScript>();
+        mobScript.maxHealth += mobScript.maxHealth*Mathf.Floor(timer/60);
+        mobScript.damage += mobScript.damage > 0 ? mobScript.damage*(int)Mathf.Floor(timer/60) : (int)Mathf.Floor(timer/60);
+        mobScript.loot += (int)Mathf.Floor(timer/60);
     }
 }

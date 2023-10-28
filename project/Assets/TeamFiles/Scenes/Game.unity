@@ -935,10 +935,6 @@ PrefabInstance:
       propertyPath: changeScenePrefab
       value: 
       objectReference: {fileID: 1579120521}
-    - target: {fileID: 4338123205229432323, guid: 0e1a6ac99820f194087f79ce47b3a604, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5771201513959845133, guid: 0e1a6ac99820f194087f79ce47b3a604, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1118,7 +1114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1426927281406249659, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: m_Name
-      value: RunPlayerCanvas
+      value: RunPlayerUICanvas
       objectReference: {fileID: 0}
     - target: {fileID: 2356093860738278194, guid: b24752c48af6f924da5bc047a9ad7971, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1508,7 +1504,7 @@ PrefabInstance:
       objectReference: {fileID: 1579120520}
     - target: {fileID: 4099616694680067241, guid: 563dfdfd0478fc94eb6650c99553dad9, type: 3}
       propertyPath: m_Name
-      value: PlayerStatsCanvas
+      value: RunPlayerStatsCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 5624556485053147752, guid: 563dfdfd0478fc94eb6650c99553dad9, type: 3}
       propertyPath: m_Pivot.x

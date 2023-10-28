@@ -70,6 +70,8 @@ public class PlayerScript : MonoBehaviour
     public int damage;
 
     public float armorRegenTimer = 10f;
+
+    public AudioSource attackAudioSource;
     
     // Start is called before the first frame update
     void Start()
@@ -125,13 +127,16 @@ public class PlayerScript : MonoBehaviour
                 x.transform.parent = transform;
 
                 SecondTargetPerk(dirToSecondNearestMonster);
+                
+                attackAudioSource = projectileList.transform.GetComponent<AudioSource>();
+                attackAudioSource.Play();
             }
 
             attackSpeedTimer = 0f;
         }
         attackSpeedTimer += Time.deltaTime;
 
-        ArmorRegenPerk();
+        ArmorRegen();
     }
 
     void SecondTargetPerk(Vector2 dirToSecondNearestMonster)
@@ -158,18 +163,26 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void ArmorRegenPerk()
+    void ArmorRegen()
     {
-        //if(playerStatsManager.perk2 == 1)
-        //{
-            armorRegenTimer -= Time.deltaTime;
-            if(playerStatsManager.armor < PlayerPrefs.GetInt(stringManager.upgradeFour) && armorRegenTimer <= 0)
+        armorRegenTimer -= Time.deltaTime;
+        if(playerStatsManager.armor < PlayerPrefs.GetInt(stringManager.upgradeFour) && armorRegenTimer <= 0)
+        {
+            var regenAmount = 1+(int)Mathf.Floor((float)PlayerPrefs.GetInt(stringManager.upgradeFour)/2*0.1f);
+            var maxArmor = PlayerPrefs.GetInt(stringManager.upgradeFour);
+
+            if((playerStatsManager.armor + regenAmount) > maxArmor)
             {
-                playerStatsManager.armor += 1+(int)Mathf.Floor((float)PlayerPrefs.GetInt(stringManager.upgradeFour)/2*0.1f);
-                armorRegenTimer = 10f;
-                armorText.text = playerStatsManager.armor.ToString();
+                playerStatsManager.armor += (maxArmor - playerStatsManager.armor);
             }
-        //}
+            else
+            {
+                playerStatsManager.armor += regenAmount;
+            }
+
+            armorRegenTimer = 10f;
+            armorText.text = playerStatsManager.armor.ToString();
+        }
     }
 
     Vector2 DrawAttackRangeCircle()
@@ -193,7 +206,6 @@ public class PlayerScript : MonoBehaviour
             Debug.DrawLine(spritePos, spritePos+new Vector3(dirToNearestMonster.x, dirToNearestMonster.y, 0), circleColor);
         }
 
-        // draw circle
         Debug.DrawCircle(spritePos, attackRange, 32, circleColor);
 
         return dirToNearestMonster;
@@ -250,10 +262,18 @@ public class PlayerScript : MonoBehaviour
 
     public void HitByMonster(int monsterDamage)
     {
-        // make a check: if armor - damage < 0, træk resten fra hp
         if(playerStatsManager.armor == 0)
         {
             playerStatsManager.health -= monsterDamage;
+            gameObject.GetComponent<AudioSource>().Play();
+            playercanvas.GetComponent<Animator>().Play(stringManager.healthFadeInSound);
+        }
+        else if(playerStatsManager.armor - monsterDamage < 0)
+        {
+            playerStatsManager.health -= (monsterDamage - playerStatsManager.armor);
+            playerStatsManager.armor = 0;
+            gameObject.GetComponent<AudioSource>().Play();
+            playercanvas.GetComponent<Animator>().Play(stringManager.healthFadeInSound);
         }
         else
         {
@@ -262,8 +282,6 @@ public class PlayerScript : MonoBehaviour
 
         healthText.text = playerStatsManager.health.ToString();
         armorText.text = playerStatsManager.armor.ToString();
-        gameObject.GetComponent<AudioSource>().Play();
-        playercanvas.GetComponent<Animator>().Play(stringManager.healthFadeInSound);
         StartCoroutine(cameraShake.Shake(.15f, .4f));
         if (playerStatsManager.health <= 0)
         {

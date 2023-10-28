@@ -43,7 +43,11 @@ public class MonsterScript : MonoBehaviour
     public float attackSpeed = 1f;
     public int damage = 1;
     public int loot = 1;
-    public int health = 1;
+    public float maxHealth = 1f;
+    public float health;
+
+    public Slider hpBar;
+    public Canvas hpBarCanvas;
 
 
     // Start is called before the first frame update
@@ -61,6 +65,8 @@ public class MonsterScript : MonoBehaviour
         movementSpeed = Random.Range(movementSpeed*0.8f, movementSpeed*1.2f);
         var x = Random.Range(0.8f, 1.2f);
         transform.localScale = new Vector3(transform.localScale.x*x, transform.localScale.y*x, 1);
+        hpBarCanvas.enabled = false;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -105,7 +111,9 @@ public class MonsterScript : MonoBehaviour
 
         if (other.CompareTag(stringManager.projectileTag))
         {
-            health -= playerScript.damage;
+            health -= playerStatsManager.damage;
+            hpBarCanvas.enabled = true;
+            hpBar.value = health/maxHealth;
             MonsterDeath();
         }
     }
@@ -121,8 +129,9 @@ public class MonsterScript : MonoBehaviour
     void MonsterDeath()
     {
         if(health > 0) return;
-
+        hpBarCanvas.enabled = false;
         deathAudioSource.Play();
+
         Debug.Log("This monster trigger was hit by: Projectile");
 
         spriteRenderer.color += new Color(0f,0f,0f,1f);
@@ -178,6 +187,8 @@ public class MonsterScript : MonoBehaviour
             if(playerStatsManager.perk2 == 1 && playerStatsManager.armor > 0)
             {
                 health -= damage;
+                hpBarCanvas.enabled = true;
+                hpBar.value = health/maxHealth;
                 MonsterDeath();
             }
         }

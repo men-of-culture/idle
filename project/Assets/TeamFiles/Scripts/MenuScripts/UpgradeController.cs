@@ -123,18 +123,20 @@ public class UpgradeController : MonoBehaviour
         var upgradex = upgradeList[0];
         swordBuytext.text = ((PlayerPrefs.GetInt(upgradex.Item2) * priceMultiplier)+5).ToString();
         upgradex.Item1.text = PlayerPrefs.GetInt(upgradex.Item2).ToString();
-        upgradex = upgradeList[2];
+        upgradex = upgradeList[1];
         helmBuytext.text = ((PlayerPrefs.GetInt(upgradex.Item2) * priceMultiplier)+5).ToString();
         upgradex.Item1.text = (PlayerPrefs.GetInt(upgradex.Item2) / 5).ToString();
-        upgradex = upgradeList[3];
+        upgradex = upgradeList[2];
         shieldBuytext.text = ((PlayerPrefs.GetInt(upgradex.Item2) * priceMultiplier)+5).ToString();
         upgradex.Item1.text = (PlayerPrefs.GetInt(upgradex.Item2) / 2).ToString();
 
         // refresh npc icons text
         npcDmgText.text = (PlayerPrefs.GetInt(upgradeList[0].Item2)+1).ToString();
         npcAttspdText.text = (PlayerPrefs.GetInt(upgradeList[0].Item2)+1).ToString();
-        npcHealthText.text = (PlayerPrefs.GetInt(upgradeList[2].Item2)+10).ToString();
-        npcArmorText.text = PlayerPrefs.GetInt(upgradeList[3].Item2).ToString();
+        npcHealthText.text = (PlayerPrefs.GetInt(upgradeList[1].Item2)+10).ToString();
+        npcArmorText.text = PlayerPrefs.GetInt(upgradeList[2].Item2).ToString();
+
+        swordIcon.color = selectedColor;
     }
 
     public void Back()
@@ -149,7 +151,7 @@ public class UpgradeController : MonoBehaviour
     {
         // Find upgrade from index in upgradeList
         var upgrade = upgradeList[upgradeListIndex];
-        var upgradeMultiplier = upgradeListIndex > 1 ? upgradeListIndex == 2 ? 5 : 2 : 1;
+        var upgradeMultiplier = upgradeListIndex > 0 ? upgradeListIndex == 1 ? 5 : 2 : 1;
 
         var x = PlayerPrefs.GetInt(upgrade.Item2);
         var y = x/*-1*/;
@@ -182,14 +184,14 @@ public class UpgradeController : MonoBehaviour
         // refresh npc icons text
         npcDmgText.text = (PlayerPrefs.GetInt(upgradeList[0].Item2)+1).ToString();
         npcAttspdText.text = (PlayerPrefs.GetInt(upgradeList[0].Item2)+1).ToString();
-        npcHealthText.text = (PlayerPrefs.GetInt(upgradeList[2].Item2)+10).ToString();
-        npcArmorText.text = PlayerPrefs.GetInt(upgradeList[3].Item2).ToString();
+        npcHealthText.text = (PlayerPrefs.GetInt(upgradeList[1].Item2)+10).ToString();
+        npcArmorText.text = PlayerPrefs.GetInt(upgradeList[2].Item2).ToString();
 
         var xupgrade = upgradeList[0];
         swordBuytext.text = ((PlayerPrefs.GetInt(xupgrade.Item2) * priceMultiplier)+5).ToString();
-        xupgrade = upgradeList[2];
+        xupgrade = upgradeList[1];
         helmBuytext.text = (((PlayerPrefs.GetInt(xupgrade.Item2) / 5) * priceMultiplier)+5).ToString();
-        xupgrade = upgradeList[3];
+        xupgrade = upgradeList[2];
         shieldBuytext.text = (((PlayerPrefs.GetInt(xupgrade.Item2) / 2) * priceMultiplier)+5).ToString();
     }
 
@@ -246,7 +248,7 @@ public class UpgradeController : MonoBehaviour
         helmBuytext.enabled = true;
         shieldBuytext.enabled = false;
 
-        var upgrade = upgradeList[2];
+        var upgrade = upgradeList[1];
         helmBuytext.text = ((PlayerPrefs.GetInt(upgrade.Item2) / 5 * priceMultiplier)+5).ToString();
     }
     public void SelectShieldUpgrade()
@@ -274,7 +276,7 @@ public class UpgradeController : MonoBehaviour
         helmBuytext.enabled = false;
         shieldBuytext.enabled = true;
 
-        var upgrade = upgradeList[3];
+        var upgrade = upgradeList[2];
         shieldBuytext.text = ((PlayerPrefs.GetInt(upgrade.Item2) / 2 * priceMultiplier)+5).ToString();
     }
 }

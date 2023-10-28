@@ -473,17 +473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9e8893100b3cb4999a7790d86f1e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1744732582 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
-  m_PrefabInstance: {fileID: 8481796196236175849}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75a6ecb47195ca740b26b4fe162d1246, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &202646988158544075 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6747852026838422308, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
@@ -514,26 +503,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1670025229108930051, guid: 71a8670d077461b4c80adcc685e8e6c0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1744732582}
     - target: {fileID: 3595458950744541347, guid: 71a8670d077461b4c80adcc685e8e6c0, type: 3}
       propertyPath: playeruiCanvas
       value: 
       objectReference: {fileID: 6986493587125138580}
-    - target: {fileID: 3595458950744541347, guid: 71a8670d077461b4c80adcc685e8e6c0, type: 3}
-      propertyPath: bombBlessingImage
-      value: 
-      objectReference: {fileID: 5640626029484172357}
-    - target: {fileID: 3595458950744541347, guid: 71a8670d077461b4c80adcc685e8e6c0, type: 3}
-      propertyPath: arrowBlessingImage
-      value: 
-      objectReference: {fileID: 5640626029484172358}
-    - target: {fileID: 3595458950744541347, guid: 71a8670d077461b4c80adcc685e8e6c0, type: 3}
-      propertyPath: swordBlessingImage
-      value: 
-      objectReference: {fileID: 5640626029484172359}
     - target: {fileID: 4118906539970794102, guid: 71a8670d077461b4c80adcc685e8e6c0, type: 3}
       propertyPath: m_Name
       value: ChurchCanvas
@@ -542,10 +515,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1580509396}
-    - target: {fileID: 6825209979677166987, guid: 71a8670d077461b4c80adcc685e8e6c0, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7263984491998081540, guid: 71a8670d077461b4c80adcc685e8e6c0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -650,10 +619,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 398969192107431768, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 986042877}
     - target: {fileID: 1035996766220184698, guid: 32d25d9187a70f149a9c5966005d095d, type: 3}
       propertyPath: m_Name
       value: MainCanvas
@@ -911,14 +876,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnightCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8248704076420965673, guid: c4b682990d28f524daea8c738a49d953, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1580509396}
-    - target: {fileID: 8467674059596971781, guid: c4b682990d28f524daea8c738a49d953, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1744732582}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1100,14 +1057,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2165973937487319533, guid: 51d9211fd882dc84384f8717547c78c6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1580509396}
-    - target: {fileID: 2904465878137346063, guid: 51d9211fd882dc84384f8717547c78c6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1744732582}
     - target: {fileID: 4640660230900546994, guid: 51d9211fd882dc84384f8717547c78c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1157,21 +1106,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 709547576619466907, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
       propertyPath: m_Name
-      value: PlayerCanvas
+      value: TownPlayerStatsCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1138439422115855092, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1580509396}
     - target: {fileID: 2102710296393806384, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1580509396}
-    - target: {fileID: 7125251890196546086, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1744732582}
-    - target: {fileID: 7313996601823100963, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1580509396}
@@ -1260,39 +1197,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
---- !u!114 &5640626029484172357 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4487396494627798496, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
-  m_PrefabInstance: {fileID: 5640626029484172356}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5640626029484172358 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2291216868274052032, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
-  m_PrefabInstance: {fileID: 5640626029484172356}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5640626029484172359 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9077816351187161545, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
-  m_PrefabInstance: {fileID: 5640626029484172356}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!223 &5699859266807735015 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 5902611383222134034, guid: e87e51bb35c7b8a48a776a23a16ed399, type: 3}
@@ -1392,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8725929733967836997, guid: b039a6243a4f24844a1ecfe87882ce99, type: 3}
       propertyPath: m_Name
-      value: PlayerUICanvas
+      value: TownPlayerUICanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1505,10 +1409,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1580509396}
-    - target: {fileID: 7754630980009064353, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8267544374914578319, guid: 50a31c230dc6623469c8f295180dea9f, type: 3}
       propertyPath: npcDmgText
       value: 
