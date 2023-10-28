@@ -23,12 +23,21 @@ public class PlayerMovementScript : MonoBehaviour
     public int maximumWalkDuration;
     public PlayerStatsManager playerStatsManager;
     public Animator animator;
+
+    public Transform lootList;
+    public StringManager stringManager;
+
+    public bool looting;
+    public float lootingTimer;
+    public bool startLooting;
+    public Transform closestTransform;
     
     // Start is called before the first frame update
     void Start()
     {
         startWalking = true;
         animator = GetComponent<Animator>();
+        lootList = GameObject.Find(stringManager.lootList).transform;
     }
 
     // Update is called once per frame
@@ -36,24 +45,22 @@ public class PlayerMovementScript : MonoBehaviour
     {
         if (startWalking)
         {
-            targetPosition = new Vector2(Random.Range(-moveRange, moveRange), Random.Range(-moveRange, moveRange));
+            targetPosition = lootList.childCount == 0 ? new Vector2(0, 0) : lootList.GetChild(0).GetComponent<LootScript>().startFadeOut == true ? new Vector2(0, 0) : lootList.GetChild(0).position;
             startWalking = false;
             shouldWalk = true;
             initialPosition = gameObject.transform.position;
             animator.enabled = true;
+            closestTransform = GetTargetPositionClosest();
         }
         
         if (shouldWalk && playerStatsManager.health > 0)
         {
+            var closestTransformPos = new Vector2(closestTransform.position.x, closestTransform.position.y);
             walkTimer += Time.deltaTime*(walkSpeed/10);
-            gameObject.transform.position = initialPosition+((targetPosition-initialPosition)*(walkTimer/(targetPosition-initialPosition).magnitude));
+            gameObject.transform.position = initialPosition+((closestTransformPos-initialPosition)*(walkTimer/(closestTransformPos-initialPosition).magnitude));
             if (walkTimer >= (targetPosition - initialPosition).magnitude)
             {
-                shouldWalk = false;
-                shouldPause = true;
-                pauseDuration = Random.Range(minimumPauseDuration, maximumPauseDuration);
-                walkTimer = 0;
-                animator.enabled = false;
+                StartPause();
             }
         }
 
@@ -62,11 +69,74 @@ public class PlayerMovementScript : MonoBehaviour
             pauseTimer += Time.deltaTime;
             if (pauseTimer >= pauseDuration)
             {
-                shouldPause = false;
-                startWalking = true;
-                pauseTimer = 0;
+                StartWalking();
             }
         }
+
+        Looting();
+
+        Debug.DrawLine(new Vector3(transform.position.x-0.5f, transform.position.y, 0), targetPosition, Color.blue);
+    }
+
+    Transform GetTargetPositionClosest()
+    {
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        targetPosition = new Vector2(0, 0);
+        var targetTransform = GameObject.Find("LootList").transform;
+        foreach(Transform potentialTarget in lootList.transform)
+        {
+            if(potentialTarget.GetComponent<LootScript>().startFadeOut == false)
+            {
+                Vector2 directionToTarget = potentialTarget.position - currentPosition;
+                float dSqrToTarget = directionToTarget.sqrMagnitude;
+                if(dSqrToTarget < closestDistanceSqr)
+                {
+                    closestDistanceSqr = dSqrToTarget;
+                    targetPosition = potentialTarget.position;
+                    targetTransform = potentialTarget;
+                }
+            }
+        }
+        return targetTransform;
+    }
+
+    public void Looting()
+    {
+        if(startLooting)
+        {
+            startLooting = false;
+            looting = true;
+            shouldWalk = false;
+            shouldPause = false;
+            walkTimer = 0;
+            pauseTimer = 0;
+        }
+        if(looting)
+        {
+            lootingTimer -= Time.deltaTime*3;
+            if(lootingTimer <= 0)
+            {
+                StartWalking();
+                looting = false;
+            }
+        }
+    }
+
+    public void StartWalking()
+    {
+        shouldPause = false;
+        startWalking = true;
+        pauseTimer = 0;
+    }
+
+    public void StartPause()
+    {
+        shouldWalk = false;
+        shouldPause = true;
+        pauseDuration = Random.Range(minimumPauseDuration, maximumPauseDuration);
+        walkTimer = 0;
+        animator.enabled = false;
     }
 
     void OnTriggerEnter2d(Collider2D other)

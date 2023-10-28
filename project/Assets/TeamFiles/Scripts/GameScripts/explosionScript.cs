@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class explosionScript : MonoBehaviour
+public class ExplosionScript : MonoBehaviour
 {
     public void DestroyMe()
     {

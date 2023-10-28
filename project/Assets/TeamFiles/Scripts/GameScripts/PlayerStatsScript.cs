@@ -2,22 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerStatsScript : MonoBehaviour
 {
     public Canvas playerStatsCanvas;
 
     [SerializeField]
-    private Text damageText;
+    private TextMeshProUGUI damageText;
 
     [SerializeField]
-    private Text attackSpeedText;
+    private TextMeshProUGUI attackSpeedText;
 
     [SerializeField]
-    private Text healthText;
+    private TextMeshProUGUI healthText;
 
     [SerializeField]
-    private Text armorText;
+    private TextMeshProUGUI armorText;
+
+    [SerializeField]
+    private TextMeshProUGUI longestRunText;
+
+    [SerializeField]
+    private TextMeshProUGUI lifetimeKillsText;
+
+    [SerializeField]
+    private TextMeshProUGUI ascensionText;
 
     [SerializeField]
     private Text projectileCountText;
@@ -35,20 +45,34 @@ public class PlayerStatsScript : MonoBehaviour
     private Text expGainText;
 
     [SerializeField]
-    private Text goldCountText;
+    private TextMeshProUGUI goldCountText;
 
     [SerializeField]
     private Text expCountText;
+
+    [SerializeField]
+    private StringManager stringManager;
+
+    [SerializeField]
+    private PlayerStatsManager playerStatsManager;
+
+    [SerializeField]
+    private EscMenuScript escMenuScript;
     
     // Start is called before the first frame update
     void Start()
     {
-        damageText.text = PlayerPrefs.GetInt("upgradeOne").ToString();
-        attackSpeedText.text = PlayerPrefs.GetInt("upgradeTwo").ToString();
-        healthText.text = PlayerPrefs.GetInt("upgradeThree").ToString();
-        goldCountText.text = PlayerPrefs.GetInt("currency").ToString();
-        expCountText.text = PlayerPrefs.GetInt("lifetimeKills").ToString();
+        damageText.text = (PlayerPrefs.GetInt(stringManager.upgradeOne)+1).ToString();
+        attackSpeedText.text = (PlayerPrefs.GetInt(stringManager.upgradeOne)+1).ToString();
+        healthText.text = (PlayerPrefs.GetInt(stringManager.upgradeThree)+10).ToString();
+        armorText.text = PlayerPrefs.GetInt(stringManager.upgradeFour).ToString();
+        goldCountText.text = PlayerPrefs.GetInt(stringManager.currency).ToString();
+        ascensionText.text = PlayerPrefs.GetInt("ascension").ToString();
+        //expCountText.text = PlayerPrefs.GetInt(stringManager.lifetimeKills).ToString();
         playerStatsCanvas = GetComponent<Canvas>();
+
+        longestRunText.text = PlayerPrefs.GetInt(stringManager.longestRun).ToString();
+        lifetimeKillsText.text = PlayerPrefs.GetInt(stringManager.lifetimeKills).ToString();
     }
 
     // Update is called once per frame
@@ -62,11 +86,24 @@ public class PlayerStatsScript : MonoBehaviour
             //     expCountText.text = PlayerPrefs.GetInt("lifetimeKills").ToString();
             // }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ClosePlayerStats();
+        }
         
+    }
+
+    public void ClosePlayerStats()
+    {
+        playerStatsCanvas.enabled = false;
+        escMenuScript.hasOpenCanvas = false;
     }
 
     public void TogglePlayerStats()
     {
         playerStatsCanvas.enabled = !playerStatsCanvas.enabled;
+        if (playerStatsCanvas.enabled) escMenuScript.hasOpenCanvas = true;
+        else escMenuScript.hasOpenCanvas = false;
     }
 }
