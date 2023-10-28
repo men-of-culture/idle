@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterPrefab: {fileID: 1661711594216550605, guid: 0455241eac2320443a3c78f643b0e12e, type: 3}
+  monsterBossPrefab: {fileID: 1661711594216550605, guid: 035b9f3858f3f0e478a47abe46e40702, type: 3}
   timer: 0
   playerStatsManager: {fileID: 11400000, guid: 9ad79f5fdeb59b94a82c1b1269b88864, type: 2}
   monsterList: {fileID: 896627294349143352}
@@ -86,6 +87,7 @@ MonoBehaviour:
   initialSpawnInterval: 5
   spawnDistanceFromPlayer: 6
   spawnBounds: {x: 26.65, y: 15}
+  bossSpawned: 0
 --- !u!1 &6866210086872798910
 GameObject:
   m_ObjectHideFlags: 0
